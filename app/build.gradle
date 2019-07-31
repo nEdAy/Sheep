@@ -24,7 +24,6 @@ android {
         versionCode Integer.parseInt(String.valueOf(VERSION_MAJOR) + String.valueOf(VERSION_MINOR).padLeft(2, "0") + String.valueOf(VERSION_PATCH).padLeft(3, "0"))
         versionName "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
         resConfigs "zh"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
         debug {
@@ -182,21 +181,4 @@ dependencies {
     // Doraemonkit
     debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:1.1.8'
     releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:1.1.8'
-
-    // Test
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.25.0'
-    testImplementation 'androidx.arch.core:core-testing:2.0.1'
-    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
-    // Powermock
-    def powermock_version = "2.0.0"
-    testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
-    testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
-    testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
-    // Test helpers for LiveData
-    // testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
-
-    // Android Test
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
