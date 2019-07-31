@@ -1,0 +1,73 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srl_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_goods"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <ImageView
+            android:id="@+id/fab"
+            android:layout_width="@dimen/global_title_banner_height"
+            android:layout_height="@dimen/global_title_banner_height"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_top"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:ignore="ContentDescription"/>
+
+    <RelativeLayout
+            android:id="@+id/rl_top_bar"
+            android:layout_width="@dimen/global_title_banner_height"
+            android:layout_height="@dimen/global_title_banner_height"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_top_bar"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_now"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                tools:text="0000"
+                android:textSize="@dimen/global_small_text_size"/>
+
+        <View
+                android:id="@+id/paddingView"
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@color/textColor"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="4dp"
+                tools:text="0000"
+                android:textSize="@dimen/global_small_text_size"/>
+    </RelativeLayout>
+</merge>

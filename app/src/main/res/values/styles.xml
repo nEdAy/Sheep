@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--设置状态栏为透明-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--导航栏不透明-->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!--设置状态栏为透明色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--导航栏为黑色-->
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="@style/AppTheme">
+        <!-- splash background image-->
+        <item name="colorPrimary">@null</item>
+        <item name="colorPrimaryDark">@null</item>
+        <item name="colorAccent">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="SplashTheme" parent="@style/FullscreenTheme">
+        <!-- splash background image-->
+        <item name="android:windowBackground">@drawable/bg_welcome_page</item>
+    </style>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fd5353</color>
+    <color name="colorPrimaryDark">#e41e1e</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- function_color -->
+    <color name="textColor">#5f606d</color>
+    <color name="lineColor">#d7d7d7</color>
+    <color name="labelColor">#999999</color>
+    <color name="backgroundColor">#f2f2f2</color>
+    <color name="textHintColor">#96ffffff</color>
+    <color name="btnBgPress">#80C0C0C0</color>
+
+    <!-- transparent_half_color -->
+    <color name="black_transparent_half">#af000000</color>
+    <color name="gray_transparent_half">#44d6d4d4</color>
+
+    <!-- base_color -->
+    <color name="red">#fd5353</color>
+    <color name="red_deep">#e41e1e</color>
+    <color name="green">#ff40dc91</color>
+    <color name="black">#333333</color>
+    <color name="blue">#037BFF</color>
+    <color name="orange">#fe9200</color>
+    <color name="pink">#F88283</color>
+    <color name="gray">#b6b6b6</color>
+
+    <color name="colorSliderBackground">#FF181821</color>
+    <color name="colorTextColor">#FFFFFFFF</color>
+    <color name="colorSwitchColor">#FF2371FA</color>
+</resources>

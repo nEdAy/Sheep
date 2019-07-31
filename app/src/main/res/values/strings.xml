@@ -1,0 +1,159 @@
+<resources>
+    <string name="app_name">口袋快爆</string>
+    <string name="app_introduction">实 惠 多 到 爆</string>
+    <string name="app_version">当前版本v%1$s</string>
+    <string name="app_image_content_description">TODO</string>
+    <string name="tx_root">出于安全原因，口袋快爆不建议在已经ROOT的设备上运行</string>
+    <string name="tx_emulator">出于安全原因，口袋快爆不建议在模拟器设备上运行</string>
+
+    <string-array name="menu_items_array">
+        <item>版本更新</item>
+        <item>关于与合作</item>
+        <item>退出应用</item>
+    </string-array>
+    <string-array name="tab_entities_array">
+        <item>精选</item>
+        <item>优惠快爆</item>
+        <item>超值精选</item>
+        <item>我的</item>
+    </string-array>
+
+    <string name="tx_login_title_day">Good Morning</string>
+    <string name="tx_login_title_night">Good Night</string>
+
+    <string name="tx_search_hint">请输入想搜索的商品关键词…</string>
+
+    <string name="tx_pressed_back_hint">再按一次退出程序</string>
+    <string name="tx_not_found_app_market">找不到您的应用商店</string>
+    <string name="tx_exit_guide">立即体验</string>
+    <string name="tx_setting">推送设置</string>
+    <string name="tx_about_us">联系我们</string>
+    <string name="tx_check_update">检查更新</string>
+    <string name="tx_share_to_friends">分享APP</string>
+    <string name="tx_feedback">意见反馈</string>
+    <string name="tx_encourage_us">给我鼓励</string>
+    <string name="tx_attention_us">关注我们</string>
+    <string name="tx_clear">清理缓存</string>
+    <string name="tx_logout">退出登录</string>
+    <string name="tx_back">返回</string>
+    <string name="tx_determine">确定</string>
+    <string name="tx_cancel">取 消</string>
+
+    <string name="network_tips">您已进入没有网络的异次元,请检查您的网络!</string>
+
+    <string name="account_center_account">账户</string>
+    <string name="account_center_key_login">修改登录密码</string>
+    <string name="shake_times">您今天还可以摇%1$d次</string>
+    <string name="countdown_number">发送中..%1$d秒</string>
+    <string name="tx_hint_nickname">请输入昵称</string>
+    <string name="tx_hint_old_password">请输入原始密码</string>
+    <string name="tx_hint_new_password">请输入新密码</string>
+    <string name="tx_hint_verify_password">请确认新密码</string>
+    <string name="tx_credit_vip_up">口袋币:%1$d 距下一等级差:%2$d</string>
+    <string name="tx_quiet_period">从%1$s：%2$s到%3$s：%4$s</string>
+
+    <string name="tx_goods_monthSales">当月销量：%1$d</string>
+    <string name="tx_goods_couponPrice">%1$s元券</string>
+    <string name="tx_go_to_bug">前往抢购</string>
+
+    <string name="tx_money_def_0">0.00</string>
+    <string name="tx_not_set">未设置</string>
+    <string name="tx_phone_def">170****0000</string>
+    <string name="tx_self_bg">自定义背景</string>
+    <string name="tx_total_credits">总口袋币</string>
+    <string name="tx_time_def">1970–01–01</string>
+    <string name="tx_share">分享</string>
+    <string name="tx_buy">前往购买</string>
+    <string name="tx_number_def">0</string>
+    <string name="tx_more_"><![CDATA[更多>]]></string>
+    <string name="tx_sign_in">签到</string>
+    <string name="tx_no_data">暂无数据，轻触屏幕刷新</string>
+    <string name="tx_no_data_search">暂无数据，轻触屏幕\n私聊客服索要想要的商品</string>
+    <string name="tx_no_network">无网络信号</string>
+    <string name="tx_reload">轻触屏幕刷新</string>
+    <string name="tx_quiet_time">安静时段</string>
+    <string name="tx_get">领优惠券</string>
+    <string name="sign_in_out">签到领口袋币</string>
+    <string name="tx_province_flow">省流量模式</string>
+    <string name="tx_nickname">昵称</string>
+
+    <string-array name="ranking_type_array">
+        <item>实时销量榜</item>
+        <item>全天销量榜</item>
+        <item>热推榜</item>
+    </string-array>
+
+    <string-array name="goods_type_array">
+        <item>精选</item>
+        <item>居家百货</item>
+        <item>美食</item>
+        <item>服饰</item>
+        <item>配饰</item>
+        <item>美妆</item>
+        <item>内衣</item>
+        <item>母婴</item>
+        <item>箱包</item>
+        <item>数码配件</item>
+        <item>文娱车品</item>
+    </string-array>
+
+    <string name="tx_about">关于与合作</string>
+    <string name="get_user_info_error">获取用户失败</string>
+    <string name="default_nickname">口袋爆料人</string>
+    <string name="refresh_error">更新失败</string>
+    <string name="tx_inquiry_logout">您确定退出登录么？</string>
+    <string name="logout_prompt">退出提示</string>
+    <string name="pick_from_capture">拍照</string>
+    <string name="pick_from_gallery">从相册选择</string>
+    <string name="register_error">注册失败:</string>
+
+    <string name="tx_account">我的账户</string>
+    <string name="tx_taobao">淘宝</string>
+    <string name="tx_tianmao">天猫商城</string>
+    <string name="tx_get_sms_code">获取验证码</string>
+    <string name="tx_get_quan">领</string>
+
+    <string name="tx_history_search">历史搜索</string>
+    <string name="tx_hot_search">热门搜索</string>
+    <string name="tx_hot_type">热门类目</string>
+    <string name="tx_clean">清除</string>
+    <string name="tx_add_cart">加购物车</string>
+
+    // Login
+    <string name="tx_login">登录</string>
+    <string name="tx_login_hello">口袋快爆 有你更精彩</string>
+
+    <string name="tx_change_login_via_password">帐号密码登录</string>
+    <string name="tx_change_login_via_sms_code">短信验证登录</string>
+
+    <string name="tx_lost_password">忘记密码</string>
+
+    <string name="tx_hint_phone">请输入手机号码</string>
+    <string name="tx_hint_password">请输入登录密码</string>
+    <string name="tx_hint_sms">请输入验证码</string>
+    <string name="tx_hint_invite_phone">请输入邀请人手机号码(选填)</string>
+    <string name="toast_error_password_verify_error">两次新密码输入不相同</string>
+    <string name="toast_error_phone_null">手机号不能为空</string>
+    <string name="toast_error_phone_error">手机号格式不正确</string>
+    <string name="toast_error_password_null">密码不能为空</string>
+    <string name="toast_error_password_error">密码长度不正确，请输入6–16位</string>
+    <string name="toast_error_sms_null">验证码不能为空</string>
+    <string name="toast_error_sms_error">验证码长度不正确，请输入4位</string>
+
+    <string name="tx_agreement">我同意《用户使用协议》</string>
+    <string name="tx_not_agree_agreement">您尚未同意《用户使用协议》</string>
+    <string name="tx_login_privacy_promise">口袋快爆承诺不会向第三方透露您的个人信息</string>
+
+    <string name="tx_get_sms">获取验证码</string>
+    <string name="tx_voice">致电中</string>
+    <string name="tx_please_retry">请重试</string>
+    <string name="tx_try_voice">语音验证码</string>
+
+    <string name="tv_login_hint">未注册用户可通过验证码直接登录</string>
+    <string name="tv_login_sms">我们已发送验证码短信到您的手机号</string>
+    <string name="tv_login_voice">我们正在致电语音播报验证码到您的手机号</string>
+
+    <string name="tv_login_dialog_voice">确定后将致电您的手机号并语音播报验证码，如不希望被来点打扰请返回。</string>
+    <string name="tx_login_dialog_sms">验证码短信可能略有延迟，确定返回并重新开始？</string>
+    <string name="tx_copy_url_to_share">复制网址分享给好友</string>
+</resources>

@@ -1,0 +1,42 @@
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "2b8365a15465f"
+    appSecret "d25eaed975d84f7c8ca253756ffd7387"
+    SMSSDK {
+        // 默认使用GUI，若不使用GUI，通过以下开关关闭
+        gui false
+        // 若使用GUI的自动填充验证码功能，需打开此设置
+        autoSMS false
+    }
+    ShareSDK {
+        devInfo {
+            ShortMessage {}
+            QQ {
+                appId "1105064251"
+                appKey "G6XUjMUAbjIWsIdf"
+            }
+            SinaWeibo {
+                appKey "58635702"
+                appSecret "b54909f062a3050646b5b342a846804a"
+                callbackUri "http://www.sharesdk.cn"
+            }
+            Wechat {
+                appId "wx0c4e8ada2bdbfbe3"
+                appSecret "627503f8752127649067b4de454b2f8a"
+                userName "gh_afb25ac019c9"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+            }
+            WechatMoments {
+                appId "wx0c4e8ada2bdbfbe3"
+                appSecret "627503f8752127649067b4de454b2f8a"
+            }
+            WechatFavorite {
+                appId "wx0c4e8ada2bdbfbe3"
+                appSecret "627503f8752127649067b4de454b2f8a"
+            }
+        }
+    }
+}

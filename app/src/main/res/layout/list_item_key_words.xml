@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
+
+    <FrameLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+        <com.flyco.roundview.RoundTextView
+                android:id="@+id/rtv_keyWords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingEnd="8dp"
+                app:rv_backgroundColor="@android:color/white"
+                app:rv_backgroundPressColor="@android:color/holo_red_light"
+                app:rv_strokeColor="@color/gray_transparent_half"
+                app:rv_strokeWidth="0.2dp"
+                android:textColor="@color/gray"
+                app:rv_cornerRadius="4dp"
+                app:rv_textPressColor="@android:color/white"
+                android:maxLines="1"
+                tools:text="@string/app_name"/>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

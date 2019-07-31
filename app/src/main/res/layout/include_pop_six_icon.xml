@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/tx_share"
+                android:textSize="@dimen/global_mid_text_size"/>
+
+        <TextView
+                android:id="@+id/tv_share_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="14dp"
+                android:gravity="center"
+                android:text="@string/tx_cancel"
+                android:textSize="@dimen/global_mid_text_size"/>
+    </RelativeLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divide_line_height"
+            android:background="@color/lineColor"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:id="@+id/ll_share_wechat"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_wechat"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="微信好友"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_share_wechatMoments"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_wechatf"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="朋友圈"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_share_wechatFavorite"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_qzone"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="微信收藏"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:id="@+id/ll_share_qq"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_qq"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="QQ好友"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_share_sinaWeibo"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_sina_weibo"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="新浪微博"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_share_shortMessage"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="50.0dp"
+                    android:layout_height="50.0dp"
+                    android:background="@drawable/ic_sms"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dp"
+                    android:text="短信"
+                    android:textColor="@color/textColor"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_share_copy"
+            android:layout_width="match_parent"
+            android:layout_height="40.0dp"
+            android:layout_marginBottom="20.0dp"
+            android:layout_marginLeft="30.0dp"
+            android:layout_marginRight="30.0dp"
+            android:layout_marginTop="20.0dp"
+            android:background="@drawable/global_red_click_with_corner_selector"
+            android:gravity="center"
+            android:text="@string/tx_copy_url_to_share"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/global_big_text_size"/>
+</LinearLayout>

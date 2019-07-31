@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divide_line_height"
+            android:background="@color/lineColor"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:id="@+id/ll_get"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:id="@+id/iv_get"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_get"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:id="@+id/tv_get"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tx_get"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/global_small_text_size"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_add"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:id="@+id/iv_add"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_add_to_cart"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:id="@+id/tv_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tx_add_cart"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/global_small_text_size"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/ll_buy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/red"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:id="@+id/iv_buy"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_buy"
+                    tools:ignore="ContentDescription"/>
+
+            <TextView
+                    android:id="@+id/tv_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tx_buy"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/global_small_text_size"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

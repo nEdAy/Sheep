@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/white"
+              android:baselineAligned="false"
+              android:orientation="horizontal"
+              android:paddingBottom="12dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="12dp">
+
+    <LinearLayout
+            android:id="@+id/ll_sign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+                android:id="@+id/iv_index_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_index_sign_in"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="每日签"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/global_small_text_size"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/ll_shake"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+                android:id="@+id/iv_index_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_index_shake"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="天天摇"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/global_small_text_size"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/ll_shop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+                android:id="@+id/iv_index_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_index_integration_shop"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="兑换区"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/global_small_text_size"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/ll_join"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+                android:id="@+id/iv_index_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_index_question"
+                tools:ignore="ContentDescription"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我想买"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/global_small_text_size"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:banner="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/ll_index"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <cn.neday.sheep.view.IndexBanner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            banner:bb_delay="5"
+            banner:bb_indicatorGap="7dp"
+            banner:bb_indicatorSelectRes="@drawable/ic_select"
+            banner:bb_indicatorStyle="DRAWABLE_RESOURCE"
+            banner:bb_indicatorUnselectRes="@drawable/ic_unselect"
+            banner:bb_period="5"
+            banner:bb_scale="0.417"/>
+
+    <include
+            android:id="@+id/eight_icon"
+            layout="@layout/include_main_index_icon"/>
+</LinearLayout>

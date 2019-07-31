@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp">
+
+    <LinearLayout
+            android:id="@+id/ll_port_item_details_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                tools:text="月光宝盒Q100 10000毫安聚合物移动电源"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/global_big_text_size"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_price"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="￥"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/global_small_text_size"/>
+
+            <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:maxLines="1"
+                    tools:text="79"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/rl_port_item_details_mid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_mall_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="天猫商城"
+                android:textColor="@color/labelColor"/>
+
+        <TextView
+                android:id="@+id/tv_sales_num_and_dsr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                tools:text="当月销量：16819 | 评分：4.5"
+                android:textColor="@color/labelColor"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="6dp"
+            android:paddingTop="12dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐理由"
+                android:textSize="@dimen/global_big_text_size"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/tv_introduce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:text="推荐理由内容"
+                android:textColor="@color/red"
+                android:textSize="@dimen/global_mid_text_size"/>
+
+        <TextView
+                android:id="@+id/tv_quan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="领券详情"
+                android:textColor="@color/black"
+                android:textSize="@dimen/global_mid_text_size"/>
+    </LinearLayout>
+</LinearLayout>

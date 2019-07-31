@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:orientation="vertical">
+
+    <!--<com.neday.bomb.view.HeaderLayout-->
+    <!--android:id="@+id/top_title_bar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+        <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/sign_in_a"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/imageView2"
+                android:layout_alignTop="@+id/imageView2"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="稳健型"
+                    android:textSize="@dimen/global_mid_text_size"/>
+
+            <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView14"
+                    android:text="每天稳赚2口袋币"
+                    android:textColor="@color/gray"/>
+
+            <TextView
+                    android:id="@+id/tv_sign_in_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45.0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/global_red_clickable_selector"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/sign_in_out"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/global_big_text_size"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View android:id="@+id/view_top_line_0"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/divide_line_height"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:background="@color/lineColor"/>
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+        <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/sign_in_b"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/imageView3"
+                android:layout_alignTop="@+id/imageView3"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/imageView3"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="任性型"
+                    android:textSize="@dimen/global_mid_text_size"/>
+
+            <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView17"
+                    android:text="随机领取0 ~ 5口袋币"
+                    android:textColor="@color/gray"/>
+
+            <TextView
+                    android:id="@+id/tv_sign_in_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="45.0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/global_red_clickable_selector"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/sign_in_out"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/global_big_text_size"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+            android:id="@+id/view_top_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divide_line_height"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/lineColor"/>
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+        <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="40dp"
+                android:src="@drawable/sign_in_c"/>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/imageView4"
+                android:layout_alignTop="@+id/imageView4"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/imageView4"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="冒险型"
+                    android:textSize="@dimen/global_mid_text_size"/>
+
+            <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView20"
+                    android:text="随机领取-2 ~ 8口袋币"
+                    android:textColor="@color/gray"/>
+
+            <TextView
+                    android:id="@+id/tv_sign_in_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="45.0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/global_red_clickable_selector"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/sign_in_out"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/global_big_text_size"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+            android:id="@+id/view_top_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divide_line_height"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/lineColor"/>
+</LinearLayout>

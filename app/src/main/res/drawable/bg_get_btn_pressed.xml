@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 圆角 -->
+    <corners android:radius="3dp"/>
+    <!-- 设置圆角半径 -->
+
+    <!-- 填充 -->
+    <solid android:color="@color/pink"/>
+    <!-- 填充的颜色 -->
+
+    <!-- 描边，边框 -->
+    <stroke
+            android:width="0.5dp"
+            android:color="@color/red"
+            android:dashGap="2dp"
+            android:dashWidth="3dp"/>
+
+</shape>
+
