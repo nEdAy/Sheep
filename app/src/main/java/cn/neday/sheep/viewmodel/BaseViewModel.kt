@@ -4,8 +4,10 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cn.neday.sheep.R
 import cn.neday.sheep.model.Response
 import com.blankj.utilcode.util.NetworkUtils
+import com.blankj.utilcode.util.StringUtils.getString
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
@@ -27,7 +29,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
                 //TODO : 待测试 断网卡顿
                 block()
             } else {
-//                errMsg.value = getString(R.string.network_tips)
+                errMsg.value = getString(R.string.network_tips)
             }
         }
     }
