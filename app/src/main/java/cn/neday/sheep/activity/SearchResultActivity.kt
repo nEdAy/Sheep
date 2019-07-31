@@ -17,7 +17,11 @@ import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_search_result.*
 import kotlinx.android.synthetic.main.include_anything_list.*
 
-
+/**
+ * 搜索结果列表页
+ *
+ * @author nEdAy
+ */
 class SearchResultActivity : BaseVMActivity<SearchResultViewModel>() {
 
     override val layoutId = R.layout.activity_search_result

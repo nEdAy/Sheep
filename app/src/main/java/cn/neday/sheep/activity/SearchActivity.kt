@@ -15,7 +15,11 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_search.*
 
-
+/**
+ * 搜索页（历史搜索，热门搜索）
+ *
+ * @author nEdAy
+ */
 class SearchActivity : BaseVMActivity<SearchViewModel>() {
 
     override val layoutId = R.layout.activity_search

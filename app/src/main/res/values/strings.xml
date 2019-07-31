@@ -4,7 +4,6 @@
     <string name="app_version">当前版本v%1$s</string>
     <string name="app_image_content_description">TODO</string>
     <string name="tx_root">出于安全原因，口袋快爆不建议在已经ROOT的设备上运行</string>
-    <string name="tx_emulator">出于安全原因，口袋快爆不建议在模拟器设备上运行</string>
 
     <string-array name="menu_items_array">
         <item>版本更新</item>

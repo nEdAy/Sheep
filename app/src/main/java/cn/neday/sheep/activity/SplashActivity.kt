@@ -23,19 +23,12 @@ class SplashActivity : BaseActivity() {
     override fun initView() {
         checkIntentAndIsTaskRoot()
         checkIsAppRoot()
-        // checkIsEmulator()
         delayJumpPage()
     }
 
     private fun checkIsAppRoot() {
         if (DeviceUtils.isDeviceRooted() && AppUtils.isAppRoot()) {
             ToastUtils.showLong(getString(R.string.tx_root))
-        }
-    }
-
-    private fun checkIsEmulator() {
-        if (DeviceUtils.isEmulator()) {
-            ToastUtils.showLong(getString(R.string.tx_emulator))
         }
     }
 
@@ -86,7 +79,7 @@ class SplashActivity : BaseActivity() {
     }
 
     companion object {
-        // delay 233ms
+
         private const val SHOW_TIME_MIN = 233L
     }
 
