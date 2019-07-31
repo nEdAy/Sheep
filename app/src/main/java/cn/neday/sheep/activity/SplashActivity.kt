@@ -39,34 +39,18 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun delayJumpPage() {
-        Handler().postDelayed({
-            doStartActivity(checkIsFirstStartApp())
-        }, SHOW_TIME_MIN)
+        Handler().postDelayed({ startNextActivity() }, SHOW_TIME_MIN)
     }
 
     /**
      * 检测是否是第一次启动并指定跳转页
-     *
-     * @return 页面序数
      */
-    private fun checkIsFirstStartApp(): JumpPage {
+    private fun startNextActivity() {
         val userFirst = Hawk.get("isFirstStartApp", true)
-        return if (userFirst) {
-            JumpPage.GO_GUIDE
+        if (userFirst) {
+            ActivityUtils.startActivity(GuideActivity::class.java)
         } else {
-            JumpPage.GO_MAIN
-        }
-    }
-
-    /**
-     * 跳转指定Activity
-     *
-     * @param jumpPage 页面序数
-     */
-    private fun doStartActivity(jumpPage: JumpPage) {
-        when (jumpPage) {
-            JumpPage.GO_GUIDE -> ActivityUtils.startActivity(GuideActivity::class.java)
-            JumpPage.GO_MAIN -> ActivityUtils.startActivity(MainActivity::class.java)
+            ActivityUtils.startActivity(MainActivity::class.java)
         }
         ActivityUtils.finishActivity(this)
     }
@@ -81,12 +65,5 @@ class SplashActivity : BaseActivity() {
     companion object {
 
         private const val SHOW_TIME_MIN = 233L
-    }
-
-    enum class JumpPage {
-        // 导航页
-        GO_GUIDE,
-        // 主页面
-        GO_MAIN
     }
 }
