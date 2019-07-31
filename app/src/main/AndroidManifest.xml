@@ -71,11 +71,6 @@
                 android:screenOrientation="portrait"/>
 
         <activity
-                android:name=".activity.RankGoodsDetailsActivity"
-                android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
-
-        <activity
                 android:name=".activity.SignInActivity"
                 android:launchMode="singleTop"
                 android:screenOrientation="portrait"/>
