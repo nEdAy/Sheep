@@ -22,16 +22,18 @@ class IndexBanner @JvmOverloads constructor(context: Context, attrs: AttributeSe
 
     override fun onCreateItemView(position: Int): View {
         val inflate = View.inflate(mContext, R.layout.adapter_banner, null)
-        val picture = mDatas[position].picture
-        val itemWidth = mDisplayMetrics.widthPixels
-        val itemHeight = (itemWidth * 0.417f).toInt()
-        val ivBanner = inflate.findViewById<ImageView>(R.id.iv_banner)
-        ivBanner.layoutParams = LinearLayout.LayoutParams(itemWidth, itemHeight)
-        Glide.with(this)
-            .load(Uri.parse(picture))
-            .override(itemWidth, itemHeight)
-            .centerCrop()
-            .into(ivBanner)
+        if (position < mDatas.size) {
+            val data = mDatas[position]
+            val itemWidth = mDisplayMetrics.widthPixels
+            val itemHeight = (itemWidth * 0.417f).toInt()
+            val ivBanner = inflate.findViewById<ImageView>(R.id.iv_banner)
+            ivBanner.layoutParams = LinearLayout.LayoutParams(itemWidth, itemHeight)
+            Glide.with(this)
+                .load(Uri.parse(data.picture))
+                .override(itemWidth, itemHeight)
+                .centerCrop()
+                .into(ivBanner)
+        }
         return inflate
     }
 }
