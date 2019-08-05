@@ -1,6 +1,5 @@
 package cn.neday.sheep.activity
 
-import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import cn.neday.sheep.R
@@ -11,9 +10,9 @@ import cn.neday.sheep.fragment.RankingFragment
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.flyco.dialog.widget.ActionSheetDialog
-import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.tencent.bugly.beta.Beta
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 /**
@@ -23,13 +22,10 @@ import java.util.*
  */
 class MainActivity : BaseActivity() {
 
-    private lateinit var mTabLayout: CommonTabLayout
     private val fragments = ArrayList<Fragment>()
     private val tabEntities = ArrayList<CustomTabEntity>()
     // 连续触发两次返回键则退出标记位
     private var mPressedBackTime: Long = 0
-    // 记录当前Fragment的位置
-    private var mCurrentTabIndex = 0
 
     override val layoutId = R.layout.activity_main
 
@@ -47,41 +43,7 @@ class MainActivity : BaseActivity() {
         for (index in 0 until tabEntitiesLength) {
             tabEntities.add(TabEntity(tabEntitiesArray[index], iconSelectResIDs[index], iconUnSelectResIDs[index]))
         }
-        mTabLayout = findViewById(R.id.tl_main_tab)
-        mTabLayout.setTabData(tabEntities, this, R.id.fl_main_content, fragments)
-        // 恢复显示Fragment呈现位置
-        setCurrentTab(mCurrentTabIndex)
-    }
-
-    /**
-     * 根据onSaveInstanceState回调的状态，恢复当前Fragment state
-     */
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        // 将这一行注释掉，阻止Activity没事瞎恢复Fragment的状态
-        // super.onRestoreInstanceState(savedInstanceState);
-        // 恢复记录的TabIndex
-        mCurrentTabIndex = savedInstanceState.getInt("currentTabIndex")
-    }
-
-    /**
-     * 根据onSaveInstanceState回调的状态，保存当前Fragment state
-     */
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        // 记录当前的TabIndex
-        outState.putInt("currentTabIndex", mCurrentTabIndex)
-    }
-
-    /**
-     * 切换当前显示的页面
-     *
-     * @param currentTabIndex 页面序号
-     */
-    private fun setCurrentTab(currentTabIndex: Int) {
-        // 记录当前position
-        mCurrentTabIndex = currentTabIndex
-        // 更改底部Tab按钮状态
-        mTabLayout.currentTab = currentTabIndex
+        tl_main_tab.setTabData(tabEntities, this, R.id.fl_main_content, fragments)
     }
 
     /**
@@ -140,6 +102,7 @@ class MainActivity : BaseActivity() {
     }
 
     companion object {
+
         private const val SAFE_PRESSED_BACK_TIME = 2000
         private val iconSelectResIDs = intArrayOf(
             R.drawable.tab_index_select,

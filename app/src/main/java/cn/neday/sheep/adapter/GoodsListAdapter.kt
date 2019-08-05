@@ -1,14 +1,12 @@
 package cn.neday.sheep.adapter
 
-import android.net.Uri
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.util.CommonUtils
+import cn.neday.sheep.util.load
 import com.blankj.utilcode.util.StringUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 
@@ -40,17 +38,6 @@ class GoodsListAdapter : BaseQuickAdapter<Goods, BaseViewHolder>(R.layout.list_i
             .setGone(R.id.lv_text, goods.monthSales ?: 0 >= 20000)
             .addOnClickListener(R.id.ll_get, R.id.tx_buy_url)
 
-        Glide.with(mContext)
-            .load(CommonUtils.convertPicUrlToUri(goods.getPicUrl()))
-            .thumbnail(
-                Glide.with(mContext)
-                    .load(Uri.parse(goods.getPicUrl() + "_100x100.jpg"))
-            )
-            .apply(
-                RequestOptions().transform(RoundedCorners(10))
-                    .placeholder(R.drawable.icon_stub)
-                    .error(R.drawable.icon_error)
-            )
-            .into(helper.getView(R.id.iv_img_shower))
+        (helper.getView(R.id.iv_img_shower) as ImageView).load(goods.getPicUrl())
     }
 }

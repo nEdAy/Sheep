@@ -1,15 +1,11 @@
 package cn.neday.sheep.activity
 
-import android.net.Uri
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.util.AliTradeHelper
-import cn.neday.sheep.util.CommonUtils.convertPicUrlToUri
+import cn.neday.sheep.util.load
 import cn.neday.sheep.view.ShareDialog
 import com.blankj.utilcode.util.ActivityUtils
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_goods_details.*
 import kotlinx.android.synthetic.main.include_item_action.*
@@ -52,18 +48,7 @@ class GoodsDetailsActivity : BaseActivity() {
         }
         ll_add.setOnClickListener { AliTradeHelper(this).showAddCartPage(goods.goodsId) }
         // 初始化商品主图
-        Glide.with(this)
-            .load(convertPicUrlToUri(goods.getPicUrl()))
-            .thumbnail(
-                Glide.with(this)
-                    .load(Uri.parse(goods.getPicUrl() + "_100x100_jpg"))
-            )
-            .apply(
-                RequestOptions().transform(RoundedCorners(10))
-                    .placeholder(R.drawable.icon_stub)
-                    .error(R.drawable.icon_error)
-            )
-            .into(iv_img_shower)
+        iv_img_shower.load(goods.getPicUrl())
         // 显示标题
         tv_title.text = goods.title
         // 显示券后价

@@ -8,7 +8,6 @@ import android.os.Handler
 import android.view.View
 import android.view.animation.CycleInterpolator
 import android.view.animation.TranslateAnimation
-import com.blankj.utilcode.util.NetworkUtils
 import java.math.BigDecimal
 
 /**
@@ -37,15 +36,6 @@ object CommonUtils {
      */
     fun isValidSmsCode(target: CharSequence?): Boolean {
         return target != null && target.length == 4
-    }
-
-    fun convertPicUrlToUri(picUrl: String?): Uri {
-        // TODO  picUrl == null
-        return if (NetworkUtils.is4G()) {
-            Uri.parse(picUrl + "_200x200.jpg")
-        } else {
-            Uri.parse(picUrl + "_300x300.jpg")
-        }
     }
 
     /**
