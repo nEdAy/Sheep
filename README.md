@@ -1,5 +1,12 @@
 # Sheep(Kotlin)
 
+![](https://img.shields.io/github/license/nEdAy/Sheep)
+![](https://img.shields.io/badge/platform-android-lightgrey.svg)
+
+![](https://img.shields.io/github/issues/nEdAy/Sheep)
+![](https://img.shields.io/github/forks/nEdAy/Sheep)
+![](https://img.shields.io/github/stars/nEdAy/Sheep)
+
 - [Shepherd](https://github.com/nEdAy/Shepherd/tree/master) —— Go(Gin)
 
 Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide
