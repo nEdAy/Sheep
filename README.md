@@ -1,7 +1,8 @@
 # Sheep(Kotlin)
 
-![](https://img.shields.io/github/license/nEdAy/Sheep)
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
+![](https://img.shields.io/badge/language-kotlin-orange.svg)
+![](https://img.shields.io/github/license/nEdAy/Sheep)
 
 ![](https://img.shields.io/github/issues/nEdAy/Sheep)
 ![](https://img.shields.io/github/forks/nEdAy/Sheep)
