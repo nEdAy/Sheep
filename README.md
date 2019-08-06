@@ -1,13 +1,15 @@
 # Sheep(Kotlin)
+
+[![CircleCI](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
 [![](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
+![](https://img.shields.io/github/issues/nEdAy/Sheep)
+![](https://img.shields.io/github/forks/nEdAy/Sheep)
+![](https://img.shields.io/github/stars/nEdAy/Sheep)
 
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
 ![](https://img.shields.io/github/license/nEdAy/Sheep)
 
-![](https://img.shields.io/github/issues/nEdAy/Sheep)
-![](https://img.shields.io/github/forks/nEdAy/Sheep)
-![](https://img.shields.io/github/stars/nEdAy/Sheep)
 
 Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide
 
