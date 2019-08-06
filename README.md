@@ -1,6 +1,6 @@
 # Sheep(Kotlin)
 
-[![CircleCI](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
+[![](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
 [![](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
 ![](https://img.shields.io/github/issues/nEdAy/Sheep)
 ![](https://img.shields.io/github/forks/nEdAy/Sheep)
