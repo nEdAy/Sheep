@@ -59,7 +59,7 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 ## 声明
 
-**项目中的 API 均来自开眼视频，纯属学习交流使用，不得用于商业用途！**
+**项目中的 API 均来自大淘客联盟-开放平台，纯属学习交流使用，不得用于商业用途！**
 
 ## LICENSE
 
