@@ -10,7 +10,7 @@ jobs:
       - checkout
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-      - run: echo $ENCODED_KEYSTORE | base64 --decode >> ${HOME}/app/keystore/release-signing.properties
+      - run: echo $ENCODED_KEYSTORE | base64 --decode >> ${HOME}/code/app/keystore/release-signing.properties
       - run:
           name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
           command: sudo chmod +x ./gradlew
