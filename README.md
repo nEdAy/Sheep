@@ -1,4 +1,5 @@
 # Sheep(Kotlin)
+[![](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
 
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
