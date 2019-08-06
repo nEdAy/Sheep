@@ -1,0 +1,76 @@
+language: android
+jdk: oraclejdk8
+dist: trusty
+install: ant deps
+sudo: false
+global:
+  - ANDROID_API=29
+  - EMULATOR_API=28
+  - ANDROID_BUILD_TOOLS=29.0.1
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - tools
+    - platform-tools
+    # The BuildTools version used by your project
+    - build-tools-$ANDROID_BUILD_TOOLS
+    # The SDK version used to compile your project
+    - android-$ANDROID_API
+    - android-$EMULATOR_API
+    # Additional components
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-x86-android-$ANDROID_API
+    - sys-img-x86-android-$EMULATOR_API
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+before_script:
+  - echo no | android create avd --force -n test -t android-$EMULATOR_API --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+  - echo $ENCODED_KEYSTORE | base64 --decode >> $HOME/app/keystore/release-signing.properties
+  - chmod +x gradlew
+
+script:
+  - ./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
+  - "./gradlew assembleRelease"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: 55899123919929d9c123f1200414174e299f07e9
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
+
+# 添加蒲公英上传脚本
+before_install:
+  - cd $TRAVIS_BUILD_DIR
+  - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
+    -O pgyer_upload.sh
+  - chmod +x pgyer_upload.sh
+  - gem install fir-cli
+
+# 在apk上传到GitHub后，使用蒲公英的上传脚本将apk上传到蒲公英
+after_deploy:
+  - set -e
+  - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/app/build/outputs/apk/release/app-release.apk" $PGYER_API_KEY
+  - fir p app/build/outputs/apk/release/app-release.apk -T $FIR_API_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
