@@ -39,7 +39,7 @@ before_script:
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
-  - echo $ENCODED_KEYSTORE | base64 --decode >> $HOME/app/keystore/release-signing.properties
+  - echo $ENCODED_KEYSTORE | base64 --decode >> app/keystore/release-signing.properties
   - chmod +x gradlew
 
 script:
