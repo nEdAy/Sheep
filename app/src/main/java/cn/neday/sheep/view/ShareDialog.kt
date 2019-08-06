@@ -1,6 +1,5 @@
 package cn.neday.sheep.view
 
-
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
