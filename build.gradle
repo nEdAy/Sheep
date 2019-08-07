@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.jacoco:org.jacoco.core:0.8.4'
         classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
         classpath "com.mob.sdk:MobSDK:2018.0319.1724"
     }

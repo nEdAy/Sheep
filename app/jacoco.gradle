@@ -1,0 +1,48 @@
+// Android Gradle Plugin out of the box only supports code coverage for instrumentation espresso) tests.
+// This add support for unit tests as well.
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("$buildDir/reports")
+}
+
+task testDebugUnitTestCoverage(type: JacocoReport, dependsOn: "testDebugUnitTest") {
+    group = 'Reporting'
+    description = "Generate Jacoco coverage reports for the Debug build. Only unit tests."
+
+    reports {
+        csv.enabled false
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    // what to exclude from coverage report
+    // UI, "noise", generated classes, platform classes, etc.
+    def excludes = [
+            // Platform classes
+            '**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', 'androidx/**/*.*',
+            // Ui, View, Adapter, Dialog, Application, HTTP
+             '**/*Activity.*', '**/*Fragment.*', '**/*View.*', '**/*Adapter.*', '**/*Dialog.*', '**/ui/**', '**/activity/**', '**/fragment/**', '**/view/**', '**/adapter/**', '**/dialog/**', "**/ThisApplication.*", "**/network/**",
+            // Anonymous inner class
+            '**/*$*',
+    ]
+
+    // generated classes
+    classDirectories.from = fileTree(
+            // Java generated classes on Android project (debug build)
+            dir: "$buildDir/intermediates/javac/debug",
+            excludes: excludes
+    ) + fileTree(
+            // Kotlin generated classes on Android project (debug build)
+            dir: "$buildDir/tmp/kotlin-classes/debug",
+            excludes: excludes
+    )
+
+    // sources
+    sourceDirectories.from = files([
+            android.sourceSets.main.java.srcDirs
+    ])
+
+    executionData.from = files("$buildDir/jacoco/testDebugUnitTest.exec")
+}
