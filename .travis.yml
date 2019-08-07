@@ -61,6 +61,9 @@ before_install:
     -O pgyer_upload.sh
   - chmod +x pgyer_upload.sh
   - gem install fir-cli
+  - touch $HOME/.android/repositories.cfg
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "build-tools;28.0.3"
 
 # 在apk上传到GitHub后，使用蒲公英的上传脚本将apk上传到蒲公英
 after_deploy:
