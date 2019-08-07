@@ -1,7 +1,8 @@
 # Sheep(Kotlin)
-[![](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
 [![](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
 [![](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
+[![](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
+[![](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
 ![](https://img.shields.io/github/issues/nEdAy/Sheep)
 ![](https://img.shields.io/github/forks/nEdAy/Sheep)
