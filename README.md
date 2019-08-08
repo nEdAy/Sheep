@@ -38,11 +38,11 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 * [ViewModel: Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.](https://developer.android.com/topic/libraries/architecture/viewmodel)
 
-* ~~[Room: Access your app's SQLite database with in-app objects and compile-time checks.](https://developer.android.com/topic/libraries/architecture/room)
+* ~~[Room: Access your app's SQLite database with in-app objects and compile-time checks.]~~(https://developer.android.com/topic/libraries/architecture/room)
 
-* ~~[Navigation: Handle everything needed for in-app navigation.](https://developer.android.com/topic/libraries/architecture/navigation/)
+* ~~[Navigation: Handle everything needed for in-app navigation.]~~(https://developer.android.com/topic/libraries/architecture/navigation/)
 
-* ~~[Paging: Makes it easier for you to load data gradually and gracefully within your app's RecyclerView.](https://developer.android.com/topic/libraries/architecture/paging/)
+* ~~[Paging: Makes it easier for you to load data gradually and gracefully within your app's RecyclerView.]~~(https://developer.android.com/topic/libraries/architecture/paging/)
 
 ### 网络请求
 
@@ -52,27 +52,27 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 ### 依赖注入
 
-* ~~[Kodein-DI: Painless Kotlin Dependency Injection](https://github.com/Kodein-Framework/Kodein-DI)
+* ~~[Kodein-DI: Painless Kotlin Dependency Injection]~~(https://github.com/Kodein-Framework/Kodein-DI)
 
 ### 响应式库
 
-* ~~[RxKotlin: RxJava bindings for Kotlin](https://github.com/ReactiveX/RxKotlin)
+* ~~[RxKotlin: RxJava bindings for Kotlin]~~(https://github.com/ReactiveX/RxKotlin)
 
-* ~~[RxJava2: A library for composing asynchronous and event-based programs using observable sequences for the Java VM](https://github.com/ReactiveX/RxJava)
+* ~~[RxJava2: A library for composing asynchronous and event-based programs using observable sequences for the Java VM]~~(https://github.com/ReactiveX/RxJava)
 
-* ~~[RxAndroid: RxJava bindings for Android](https://github.com/ReactiveX/RxAndroid)
+* ~~[RxAndroid: RxJava bindings for Android]~~(https://github.com/ReactiveX/RxAndroid)
 
-* ~~[RxBinding: RxJava binding APIs for Android's UI widgets.](https://github.com/JakeWharton/RxBinding)
+* ~~[RxBinding: RxJava binding APIs for Android's UI widgets.]~~(https://github.com/JakeWharton/RxBinding)
 
-* ~~[RxPermissions: Android runtime permissions powered by RxJava2.](https://github.com/tbruyelle/RxPermissions)
+* ~~[RxPermissions: Android runtime permissions powered by RxJava2.]~~(https://github.com/tbruyelle/RxPermissions)
 
-* ~~[RxWeaver: A lightweight and flexible error handler tools for RxJava2.](https://github.com/qingmei2/RxWeaver)
+* ~~[RxWeaver: A lightweight and flexible error handler tools for RxJava2.]~~(https://github.com/qingmei2/RxWeaver)
 
-* ~~[AutoDispose: Automatic binding+disposal of RxJava 2 streams.](https://github.com/uber/AutoDispose)
+* ~~[AutoDispose: Automatic binding+disposal of RxJava 2 streams.]~~(https://github.com/uber/AutoDispose)
 
 ### 函数式库
 
-* ~~[Arrow: Functional companion to Kotlin's Standard Library.](https://arrow-kt.io/)
+* ~~[Arrow: Functional companion to Kotlin's Standard Library.]~~(https://arrow-kt.io/)
 
 ### UI
 
