@@ -11,7 +11,8 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'org.jacoco:org.jacoco.core:0.8.4'
         classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
-        classpath "com.mob.sdk:MobSDK:2018.0319.1724"
+        classpath 'com.mob.sdk:MobSDK:2018.0319.1724'
+        classpath 'com.zf.plugins:JiaGu360:1.0.1'
     }
 }
 
@@ -19,12 +20,12 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://dl.bintray.com/umsdk/release' }
-        maven { url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/" }
+        maven { url 'http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/' }
     }
 }
 

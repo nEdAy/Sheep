@@ -1,0 +1,82 @@
+apply plugin: 'jiagu360'
+
+Properties debugSigning = new Properties()
+debugSigning.load(new FileInputStream(file(project.property("debug-signing.properties"))))
+
+Properties releaseSigning = new Properties()
+releaseSigning.load(new FileInputStream(file(project.property("release-signing.properties"))))
+
+jiaGu360Config {
+    // 必填， 360用户名
+    userName "neday@bk.ru"
+    // 必填， 360密码
+    passWord "y17096..."
+    // 必填， 360加固jar包位置
+    jiaGuJarPath new File("D:\\Program\\360firm_windows_64\\jiagu\\jiagu.jar").absolutePath
+    // 加固配置项服务是否都支持
+    isSupportAll false
+// 加固apk的输出目录
+    outputApkDirPath new File("D:\\Program\\360firm_windows_64\\jiagu\\output\\neday@bk.ru\\").absolutePath
+    // 加固完成后是否打开输出目录。默认false
+    openOutputDir false
+
+    // 可选增强服务--------------start----------------------
+    isSupportCrashLong false //【崩溃日志分析】
+    isSupportX86 false //【x86支持】
+    isSupportAnalyse false//【加固数据分析】
+    isNocert false//【跳过签名校验】
+    // 可选增强服务--------------end----------------------
+
+    // 高级加固选项-------------start------------------
+    isSupportVmp false//【全VMP保护】
+    isSupportDataProtection false//【本地数据文件保护】
+    isSupportAssetsProtection false// 【资源文件保护】
+    isSupportFileCheck false//【文件完整性校验】
+    isSupportPtrace false//【Ptrace防注入】
+    isSupportSoProtection false//【SO文件保护】
+    isSupportDex2cProtection false//【dex2C保护】
+    isSupportStringObfusProtection false//【字符串加密】
+    isSupportDexShadowProtection false//【DexShadow】
+    isSupportSoPrivateProtection false//【SO防盗用】
+    // 高级加固选项-------------end------------------
+
+    // 自动签名
+    autosign true
+
+    items {
+        debug {
+            // 必填， 需要加固的APK 路径
+            inputApkFilePath file("build/outputs/apk/debug/app-debug.apk").absolutePath
+
+            // android 签名配置名称
+            signingName 'debug'
+
+            // 签名配置项
+            signingInfo {
+                storeFilePath debugSigning['storeFile']
+                storePassword debugSigning['storePassword']
+                keyAlias debugSigning['keyAlias']
+                keyPassword debugSigning['keyPassword']
+            }
+        }
+
+        release {
+            // 必填， 需要加固的APK 路径
+            inputApkFilePath file("build/outputs/apk/release/app-release.apk").absolutePath
+
+            // android 签名配置名称
+            signingName 'release'
+
+            // 自定义文件生成多渠道
+            // mulpkgFilePath = new File("D:\\Program\\360firm_windows_64\\jiagu\\多渠道模板.txt")
+
+            // 签名配置项
+            signingInfo {
+                storeFilePath releaseSigning['storeFile']
+                storePassword releaseSigning['storePassword']
+                keyAlias releaseSigning['keyAlias']
+                keyPassword releaseSigning['keyPassword']
+            }
+        }
+    }
+}

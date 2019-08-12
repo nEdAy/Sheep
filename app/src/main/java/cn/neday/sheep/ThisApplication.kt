@@ -4,7 +4,6 @@ import android.app.Application
 import cn.neday.sheep.config.BuglyConfig
 import cn.neday.sheep.config.LogConfig
 import cn.neday.sheep.config.UmengConfig
-import cn.neday.sheep.config.ViewPumpConfig
 import cn.neday.sheep.util.AliTradeHelper
 import com.blankj.utilcode.util.ProcessUtils
 import com.blankj.utilcode.util.Utils
@@ -45,7 +44,6 @@ class ThisApplication : Application() {
         super.onCreate()
         Utils.init(this)
         LogConfig.init()
-        ViewPumpConfig.init()
         UmengConfig.init()
         if (ProcessUtils.isMainProcess()) {
             BuglyConfig.init()
