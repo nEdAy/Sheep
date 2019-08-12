@@ -43,33 +43,34 @@ before_script:
   - chmod +x gradlew
 
 script:
-  - ./gradlew assembleRelease
+  #  - ./gradlew assembleRelease
+  - ./gradlew testDebugUnitTestCoverage
 
-deploy:
-  provider: releases
-  api_key:
-    secure: 55899123919929d9c123f1200414174e299f07e9
-  file: app/build/outputs/apk/app-release.apk
-  skip_cleanup: true
-  on:
-    tags: true
+#deploy:
+#  provider: releases
+#  api_key:
+#    secure: 55899123919929d9c123f1200414174e299f07e9
+#  file: app/build/outputs/apk/app-release.apk
+#  skip_cleanup: true
+#  on:
+#    tags: true
 
 # 添加蒲公英上传脚本
 before_install:
-  - cd $TRAVIS_BUILD_DIR
-  - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
-    -O pgyer_upload.sh
-  - chmod +x pgyer_upload.sh
-  - gem install fir-cli
+  #  - cd $TRAVIS_BUILD_DIR
+  #  - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
+  #    -O pgyer_upload.sh
+  #  - chmod +x pgyer_upload.sh
+  #  - gem install fir-cli
   - touch $HOME/.android/repositories.cfg
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.3"
 
-# 在apk上传到GitHub后，使用蒲公英的上传脚本将apk上传到蒲公英
-after_deploy:
-  - set -e
-  - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/app/build/outputs/apk/release/app-release.apk" $PGYER_API_KEY
-  - fir p app/build/outputs/apk/release/app-release.apk -T $FIR_API_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
+## 在apk上传到GitHub后，使用蒲公英的上传脚本将apk上传到蒲公英
+#after_deploy:
+#  - set -e
+#  - $TRAVIS_BUILD_DIR/pgyer_upload.sh "${TRAVIS_BUILD_DIR}/app/build/outputs/apk/release/app-release.apk" $PGYER_API_KEY
+#  - fir p app/build/outputs/apk/release/app-release.apk -T $FIR_API_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
