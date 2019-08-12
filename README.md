@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
 [![Cravis-CI](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
 [![Codebeat](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2cef4d22e7eb41cf983c68ff724bbc25)](https://www.codacy.com/app/nEdAy/Shepherd?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nEdAy/Shepherd&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d4a5688847884ef3ad8f2b10ca3e9585)](https://www.codacy.com/app/nEdAy/Sheep?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nEdAy/Sheep&amp;utm_campaign=Badge_Grade)
 [![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
