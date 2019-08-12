@@ -1,16 +1,17 @@
 # Sheep(Kotlin)
-[![](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
-[![](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
-[![](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
-[![](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
-
-![](https://img.shields.io/github/issues/nEdAy/Sheep)
-![](https://img.shields.io/github/forks/nEdAy/Sheep)
-![](https://img.shields.io/github/stars/nEdAy/Sheep)
+[![CircleCI](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
+[![Cravis-CI](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
+[![Codebeat](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d4a5688847884ef3ad8f2b10ca3e9585)](https://www.codacy.com/app/nEdAy/Sheep?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nEdAy/Sheep&amp;utm_campaign=Badge_Grade)
+[![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
 ![](https://img.shields.io/github/license/nEdAy/Sheep)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
+![](https://img.shields.io/github/issues/nEdAy/Sheep)
+![](https://img.shields.io/github/forks/nEdAy/Sheep)
+![](https://img.shields.io/github/stars/nEdAy/Sheep)
 
 Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide
 
