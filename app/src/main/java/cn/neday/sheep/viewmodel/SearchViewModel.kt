@@ -11,6 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*
 
+/**
+ * SearchViewModel
+ *
+ * @author nEdAy
+ */
 class SearchViewModel : BaseViewModel() {
 
     val hotWords: MutableLiveData<HotWords> = MutableLiveData()

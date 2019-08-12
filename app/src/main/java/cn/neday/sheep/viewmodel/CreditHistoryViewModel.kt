@@ -9,6 +9,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*
 
+/**
+ * CreditHistoryViewModel
+ *
+ * @author nEdAy
+ */
 class CreditHistoryViewModel : BaseViewModel() {
 
     val hotWords: MutableLiveData<HotWords> = MutableLiveData()

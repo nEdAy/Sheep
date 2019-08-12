@@ -7,6 +7,11 @@ import cn.neday.sheep.network.repository.GoodsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * GoodsListViewModel
+ *
+ * @author nEdAy
+ */
 class GoodsListViewModel : BaseViewModel() {
 
     private val repository by lazy { GoodsRepository() }

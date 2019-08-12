@@ -7,6 +7,11 @@ import com.blankj.utilcode.util.EncryptUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * LoginViewModel
+ *
+ * @author nEdAy
+ */
 class LoginViewModel : BaseViewModel() {
 
     val user: MutableLiveData<User> = MutableLiveData()

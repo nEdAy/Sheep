@@ -11,7 +11,6 @@ import com.blankj.utilcode.util.StringUtils
 import com.orhanobut.hawk.Hawk
 import com.umeng.analytics.MobclickAgent
 
-
 /**
  * Activity基类
  *
@@ -43,6 +42,9 @@ abstract class BaseActivity : AppCompatActivity() {
         // do nothing
     }
 
+    /**
+     * onCreate
+     */
     abstract fun initView()
 
     override fun onResume() {

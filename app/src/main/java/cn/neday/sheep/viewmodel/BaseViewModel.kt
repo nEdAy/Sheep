@@ -13,6 +13,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel基类
+ *
+ * @author nEdAy
+ */
 open class BaseViewModel : ViewModel(), LifecycleObserver {
 
     val errMsg: MutableLiveData<String> = MutableLiveData()

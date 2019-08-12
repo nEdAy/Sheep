@@ -12,6 +12,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*
 
+/**
+ * SearchResultViewModel
+ *
+ * @author nEdAy
+ */
 class SearchResultViewModel : BaseViewModel() {
 
     private val repository by lazy { GoodsRepository() }

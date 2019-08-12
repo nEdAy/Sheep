@@ -8,6 +8,11 @@ import cn.neday.sheep.network.repository.GoodsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/**
+ * IndexViewModel
+ *
+ * @author nEdAy
+ */
 class IndexViewModel : BaseViewModel() {
 
     private val bannerRepository by lazy { BannerRepository() }
