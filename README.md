@@ -5,15 +5,13 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2cef4d22e7eb41cf983c68ff724bbc25)](https://www.codacy.com/app/nEdAy/Shepherd?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nEdAy/Shepherd&amp;utm_campaign=Badge_Grade)
 [![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
-
-![](https://img.shields.io/github/issues/nEdAy/Sheep)
-![](https://img.shields.io/github/forks/nEdAy/Sheep)
-![](https://img.shields.io/github/stars/nEdAy/Sheep)
-
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
 ![](https://img.shields.io/github/license/nEdAy/Sheep)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
+![](https://img.shields.io/github/issues/nEdAy/Sheep)
+![](https://img.shields.io/github/forks/nEdAy/Sheep)
+![](https://img.shields.io/github/stars/nEdAy/Sheep)
 
 Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide
 
