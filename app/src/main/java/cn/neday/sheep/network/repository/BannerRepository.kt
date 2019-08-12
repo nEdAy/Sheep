@@ -12,7 +12,7 @@ import cn.neday.sheep.network.api.BannerApi
  */
 class BannerRepository : BaseRepository() {
 
-    private val bannerApi: BannerApi by lazy { RetrofitClient().getRetrofit(BannerApi::class.java) }
+    private val bannerApi: BannerApi by lazy { RetrofitClient.getRetrofit(BannerApi::class.java) }
 
     suspend fun getBannerList(): Response<List<Banner>> {
         return apiCall { bannerApi.bannerList() }

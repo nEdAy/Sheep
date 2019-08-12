@@ -7,19 +7,21 @@ import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
  * 获取Retrofit实例
  *
  * @author nEdAy
  */
-class RetrofitClient {
+object RetrofitClient {
+
+    private const val BASE_URL = "https://www.neday.cn/v1/"
 
     fun <T> getRetrofit(clazz: Class<T>): T {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
             .create(clazz)
@@ -40,8 +42,4 @@ class RetrofitClient {
             }
             return httpLoggingInterceptor
         }
-
-    companion object {
-        private const val BASE_URL = "https://www.neday.cn/v1/"
-    }
 }

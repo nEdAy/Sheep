@@ -14,7 +14,7 @@ import cn.neday.sheep.network.api.GoodsApi
  */
 class GoodsRepository : BaseRepository() {
 
-    private val goodsApi: GoodsApi by lazy { RetrofitClient().getRetrofit(GoodsApi::class.java) }
+    private val goodsApi: GoodsApi by lazy { RetrofitClient.getRetrofit(GoodsApi::class.java) }
 
     suspend fun getRankingList(rankType: Int, cid: String): Response<List<RankingGoods>> {
         return apiCall { goodsApi.rankingList(rankType, cid) }

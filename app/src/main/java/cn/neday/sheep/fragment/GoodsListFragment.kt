@@ -12,7 +12,7 @@ import cn.neday.sheep.model.Goods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.util.CommonUtils.changePressedViewBg
-import cn.neday.sheep.viewmodel.NineGoodsListViewModel
+import cn.neday.sheep.viewmodel.GoodsListViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import kotlinx.android.synthetic.main.include_anything_list.*
@@ -20,11 +20,11 @@ import kotlinx.android.synthetic.main.include_anything_list.*
 /**
  * 超值精选
  */
-class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<NineGoodsListViewModel>() {
+class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<GoodsListViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_goods_list
 
-    override fun providerVMClass(): Class<NineGoodsListViewModel>? = NineGoodsListViewModel::class.java
+    override fun providerVMClass(): Class<GoodsListViewModel>? = GoodsListViewModel::class.java
 
     override fun initView() {
         initAdapter()
@@ -42,11 +42,11 @@ class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<NineGoo
             mViewModel.getNineOpGoodsList(nineType.index.toString(), mViewModel.mCurrentPageId)
         }, rv_goods)
         mViewModel.pageGoods.observe(this, Observer<Pages<CommonGoods>> {
-            if (adapter.itemCount >= it.totalNum) {
+            if (adapter.itemCount >= it.totalNum ?: 0) {
                 adapter.loadMoreEnd()
             } else {
                 setAdapterData(adapter, it)
-                mViewModel.mCurrentPageId = it.pageId
+                mViewModel.mCurrentPageId = it.pageId ?: GoodsListViewModel.LOAD_INITIAL_PAGE_ID
                 adapter.loadMoreComplete()
             }
         })
@@ -90,12 +90,12 @@ class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<NineGoo
     }
 
     private fun setAdapterData(adapter: GoodsListAdapter, data: Pages<CommonGoods>) {
-        if (mViewModel.mCurrentPageId == NineGoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
+        if (mViewModel.mCurrentPageId == GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
             srl_goods.isRefreshing = false
             adapter.setNewData(data.list)
             adapter.disableLoadMoreIfNotFullPage()
         } else {
-            adapter.addData(data.list)
+            data.list?.let { adapter.addData(it) }
         }
     }
 

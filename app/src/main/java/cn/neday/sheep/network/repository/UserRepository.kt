@@ -12,7 +12,7 @@ import cn.neday.sheep.network.api.UserApi
  */
 class UserRepository : BaseRepository() {
 
-    private val userApi: UserApi by lazy { RetrofitClient().getRetrofit(UserApi::class.java) }
+    private val userApi: UserApi by lazy { RetrofitClient.getRetrofit(UserApi::class.java) }
 
     suspend fun registerOrLogin(mobile: String, passwordMD5: String, smsCode: String, inviteCode: String)
             : Response<User> {

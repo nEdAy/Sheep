@@ -12,7 +12,7 @@ import cn.neday.sheep.network.api.CategoryApi
  */
 class CategoryRepository : BaseRepository() {
 
-    private val categoryApi: CategoryApi by lazy { RetrofitClient().getRetrofit(CategoryApi::class.java) }
+    private val categoryApi: CategoryApi by lazy { RetrofitClient.getRetrofit(CategoryApi::class.java) }
 
     suspend fun getTop100(): Response<HotWords> {
         return apiCall { categoryApi.getTop100() }

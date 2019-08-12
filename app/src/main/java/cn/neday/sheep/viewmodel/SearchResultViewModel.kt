@@ -20,7 +20,7 @@ class SearchResultViewModel : BaseViewModel() {
 
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
-    fun getDtkSearchGoods(keyWords: String, pageId: String = NineGoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
+    fun getDtkSearchGoods(keyWords: String, pageId: String = GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
         addHistoryWords(keyWords)
         mCurrentPageId = pageId
         launch {

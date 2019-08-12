@@ -101,14 +101,11 @@ dependencies {
     // Retrofit
     def retrofit_version = "2.6.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
 
     // OkHttp
     implementation 'com.squareup.okhttp3:okhttp:4.0.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
-
-    // Gson
-    implementation 'com.google.code.gson:gson:2.8.5'
 
     // Hawk secure key-value storage
     implementation "com.orhanobut:hawk:2.0.1"

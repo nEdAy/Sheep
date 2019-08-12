@@ -59,11 +59,11 @@ class SearchResultActivity : BaseVMActivity<SearchResultViewModel>() {
             mViewModel.getDtkSearchGoods(keyWord, mViewModel.mCurrentPageId)
         }, rv_goods)
         mViewModel.pageGoods.observe(this, Observer<Pages<CommonGoods>> {
-            if (adapter.itemCount >= it.totalNum) {
+            if (adapter.itemCount >= it.totalNum ?: 0) {
                 adapter.loadMoreEnd()
             } else {
                 setAdapterData(adapter, it)
-                mViewModel.mCurrentPageId = it.pageId
+                mViewModel.mCurrentPageId = it.pageId ?: SearchResultViewModel.LOAD_INITIAL_PAGE_ID
                 adapter.loadMoreComplete()
             }
         })
@@ -112,7 +112,7 @@ class SearchResultActivity : BaseVMActivity<SearchResultViewModel>() {
             adapter.setNewData(data.list)
             adapter.disableLoadMoreIfNotFullPage()
         } else {
-            adapter.addData(data.list)
+            data.list?.let { adapter.addData(it) }
         }
     }
 
