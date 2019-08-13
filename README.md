@@ -2,9 +2,9 @@
 [![CircleCI](https://circleci.com/gh/nEdAy/Sheep.svg?style=svg)](https://circleci.com/gh/nEdAy/Sheep)
 [![Cravis-CI](https://travis-ci.org/nEdAy/Sheep.svg?branch=master)](https://travis-ci.org/nEdAy/Sheep)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f122c6a7532347c2c64a/maintainability)](https://codeclimate.com/github/nEdAy/Sheep/maintainability)
 [![Codebeat](https://codebeat.co/badges/da3a4cf5-9f6e-4b43-b635-41f27de23491)](https://codebeat.co/projects/github-com-neday-sheep-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d4a5688847884ef3ad8f2b10ca3e9585)](https://www.codacy.com/app/nEdAy/Sheep?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nEdAy/Sheep&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f122c6a7532347c2c64a/maintainability)](https://codeclimate.com/github/nEdAy/Sheep/maintainability)
 [![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
