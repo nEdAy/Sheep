@@ -23,9 +23,9 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 - [Shepherd](https://github.com/nEdAy/Shepherd/tree/master) —— Go(Gin)
 
-### [English Document](https://github.com/nEdAy/Shepherd/blob/master/README_EN.md) | 中文文档
+### English Documentation | [中文文档](https://github.com/nEdAy/Shepherd)
 
-## 项目截图
+## ScreenShots
 
 ## 下载体验
 
@@ -33,9 +33,9 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 ## 模块说明
 
-## 三方组件
+## Libraries
 
-### Android官方架构组件
+### Android Jetpack
 
 * [Lifecycle: Create a UI that automatically responds to lifecycle events.](https://developer.android.com/topic/libraries/architecture/lifecycle)
 
@@ -49,17 +49,17 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 * ~~[Paging: Makes it easier for you to load data gradually and gracefully within your app's RecyclerView.]~~(https://developer.android.com/topic/libraries/architecture/paging/)
 
-### 网络请求
+### Http
 
 * [Retrofit2: Type-safe HTTP client for Android and Java by Square, Inc.](https://github.com/square/retrofit)
 
 * [OkHttp: An HTTP+HTTP/2 client for Android and Java applications.](https://github.com/square/okhttp)
 
-### 依赖注入
+### DI
 
 * [Kodein-DI: Painless Kotlin Dependency Injection](https://github.com/Kodein-Framework/Kodein-DI)
 
-### 响应式库
+### ReactiveX
 
 * ~~[RxKotlin: RxJava bindings for Kotlin]~~(https://github.com/ReactiveX/RxKotlin)
 
@@ -75,7 +75,7 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 * ~~[AutoDispose: Automatic binding+disposal of RxJava 2 streams.]~~(https://github.com/uber/AutoDispose)
 
-### 函数式库
+### Functional
 
 * ~~[Arrow: Functional companion to Kotlin's Standard Library.]~~(https://arrow-kt.io/)
 
@@ -87,7 +87,7 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 * Material + Recyclerview + Cardview
 
-### 其它
+### Others
 
 * [Glide: An image loading and caching library for Android focused on smooth scrolling](https://github.com/bumptech/glide)
 
@@ -109,11 +109,11 @@ Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retr
 
 * Doraemonkit
 
-## 更新日志
+## Update Log
 
-## 关于我
+## About Me
 
-## 感谢
+## Thanks To
 
 - 感谢所有优秀的开源项目
 
