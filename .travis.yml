@@ -43,8 +43,9 @@ before_script:
   - chmod +x gradlew
 
 script:
-  #  - ./gradlew assembleRelease
   - ./gradlew testDebugUnitTestCoverage
+  #  - ./gradlew assembleRelease
+  - ./gradlew connectedCheck
 
 #deploy:
 #  provider: releases

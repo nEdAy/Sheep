@@ -37,38 +37,20 @@ public class AppStoreUtils {
 
     /**
      * 获取跳转到应用商店的 Intent
-     *
-     * @param isIncludeGooglePlayStore 是否包括 Google Play 商店
-     * @return 跳转到应用商店的 Intent
-     */
-    public static Intent getAppStoreIntent(boolean isIncludeGooglePlayStore) {
-        return getAppStoreIntent(Utils.getApp().getPackageName(), isIncludeGooglePlayStore);
-    }
-
-    /**
-     * 获取跳转到应用商店的 Intent
-     *
-     * @param packageName 包名
-     * @return 跳转到应用商店的 Intent
-     */
-    public static Intent getAppStoreIntent(final String packageName) {
-        return getAppStoreIntent(packageName, false);
-    }
-
-    /**
-     * 获取跳转到应用商店的 Intent
      * <p>优先跳转到手机自带的应用市场</p>
      *
      * @param packageName              包名
      * @param isIncludeGooglePlayStore 是否包括 Google Play 商店
      * @return 跳转到应用商店的 Intent
      */
-    public static Intent getAppStoreIntent(final String packageName, boolean isIncludeGooglePlayStore) {
-        if (RomUtils.isSamsung()) {// 三星单独处理跳转三星市场
+    private static Intent getAppStoreIntent(final String packageName, boolean isIncludeGooglePlayStore) {
+        // 三星单独处理跳转三星市场
+        if (RomUtils.isSamsung()) {
             Intent samsungAppStoreIntent = getSamsungAppStoreIntent(packageName);
             if (samsungAppStoreIntent != null) return samsungAppStoreIntent;
         }
-        if (RomUtils.isLeeco()) {// 乐视单独处理跳转乐视市场
+        // 乐视单独处理跳转乐视市场
+        if (RomUtils.isLeeco()) {
             Intent leecoAppStoreIntent = getLeecoAppStoreIntent(packageName);
             if (leecoAppStoreIntent != null) return leecoAppStoreIntent;
         }
@@ -76,9 +58,8 @@ public class AppStoreUtils {
         Uri uri = Uri.parse("market://details?id=" + packageName);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        List<ResolveInfo> resolveInfos = Utils.getApp().getPackageManager()
-                .queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        if (resolveInfos == null || resolveInfos.size() == 0) {
+        List<ResolveInfo> resolveInfos = Utils.getApp().getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (resolveInfos.size() == 0) {
             Log.e(TAG, "No app store!");
             return null;
         }
@@ -101,25 +82,6 @@ public class AppStoreUtils {
 
         intent.setPackage(resolveInfos.get(0).activityInfo.packageName);
         return intent;
-    }
-
-    private static boolean go2NormalAppStore(String packageName) {
-        Intent intent = getNormalAppStoreIntent();
-        if (intent == null) return false;
-        intent.setData(Uri.parse("market://details?id=" + packageName));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Utils.getApp().startActivity(intent);
-        return true;
-    }
-
-    private static Intent getNormalAppStoreIntent() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        Uri uri = Uri.parse("market://details?id=" + Utils.getApp().getPackageName());
-        intent.setData(uri);
-        if (getAvailableIntentSize(intent) > 0) {
-            return intent;
-        }
-        return null;
     }
 
     private static Intent getSamsungAppStoreIntent(final String packageName) {
@@ -156,7 +118,7 @@ public class AppStoreUtils {
         try {
             PackageManager pm = Utils.getApp().getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
-            return ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+            return (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return false;
