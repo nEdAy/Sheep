@@ -15,9 +15,9 @@
 ![](https://img.shields.io/github/forks/nEdAy/Sheep)
 ![](https://img.shields.io/github/stars/nEdAy/Sheep)
 
-Sheep, A pure shopping guide App based on Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide + JetPack + KOIN
+Sheep, A pure shopping guide App based on Kotlin + MVVM + Retrofit + Kotlinx-Coroutines + Glide + JetPack + KOIN
 
-口袋快爆，一款纯粹的电商导购App，基于Kotlin + Material Design + MVVM + Retrofit + Kotlinx-Coroutines + Glide + JetPack + KOIN
+口袋快爆，一款纯粹的电商导购App，基于Kotlin + MVVM + Retrofit + Kotlinx-Coroutines + Glide + JetPack + KOIN
 
 出于学习的目的做了这款简洁风格的电商导购应用，基本涵盖了当前Android端开发最常用的主流框架，基于此框架可以快速开发一个APP。
 
