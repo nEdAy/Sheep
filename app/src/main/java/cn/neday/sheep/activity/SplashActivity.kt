@@ -15,9 +15,7 @@ import kotlinx.coroutines.*
  *
  * @author nEdAy
  */
-class SplashActivity : BaseActivity() {
-
-    override val layoutId: Int? = null
+class SplashActivity : BaseActivity(null) {
 
     private var job: Job? = null
 

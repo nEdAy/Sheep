@@ -17,9 +17,7 @@ import kotlinx.android.synthetic.main.include_port_item_details.*
  *
  * @author nEdAy
  */
-class GoodsDetailsActivity : BaseActivity() {
-
-    override val layoutId = R.layout.activity_goods_details
+class GoodsDetailsActivity : BaseActivity(R.layout.activity_goods_details) {
 
     @SuppressLint("SetTextI18n")
     override fun initView() {

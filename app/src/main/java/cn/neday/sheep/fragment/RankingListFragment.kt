@@ -22,9 +22,8 @@ import kotlinx.android.synthetic.main.include_anything_list.*
  * 2.全天销量榜
  * 3.热推榜
  */
-class RankingListFragment(private val rankType: RankType) : BaseVMFragment<RankingListViewModel>() {
-
-    override val layoutId: Int = R.layout.fragment_goods_list
+class RankingListFragment(private val rankType: RankType) :
+    BaseVMFragment<RankingListViewModel>(R.layout.fragment_goods_list) {
 
     override fun initView() {
         initAdapter()

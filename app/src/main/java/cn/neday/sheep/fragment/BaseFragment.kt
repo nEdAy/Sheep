@@ -13,12 +13,9 @@ import com.alibaba.baichuan.android.trade.AlibcTradeSDK
  *
  * @author nEdAy
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment(@get:LayoutRes val layoutId: Int) : Fragment() {
 
     private var mRootView: View? = null
-
-    @get:LayoutRes
-    abstract val layoutId: Int
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mRootView = LayoutInflater.from(context).inflate(layoutId, container, false)

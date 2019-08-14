@@ -8,9 +8,7 @@ import kotlinx.android.synthetic.main.fragment_main_goods.*
  * 9.9精选
  * -1-精选，1 -居家百货，2 -美食，3 -服饰，4 -配饰，5 -美妆，6 -内衣，7 -母婴，8 -箱包，9 -数码配件，10 -文娱车品
  */
-class GoodsFragment : BaseFragment() {
-
-    override val layoutId: Int = R.layout.fragment_main_goods
+class GoodsFragment : BaseFragment(R.layout.fragment_main_goods) {
 
     override fun initView() {
         initViewPager()

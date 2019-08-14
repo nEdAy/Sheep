@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType
  *
  * @author nEdAy
  */
-abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
+abstract class BaseVMActivity<VM : BaseViewModel>(layoutId: Int) : BaseActivity(layoutId) {
 
     @Suppress("UNCHECKED_CAST")
     protected val mViewModel: VM by viewModel(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>).kotlin)

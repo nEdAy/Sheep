@@ -24,9 +24,7 @@ import kotlinx.android.synthetic.main.include_main_index_icon.view.*
 /**
  * 首页
  */
-class IndexFragment : BaseVMFragment<IndexViewModel>() {
-
-    override val layoutId: Int = R.layout.fragment_main_index
+class IndexFragment : BaseVMFragment<IndexViewModel>(R.layout.fragment_main_index) {
 
     private lateinit var headerView: View
 

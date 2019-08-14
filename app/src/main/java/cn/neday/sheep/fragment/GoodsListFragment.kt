@@ -20,9 +20,8 @@ import kotlinx.android.synthetic.main.include_anything_list.*
 /**
  * 超值精选
  */
-class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<GoodsListViewModel>() {
-
-    override val layoutId: Int = R.layout.fragment_goods_list
+class GoodsListFragment(private val nineType: NineType) :
+    BaseVMFragment<GoodsListViewModel>(R.layout.fragment_goods_list) {
 
     override fun initView() {
         initAdapter()

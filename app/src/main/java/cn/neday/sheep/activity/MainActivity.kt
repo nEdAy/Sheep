@@ -19,11 +19,9 @@ import java.util.*
  *
  * @author nEdAy
  */
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private var mPressedBackTime = 0L
-
-    override val layoutId = R.layout.activity_main
 
     override fun initView() {
         val tabEntities = ArrayList<CustomTabEntity>()

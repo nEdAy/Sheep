@@ -10,9 +10,7 @@ import kotlinx.android.synthetic.main.activity_guide.*
  *
  * @author nEdAy
  */
-class GuideActivity : BaseActivity() {
-
-    override val layoutId = R.layout.activity_guide
+class GuideActivity : BaseActivity(R.layout.activity_guide) {
 
     override fun initView() {
         guide_banner.setIndicatorWidth(6f)

@@ -17,10 +17,7 @@ import com.umeng.analytics.MobclickAgent
  *
  * @author nEdAy
  */
-abstract class BaseActivity : AppCompatActivity() {
-
-    @get:LayoutRes
-    abstract val layoutId: Int?
+abstract class BaseActivity(@get:LayoutRes val layoutId: Int?) : AppCompatActivity() {
 
     open val isCheckLogin = false
 

@@ -10,9 +10,7 @@ import kotlinx.android.synthetic.main.activity_about.*
  *
  * @author nEdAy
  */
-class AboutActivity : BaseActivity() {
-
-    override val layoutId = R.layout.activity_about
+class AboutActivity : BaseActivity(R.layout.activity_about) {
 
     override fun initView() {
         titleBar_about.setListener { _, action, _ ->

@@ -7,9 +7,8 @@ import cn.neday.sheep.R
  *
  * @author nEdAy
  */
-class SignInActivity : BaseActivity() {
+class SignInActivity : BaseActivity(R.layout.activity_sign_in) {
 
-    override val layoutId = R.layout.activity_sign_in
     override val isCheckLogin = true
 
     override fun initView() {

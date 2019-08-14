@@ -28,13 +28,11 @@ import java.util.*
  *
  * @author nEdAy
  */
-class LoginActivity : BaseVMActivity<LoginViewModel>() {
+class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
 
     private var mTimeCount: TimeCount? = null
     private var mIsVoiceVerifyCode = false
     private var mIsAgreeAgreement = true
-
-    override val layoutId = R.layout.activity_login
 
     override fun initView() {
         registerSMSSDK()

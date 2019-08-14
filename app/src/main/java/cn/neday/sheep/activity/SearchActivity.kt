@@ -20,9 +20,7 @@ import kotlinx.android.synthetic.main.activity_search.*
  *
  * @author nEdAy
  */
-class SearchActivity : BaseVMActivity<SearchViewModel>() {
-
-    override val layoutId = R.layout.activity_search
+class SearchActivity : BaseVMActivity<SearchViewModel>(R.layout.activity_search) {
 
     private lateinit var mParticleSmasher: ParticleSmasher
 

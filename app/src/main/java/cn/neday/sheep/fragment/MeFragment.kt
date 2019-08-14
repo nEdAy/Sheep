@@ -25,9 +25,7 @@ import kotlinx.android.synthetic.main.fragment_main_me.*
 /**
  * 我的
  */
-class MeFragment : BaseFragment() {
-
-    override val layoutId: Int = R.layout.fragment_main_me
+class MeFragment : BaseFragment(R.layout.fragment_main_me) {
 
     override fun initView() {
         dampView.setImageView(iv_damp)

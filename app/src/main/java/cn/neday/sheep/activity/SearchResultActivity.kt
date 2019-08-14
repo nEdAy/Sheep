@@ -22,9 +22,7 @@ import kotlinx.android.synthetic.main.include_anything_list.*
  *
  * @author nEdAy
  */
-class SearchResultActivity : BaseVMActivity<SearchResultViewModel>() {
-
-    override val layoutId = R.layout.activity_search_result
+class SearchResultActivity : BaseVMActivity<SearchResultViewModel>(R.layout.activity_search_result) {
 
     override fun initView() {
         val keyWord = intent.extras?.get(EXTRA) as String?

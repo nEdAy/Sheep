@@ -4,9 +4,7 @@ import cn.neday.sheep.R
 import cn.neday.sheep.enum.RankType
 import kotlinx.android.synthetic.main.fragment_main_ranking.*
 
-class RankingFragment : BaseFragment() {
-
-    override val layoutId: Int = R.layout.fragment_main_ranking
+class RankingFragment : BaseFragment(R.layout.fragment_main_ranking) {
 
     override fun initView() {
         initViewPager()
