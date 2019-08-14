@@ -16,12 +16,10 @@ import java.util.*
  *
  * @author nEdAy
  */
-class SearchViewModel : BaseViewModel() {
+class SearchViewModel(private val repository: CategoryRepository) : BaseViewModel() {
 
     val hotWords: MutableLiveData<HotWords> = MutableLiveData()
     val historyWords: MutableLiveData<LinkedHashSet<String>> = MutableLiveData()
-
-    private val repository by lazy { CategoryRepository() }
 
     /**
      * 热搜记录

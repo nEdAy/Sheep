@@ -12,11 +12,9 @@ import kotlinx.coroutines.withContext
  *
  * @author nEdAy
  */
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel(private val repository: UserRepository) : BaseViewModel() {
 
     val user = SingleLiveEvent<User>()
-
-    private val repository by lazy { UserRepository() }
 
     /**
      * 注册用户 / 用户登录(密码) / 用户登录（短信验证码）

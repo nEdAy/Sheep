@@ -11,9 +11,7 @@ import kotlinx.coroutines.withContext
  *
  * @author nEdAy
  */
-class RankingListViewModel : BaseViewModel() {
-
-    private val repository by lazy { GoodsRepository() }
+class RankingListViewModel(private val repository: GoodsRepository) : BaseViewModel() {
 
     val rankGoods: MutableLiveData<List<RankingGoods>> = MutableLiveData()
 

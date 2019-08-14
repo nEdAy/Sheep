@@ -12,13 +12,11 @@ import kotlinx.coroutines.withContext
  *
  * @author nEdAy
  */
-class GoodsListViewModel : BaseViewModel() {
-
-    private val repository by lazy { GoodsRepository() }
+class GoodsListViewModel(private val repository: GoodsRepository) : BaseViewModel() {
 
     val pageGoods: MutableLiveData<Pages<CommonGoods>> = MutableLiveData()
 
-    var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
+    private var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getNineOpGoodsList(cid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
         mCurrentPageId = pageId

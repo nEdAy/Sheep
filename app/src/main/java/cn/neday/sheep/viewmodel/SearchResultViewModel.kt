@@ -17,13 +17,11 @@ import java.util.*
  *
  * @author nEdAy
  */
-class SearchResultViewModel : BaseViewModel() {
-
-    private val repository by lazy { GoodsRepository() }
+class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewModel() {
 
     val pageGoods: MutableLiveData<Pages<CommonGoods>> = MutableLiveData()
 
-    var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
+    private var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getDtkSearchGoods(keyWords: String, pageId: String = GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
         addHistoryWords(keyWords)

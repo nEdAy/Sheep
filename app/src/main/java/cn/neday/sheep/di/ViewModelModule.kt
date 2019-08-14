@@ -6,17 +6,17 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
 
-    viewModel { CreditHistoryViewModel() }
+    viewModel { CreditHistoryViewModel(get()) }
 
-    viewModel { GoodsListViewModel() }
+    viewModel { GoodsListViewModel(get()) }
 
-    viewModel { IndexViewModel() }
+    viewModel { IndexViewModel(get(), get()) }
 
-    viewModel { LoginViewModel() }
+    viewModel { LoginViewModel(get()) }
 
-    viewModel { RankingListViewModel() }
+    viewModel { RankingListViewModel(get()) }
 
-    viewModel { SearchResultViewModel() }
+    viewModel { SearchResultViewModel(get()) }
 
-    viewModel { SearchViewModel() }
+    viewModel { SearchViewModel(get()) }
 }

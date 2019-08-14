@@ -13,10 +13,8 @@ import kotlinx.coroutines.withContext
  *
  * @author nEdAy
  */
-class IndexViewModel : BaseViewModel() {
-
-    private val bannerRepository by lazy { BannerRepository() }
-    private val goodsRepository by lazy { GoodsRepository() }
+class IndexViewModel(private val bannerRepository: BannerRepository, private val goodsRepository: GoodsRepository) :
+    BaseViewModel() {
 
     val banners: MutableLiveData<List<Banner>> = MutableLiveData()
     val rankGoods: MutableLiveData<List<RankingGoods>> = MutableLiveData()

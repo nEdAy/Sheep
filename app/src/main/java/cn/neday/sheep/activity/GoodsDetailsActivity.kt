@@ -1,5 +1,6 @@
 package cn.neday.sheep.activity
 
+import android.annotation.SuppressLint
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.util.AliTradeHelper
@@ -20,6 +21,7 @@ class GoodsDetailsActivity : BaseActivity() {
 
     override val layoutId = R.layout.activity_goods_details
 
+    @SuppressLint("SetTextI18n")
     override fun initView() {
         // TODO: 部分属性 RankingGoods 缺失
         val goods = intent.extras?.get(extra) as Goods?

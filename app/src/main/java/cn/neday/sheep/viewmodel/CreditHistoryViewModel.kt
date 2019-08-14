@@ -14,12 +14,10 @@ import java.util.*
  *
  * @author nEdAy
  */
-class CreditHistoryViewModel : BaseViewModel() {
+class CreditHistoryViewModel(private val repository: CategoryRepository) : BaseViewModel() {
 
     val hotWords: MutableLiveData<HotWords> = MutableLiveData()
     val historyWords: MutableLiveData<LinkedHashSet<String>> = MutableLiveData()
-
-    private val repository by lazy { CategoryRepository() }
 
     /**
      * 热搜记录
