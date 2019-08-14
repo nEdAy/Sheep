@@ -21,8 +21,7 @@ import java.util.*
  */
 class MainActivity : BaseActivity() {
 
-    // 连续触发两次返回键则退出标记位
-    private var mPressedBackTime: Long = 0
+    private var mPressedBackTime = 0L
 
     override val layoutId = R.layout.activity_main
 

@@ -4,7 +4,6 @@ import cn.neday.sheep.R
 import com.blankj.utilcode.util.ActivityUtils
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_guide.*
-import java.util.*
 
 /**
  * 导航页
@@ -22,21 +21,13 @@ class GuideActivity : BaseActivity() {
             .setIndicatorCornerRadius(3.5f)
             .setBarColor(R.color.gray)
             .barPadding(0f, 10f, 0f, 10f)
-            .setSource(getGuides())
+            .setSource(arrayListOf(R.drawable.guide_img_1, R.drawable.guide_img_2, R.drawable.guide_img_3))
             .startScroll()
         guide_banner.setOnGuideJumpClick {
             Hawk.put("isFirstStartApp", false)
             ActivityUtils.startActivity(MainActivity::class.java)
             ActivityUtils.finishActivity(this)
         }
-    }
-
-    private fun getGuides(): ArrayList<Int> {
-        val list = ArrayList<Int>()
-        list.add(R.drawable.guide_img_1)
-        list.add(R.drawable.guide_img_2)
-        list.add(R.drawable.guide_img_3)
-        return list
     }
 
     override fun onResume() {

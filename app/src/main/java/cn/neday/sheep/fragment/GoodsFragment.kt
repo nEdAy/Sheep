@@ -1,6 +1,5 @@
 package cn.neday.sheep.fragment
 
-import androidx.fragment.app.Fragment
 import cn.neday.sheep.R
 import cn.neday.sheep.enum.NineType
 import kotlinx.android.synthetic.main.fragment_main_goods.*
@@ -18,23 +17,23 @@ class GoodsFragment : BaseFragment() {
     }
 
     private fun initViewPager() {
-        val mFragments = ArrayList<Fragment>()
-        mFragments.add(GoodsListFragment(NineType.JING_XUAN))
-        mFragments.add(GoodsListFragment(NineType.JU_JUA_BAI_HUO))
-        mFragments.add(GoodsListFragment(NineType.MEI_SHI))
-        mFragments.add(GoodsListFragment(NineType.FU_SHI))
-        mFragments.add(GoodsListFragment(NineType.PEI_SHI))
-        mFragments.add(GoodsListFragment(NineType.MEI_ZHUANG))
-        mFragments.add(GoodsListFragment(NineType.NEI_YI))
-        mFragments.add(GoodsListFragment(NineType.MU_YING))
-        mFragments.add(GoodsListFragment(NineType.XIANG_BAO))
-        mFragments.add(GoodsListFragment(NineType.SHU_MA_PEI_JIAN))
-        mFragments.add(GoodsListFragment(NineType.WEN_YU_CHE_PIN))
         stl_goods.setViewPager(
             vp_goods,
             resources.getStringArray(R.array.goods_type_array),
             activity,
-            mFragments
+            arrayListOf(
+                GoodsListFragment(NineType.JING_XUAN),
+                GoodsListFragment(NineType.JU_JUA_BAI_HUO),
+                GoodsListFragment(NineType.MEI_SHI),
+                GoodsListFragment(NineType.FU_SHI),
+                GoodsListFragment(NineType.PEI_SHI),
+                GoodsListFragment(NineType.MEI_ZHUANG),
+                GoodsListFragment(NineType.NEI_YI),
+                GoodsListFragment(NineType.MU_YING),
+                GoodsListFragment(NineType.XIANG_BAO),
+                GoodsListFragment(NineType.SHU_MA_PEI_JIAN),
+                GoodsListFragment(NineType.WEN_YU_CHE_PIN)
+            )
         )
     }
 }
