@@ -26,8 +26,6 @@ class RankingListFragment(private val rankType: RankType) : BaseVMFragment<Ranki
 
     override val layoutId: Int = R.layout.fragment_goods_list
 
-    override fun providerVMClass(): Class<RankingListViewModel>? = RankingListViewModel::class.java
-
     override fun initView() {
         initAdapter()
         initSwipeToRefresh()

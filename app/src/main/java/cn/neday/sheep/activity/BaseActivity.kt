@@ -3,6 +3,7 @@ package cn.neday.sheep.activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.ali.auth.third.login.LoginConstants.TOKEN
 import com.alibaba.baichuan.android.trade.AlibcTradeSDK
@@ -18,6 +19,7 @@ import com.umeng.analytics.MobclickAgent
  */
 abstract class BaseActivity : AppCompatActivity() {
 
+    @get:LayoutRes
     abstract val layoutId: Int?
 
     open val isCheckLogin = false

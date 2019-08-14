@@ -24,8 +24,6 @@ class SearchActivity : BaseVMActivity<SearchViewModel>() {
 
     override val layoutId = R.layout.activity_search
 
-    override fun providerVMClass(): Class<SearchViewModel>? = SearchViewModel::class.java
-
     private lateinit var mParticleSmasher: ParticleSmasher
 
     override fun initView() {

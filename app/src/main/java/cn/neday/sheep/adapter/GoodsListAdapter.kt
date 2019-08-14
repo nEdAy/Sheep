@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.util.CommonUtils
-import cn.neday.sheep.util.load
+import cn.neday.sheep.view.load
 import com.blankj.utilcode.util.StringUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder

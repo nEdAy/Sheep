@@ -7,8 +7,6 @@ class ShakeActivity : BaseVMActivity<SearchViewModel>() {
 
     override val layoutId = R.layout.activity_search
 
-    override fun providerVMClass(): Class<SearchViewModel>? = SearchViewModel::class.java
-
     override fun initView() {
         mViewModel.getHotWords()
     }

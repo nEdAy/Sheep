@@ -28,8 +28,6 @@ class IndexFragment : BaseVMFragment<IndexViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_main_index
 
-    override fun providerVMClass(): Class<IndexViewModel>? = IndexViewModel::class.java
-
     private lateinit var headerView: View
 
     override fun initView() {

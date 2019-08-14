@@ -26,8 +26,6 @@ class SearchResultActivity : BaseVMActivity<SearchResultViewModel>() {
 
     override val layoutId = R.layout.activity_search_result
 
-    override fun providerVMClass(): Class<SearchResultViewModel>? = SearchResultViewModel::class.java
-
     override fun initView() {
         val keyWord = intent.extras?.get(EXTRA) as String?
         keyWord?.let {

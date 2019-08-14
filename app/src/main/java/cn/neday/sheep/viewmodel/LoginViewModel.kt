@@ -1,6 +1,6 @@
 package cn.neday.sheep.viewmodel
 
-import androidx.lifecycle.MutableLiveData
+import cn.neday.sheep.SingleLiveEvent
 import cn.neday.sheep.model.User
 import cn.neday.sheep.network.repository.UserRepository
 import com.blankj.utilcode.util.EncryptUtils
@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
  */
 class LoginViewModel : BaseViewModel() {
 
-    val user: MutableLiveData<User> = MutableLiveData()
+    val user = SingleLiveEvent<User>()
 
     private val repository by lazy { UserRepository() }
 

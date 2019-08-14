@@ -36,8 +36,6 @@ class LoginActivity : BaseVMActivity<LoginViewModel>() {
 
     override val layoutId = R.layout.activity_login
 
-    override fun providerVMClass(): Class<LoginViewModel>? = LoginViewModel::class.java
-
     override fun initView() {
         registerSMSSDK()
         initTitleAndBackgroundByTime()

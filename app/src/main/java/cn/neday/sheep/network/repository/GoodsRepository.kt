@@ -4,8 +4,9 @@ import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.model.Response
-import cn.neday.sheep.network.RetrofitClient
+import cn.neday.sheep.network.ServiceManager
 import cn.neday.sheep.network.api.GoodsApi
+import org.koin.core.context.GlobalContext
 
 /**
  * RankingGoods Repository
@@ -14,7 +15,7 @@ import cn.neday.sheep.network.api.GoodsApi
  */
 class GoodsRepository : BaseRepository() {
 
-    private val goodsApi: GoodsApi by lazy { RetrofitClient.getRetrofit(GoodsApi::class.java) }
+    private val goodsApi: GoodsApi by lazy { GlobalContext.get().koin.get<ServiceManager>().goodsApi }
 
     suspend fun getRankingList(rankType: Int, cid: String): Response<List<RankingGoods>> {
         return apiCall { goodsApi.rankingList(rankType, cid) }
@@ -37,12 +38,5 @@ class GoodsRepository : BaseRepository() {
         tmall: Int, haitao: Int, sort: String
     ): Response<List<CommonGoods>> {
         return apiCall { goodsApi.listSuperGoods(type, keyWords, tmall, haitao, sort) }
-    }
-
-    companion object {
-        // 默认100 ，可选范围：10,50,100,200，如果小于10按10处理，大于200按照200处理，其它非范围内数字按100处理
-        const val PAGE_SIZE = 50
-        const val PREFETCH_DISTANCE = 20
-        const val INITIAL_PAGE_MULTIPLIER = "1"
     }
 }

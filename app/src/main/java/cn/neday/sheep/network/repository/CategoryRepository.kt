@@ -2,8 +2,8 @@ package cn.neday.sheep.network.repository
 
 import cn.neday.sheep.model.HotWords
 import cn.neday.sheep.model.Response
-import cn.neday.sheep.network.RetrofitClient
-import cn.neday.sheep.network.api.CategoryApi
+import cn.neday.sheep.network.ServiceManager
+import org.koin.core.context.GlobalContext
 
 /**
  * RankingGoods Repository
@@ -12,9 +12,7 @@ import cn.neday.sheep.network.api.CategoryApi
  */
 class CategoryRepository : BaseRepository() {
 
-    private val categoryApi: CategoryApi by lazy { RetrofitClient.getRetrofit(CategoryApi::class.java) }
-
     suspend fun getTop100(): Response<HotWords> {
-        return apiCall { categoryApi.getTop100() }
+        return apiCall { GlobalContext.get().koin.get<ServiceManager>().categoryApi.getTop100() }
     }
 }

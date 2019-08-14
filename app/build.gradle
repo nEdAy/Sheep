@@ -77,24 +77,28 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
 
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta02'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.google.android.material:material:1.1.0-alpha09'
     implementation 'com.google.android:flexbox:1.1.0'
 
     // ViewModel & LiveData & Lifecycle
-    def lifecycle_version = "2.2.0-alpha02"
+    def lifecycle_version = "2.2.0-alpha03"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    // Koin for Android Architecture ViewModel
+    def koin_version = "2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     // Bugly CrashReport & Upgrade
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.0'
@@ -110,7 +114,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
 
     // Hawk secure key-value storage
-    implementation "com.orhanobut:hawk:2.0.1"
+    implementation 'com.orhanobut:hawk:2.0.1'
 
     // BRVAH
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47-androidx'
@@ -180,18 +184,22 @@ dependencies {
     debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:1.1.8'
     releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:1.1.8'
 
-    // Test
+    // Unit Test
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.25.0'
     testImplementation 'androidx.arch.core:core-testing:2.0.1'
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+
+    // Koin for Unit tests
+    testImplementation "org.koin:koin-test:$koin_version"
+
     // Powermock
     def powermock_version = "2.0.0"
     testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
     testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
     testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
 
-    // Android Test
+    // Android Unit Test
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

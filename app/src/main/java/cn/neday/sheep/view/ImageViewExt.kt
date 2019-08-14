@@ -1,4 +1,4 @@
-package cn.neday.sheep.util
+package cn.neday.sheep.view
 
 import android.net.Uri
 import android.widget.ImageView

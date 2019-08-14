@@ -1,7 +1,6 @@
 package cn.neday.sheep.activity
 
 import android.view.KeyEvent
-import androidx.fragment.app.Fragment
 import cn.neday.sheep.R
 import cn.neday.sheep.fragment.GoodsFragment
 import cn.neday.sheep.fragment.IndexFragment
@@ -22,28 +21,23 @@ import java.util.*
  */
 class MainActivity : BaseActivity() {
 
-    private val fragments = ArrayList<Fragment>()
-    private val tabEntities = ArrayList<CustomTabEntity>()
     // 连续触发两次返回键则退出标记位
     private var mPressedBackTime: Long = 0
 
     override val layoutId = R.layout.activity_main
 
     override fun initView() {
-        // 精选首页
-        fragments.add(IndexFragment())
-        // 优惠快爆
-        fragments.add(RankingFragment())
-        // 好货专题
-        fragments.add(GoodsFragment())
-        // 我的页面
-        fragments.add(MeFragment())
+        val tabEntities = ArrayList<CustomTabEntity>()
         val tabEntitiesArray = resources.getStringArray(R.array.tab_entities_array)
-        val tabEntitiesLength = tabEntitiesArray.size
-        for (index in 0 until tabEntitiesLength) {
+        for (index in 0 until tabEntitiesArray.size) {
             tabEntities.add(TabEntity(tabEntitiesArray[index], iconSelectResIDs[index], iconUnSelectResIDs[index]))
         }
-        tl_main_tab.setTabData(tabEntities, this, R.id.fl_main_content, fragments)
+        tl_main_tab.setTabData(
+            tabEntities,
+            this,
+            R.id.fl_main_content,
+            arrayListOf(IndexFragment(), RankingFragment(), GoodsFragment(), MeFragment())
+        )
     }
 
     /**

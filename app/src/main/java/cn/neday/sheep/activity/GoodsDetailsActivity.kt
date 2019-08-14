@@ -3,8 +3,8 @@ package cn.neday.sheep.activity
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.util.AliTradeHelper
-import cn.neday.sheep.util.load
 import cn.neday.sheep.view.ShareDialog
+import cn.neday.sheep.view.load
 import com.blankj.utilcode.util.ActivityUtils
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_goods_details.*

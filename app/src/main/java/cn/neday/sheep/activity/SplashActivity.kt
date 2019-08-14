@@ -1,6 +1,5 @@
 package cn.neday.sheep.activity
 
-import android.os.Handler
 import android.view.KeyEvent
 import cn.neday.sheep.R
 import com.blankj.utilcode.util.ActivityUtils
@@ -8,6 +7,7 @@ import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.orhanobut.hawk.Hawk
+import kotlinx.coroutines.*
 
 
 /**
@@ -17,8 +17,9 @@ import com.orhanobut.hawk.Hawk
  */
 class SplashActivity : BaseActivity() {
 
-    // 为保证启动速度，SplashActivity不调用setContentView()方法
     override val layoutId: Int? = null
+
+    private var job: Job? = null
 
     override fun initView() {
         checkIntentAndIsTaskRoot()
@@ -39,7 +40,10 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun delayJumpPage() {
-        Handler().postDelayed({ startNextActivity() }, SHOW_TIME_MIN)
+        job = GlobalScope.launch(Dispatchers.Main) {
+            delay(SHOW_TIME_MIN)
+            startNextActivity()
+        }
     }
 
     /**
@@ -60,6 +64,11 @@ class SplashActivity : BaseActivity() {
      */
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyDown(keyCode, event)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        job?.cancel()
     }
 
     companion object {

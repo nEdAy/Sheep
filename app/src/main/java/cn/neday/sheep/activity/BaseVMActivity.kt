@@ -1,9 +1,10 @@
 package cn.neday.sheep.activity
 
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import cn.neday.sheep.viewmodel.BaseViewModel
 import com.blankj.utilcode.util.LogUtils
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.lang.reflect.ParameterizedType
 
 /**
  * Activity基类 + ViewModel
@@ -12,22 +13,14 @@ import com.blankj.utilcode.util.LogUtils
  */
 abstract class BaseVMActivity<VM : BaseViewModel> : BaseActivity() {
 
-    protected lateinit var mViewModel: VM
+    @Suppress("UNCHECKED_CAST")
+    protected val mViewModel: VM by viewModel(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>).kotlin)
 
     override fun prepareInitView() {
         super.prepareInitView()
-        initProviderViewModel()
-    }
-
-    private fun initProviderViewModel() {
-        providerVMClass()?.let {
-            mViewModel = ViewModelProviders.of(this).get(it)
-            lifecycle.addObserver(mViewModel)
-        }
+        lifecycle.addObserver(mViewModel)
         mViewModel.errMsg.observe(this, Observer {
             LogUtils.e(it)
         })
     }
-
-    abstract fun providerVMClass(): Class<VM>?
 }

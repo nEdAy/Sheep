@@ -2,8 +2,8 @@ package cn.neday.sheep.network.repository
 
 import cn.neday.sheep.model.Banner
 import cn.neday.sheep.model.Response
-import cn.neday.sheep.network.RetrofitClient
-import cn.neday.sheep.network.api.BannerApi
+import cn.neday.sheep.network.ServiceManager
+import org.koin.core.context.GlobalContext.get
 
 /**
  * Banner Repository
@@ -12,9 +12,7 @@ import cn.neday.sheep.network.api.BannerApi
  */
 class BannerRepository : BaseRepository() {
 
-    private val bannerApi: BannerApi by lazy { RetrofitClient.getRetrofit(BannerApi::class.java) }
-
     suspend fun getBannerList(): Response<List<Banner>> {
-        return apiCall { bannerApi.bannerList() }
+        return apiCall { get().koin.get<ServiceManager>().bannerApi.bannerList() }
     }
 }

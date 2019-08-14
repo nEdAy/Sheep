@@ -24,8 +24,6 @@ class GoodsListFragment(private val nineType: NineType) : BaseVMFragment<GoodsLi
 
     override val layoutId: Int = R.layout.fragment_goods_list
 
-    override fun providerVMClass(): Class<GoodsListViewModel>? = GoodsListViewModel::class.java
-
     override fun initView() {
         initAdapter()
         initSwipeToRefresh()
