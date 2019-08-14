@@ -4,18 +4,14 @@ import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.model.Response
-import cn.neday.sheep.network.ServiceManager
 import cn.neday.sheep.network.api.GoodsApi
-import org.koin.core.context.GlobalContext
 
 /**
  * RankingGoods Repository
  *
  * @author nEdAy
  */
-class GoodsRepository : BaseRepository() {
-
-    private val goodsApi: GoodsApi by lazy { GlobalContext.get().koin.get<ServiceManager>().goodsApi }
+class GoodsRepository(private val goodsApi: GoodsApi) : BaseRepository() {
 
     suspend fun getRankingList(rankType: Int, cid: String): Response<List<RankingGoods>> {
         return apiCall { goodsApi.rankingList(rankType, cid) }

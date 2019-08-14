@@ -5,7 +5,7 @@ import cn.neday.sheep.config.BuglyConfig
 import cn.neday.sheep.config.LogConfig
 import cn.neday.sheep.config.UmengConfig
 import cn.neday.sheep.di.httpClientModule
-import cn.neday.sheep.di.serviceModule
+import cn.neday.sheep.di.repositoryModule
 import cn.neday.sheep.di.viewModelModule
 import cn.neday.sheep.util.AliTradeHelper
 import com.blankj.utilcode.util.ProcessUtils
@@ -61,7 +61,7 @@ class ThisApplication : Application() {
             // load properties from assets/koin.properties file
             androidFileProperties()
             // module list
-            modules(listOf(serviceModule, httpClientModule, viewModelModule))
+            modules(listOf(repositoryModule, httpClientModule, viewModelModule))
         }
         if (ProcessUtils.isMainProcess()) {
             BuglyConfig.init()

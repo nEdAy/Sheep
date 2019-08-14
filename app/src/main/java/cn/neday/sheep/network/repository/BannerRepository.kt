@@ -2,17 +2,16 @@ package cn.neday.sheep.network.repository
 
 import cn.neday.sheep.model.Banner
 import cn.neday.sheep.model.Response
-import cn.neday.sheep.network.ServiceManager
-import org.koin.core.context.GlobalContext.get
+import cn.neday.sheep.network.api.BannerApi
 
 /**
  * Banner Repository
  *
  * @author nEdAy
  */
-class BannerRepository : BaseRepository() {
+class BannerRepository(private val bannerApi: BannerApi) : BaseRepository() {
 
     suspend fun getBannerList(): Response<List<Banner>> {
-        return apiCall { get().koin.get<ServiceManager>().bannerApi.bannerList() }
+        return apiCall { bannerApi.bannerList() }
     }
 }
