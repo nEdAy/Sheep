@@ -21,7 +21,7 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
 
     val pageGoods: MutableLiveData<Pages<CommonGoods>> = MutableLiveData()
 
-    private var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
+    var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getDtkSearchGoods(keyWords: String, pageId: String = GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
         addHistoryWords(keyWords)

@@ -16,7 +16,7 @@ class GoodsListViewModel(private val repository: GoodsRepository) : BaseViewMode
 
     val pageGoods: MutableLiveData<Pages<CommonGoods>> = MutableLiveData()
 
-    private var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
+    var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getNineOpGoodsList(cid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
         mCurrentPageId = pageId
