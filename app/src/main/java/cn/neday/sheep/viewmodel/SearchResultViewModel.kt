@@ -5,11 +5,12 @@ import cn.neday.sheep.config.HawkConfig
 import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.network.repository.GoodsRepository
+import cn.neday.sheep.network.requestAsync
+import cn.neday.sheep.network.start
+import cn.neday.sheep.network.then
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orhanobut.hawk.Hawk
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.util.*
 
 /**
@@ -24,12 +25,16 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getDtkSearchGoods(keyWords: String, pageId: String = GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
-        addHistoryWords(keyWords)
-        mCurrentPageId = pageId
-        launch {
-            val response = withContext(Dispatchers.IO) { repository.getDtkSearchGoods(PAGE_SIZE, pageId, keyWords) }
-            executeResponse(response, { pageGoods.value = response.data }, { errMsg.value = response.msg })
-        }
+        start {
+            addHistoryWords(keyWords)
+            mCurrentPageId = pageId
+        }.requestAsync {
+            repository.getDtkSearchGoods(PAGE_SIZE, pageId, keyWords)
+        }.then({
+            pageGoods.value = it.data
+        }, {
+            errMsg.value = it
+        })
     }
 
     private fun addHistoryWords(keyWord: String) {
@@ -60,14 +65,13 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
 //     * @param sort 排序字段信息 销量（total_sales） 价格（price），排序_des（降序），排序_asc（升序）
 //     */
 //    fun getListSuperGoods(type: Int, keyWords: String, tmall: Int, haitao: Int, sort: String) {
-//        launch {
-//                val response = withContext(Dispatchers.IO) {
-//                    repository.getListSuperGoods(type, keyWords, tmall, haitao, sort)
-//                }
-//                executeResponse(response, {
-//                    mGoods.value = response.data
-//                }, { errMsg.value = response.msg })
-//        }
+//        requestAsync {
+//            repository.getListSuperGoods(type, keyWords, tmall, haitao, sort)
+//        }.then({
+//            pageGoods.value = it.data
+//        }, {
+//            errMsg.value = it
+//        })
 //    }
 
     companion object {

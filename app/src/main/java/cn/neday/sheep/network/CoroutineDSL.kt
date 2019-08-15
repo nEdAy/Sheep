@@ -1,12 +1,10 @@
 package cn.neday.sheep.network
 
-import androidx.lifecycle.ViewModel
 import cn.neday.sheep.R
 import cn.neday.sheep.viewmodel.BaseViewModel
 import com.blankj.utilcode.util.NetworkUtils
 import com.blankj.utilcode.util.StringUtils
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.Main
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
@@ -15,8 +13,8 @@ import java.util.concurrent.TimeoutException
  * execute in main thread
  * @param start doSomeThing first
  */
-infix fun BaseViewModel.start(start: (() -> Unit)): ViewModel {
-    GlobalScope.launch(Main) {
+infix fun BaseViewModel.start(start: (() -> Unit)): BaseViewModel {
+    GlobalScope.launch(Dispatchers.Main) {
         if (NetworkUtils.isConnected()) {
             start()
         } else {
@@ -30,7 +28,7 @@ infix fun BaseViewModel.start(start: (() -> Unit)): ViewModel {
  * execute in io thread pool
  * @param loader http request
  */
-infix fun <T> BaseViewModel.request(loader: suspend () -> T): Deferred<T> {
+infix fun <T> BaseViewModel.requestAsync(loader: suspend () -> T): Deferred<T> {
     return GlobalScope.async(Dispatchers.IO, start = CoroutineStart.LAZY) {
         loader()
     }
@@ -47,11 +45,19 @@ fun <T> Deferred<T>.then(
     onError: suspend (String) -> Unit,
     onComplete: (() -> Unit)? = null
 ): Job {
-    return GlobalScope.launch(context = Main) {
+    return GlobalScope.launch(context = Dispatchers.Main) {
         try {
             val result = this@then.await()
             onSuccess(result)
+//            if (response.code != 0) {
+//                errorBlock()
+//            } else {
+//                successBlock()
+//            }
         } catch (e: Exception) {
+//            if (e !is CancellationException) {
+//
+//            }
             e.printStackTrace()
             when (e) {
                 is UnknownHostException -> onError("network is error!")

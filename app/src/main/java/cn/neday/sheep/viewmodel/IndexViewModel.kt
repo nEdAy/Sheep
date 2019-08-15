@@ -5,8 +5,8 @@ import cn.neday.sheep.model.Banner
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.network.repository.BannerRepository
 import cn.neday.sheep.network.repository.GoodsRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import cn.neday.sheep.network.requestAsync
+import cn.neday.sheep.network.then
 
 /**
  * IndexViewModel
@@ -20,16 +20,22 @@ class IndexViewModel(private val bannerRepository: BannerRepository, private val
     val rankGoods: MutableLiveData<List<RankingGoods>> = MutableLiveData()
 
     fun getBannerList() {
-        launch {
-            val response = withContext(Dispatchers.IO) { bannerRepository.getBannerList() }
-            executeResponse(response, { banners.value = response.data }, { errMsg.value = response.msg })
-        }
+        requestAsync {
+            bannerRepository.getBannerList()
+        }.then({
+            banners.value = it.data
+        }, {
+            errMsg.value = it
+        })
     }
 
     fun getRankingList(rankType: Int, cid: String = "") {
-        launch {
-            val response = withContext(Dispatchers.IO) { goodsRepository.getRankingList(rankType, cid) }
-            executeResponse(response, { rankGoods.value = response.data }, { errMsg.value = response.msg })
-        }
+        requestAsync {
+            goodsRepository.getRankingList(rankType, cid)
+        }.then({
+            rankGoods.value = it.data
+        }, {
+            errMsg.value = it
+        })
     }
 }

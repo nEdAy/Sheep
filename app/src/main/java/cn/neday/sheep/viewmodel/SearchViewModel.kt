@@ -4,11 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import cn.neday.sheep.config.HawkConfig
 import cn.neday.sheep.model.HotWords
 import cn.neday.sheep.network.repository.CategoryRepository
+import cn.neday.sheep.network.requestAsync
+import cn.neday.sheep.network.start
+import cn.neday.sheep.network.then
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.orhanobut.hawk.Hawk
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.util.*
 
 /**
@@ -26,19 +27,16 @@ class SearchViewModel(private val repository: CategoryRepository) : BaseViewMode
      * 该接口提供了昨日CMS端大淘客采集统计的前100名搜索热词
      */
     fun getHotWords() {
-        val hotWords: HotWords? = Hawk.get(HawkConfig.HOTWORDS)
-        if (hotWords != null) {
-            this.hotWords.value = hotWords
-        }
-        launch {
-            val response = withContext(Dispatchers.IO) {
-                repository.getTop100()
-            }
-            executeResponse(response, {
-                this@SearchViewModel.hotWords.value = response.data
-                Hawk.put(HawkConfig.HOTWORDS, response.data)
-            }, { errMsg.value = response.msg })
-        }
+        start {
+            hotWords.value = Hawk.get(HawkConfig.HOTWORDS) as? HotWords?
+        }.requestAsync {
+            repository.getTop100()
+        }.then({
+            hotWords.value = it.data
+            Hawk.put(HawkConfig.HOTWORDS, it.data)
+        }, {
+            errMsg.value = it
+        })
     }
 
     fun getHistoryWords() {

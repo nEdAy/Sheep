@@ -3,8 +3,8 @@ package cn.neday.sheep.viewmodel
 import androidx.lifecycle.MutableLiveData
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.network.repository.GoodsRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import cn.neday.sheep.network.requestAsync
+import cn.neday.sheep.network.then
 
 /**
  * RankingListViewModel
@@ -16,9 +16,12 @@ class RankingListViewModel(private val repository: GoodsRepository) : BaseViewMo
     val rankGoods: MutableLiveData<List<RankingGoods>> = MutableLiveData()
 
     fun getRankingList(rankType: Int, cid: String = "") {
-        launch {
-            val response = withContext(Dispatchers.IO) { repository.getRankingList(rankType, cid) }
-            executeResponse(response, { rankGoods.value = response.data }, { errMsg.value = response.msg })
-        }
+        requestAsync {
+            repository.getRankingList(rankType, cid)
+        }.then({
+            rankGoods.value = it.data
+        }, {
+            errMsg.value = it
+        })
     }
 }

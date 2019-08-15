@@ -4,8 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.network.repository.GoodsRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import cn.neday.sheep.network.requestAsync
+import cn.neday.sheep.network.start
+import cn.neday.sheep.network.then
 
 /**
  * GoodsListViewModel
@@ -19,11 +20,15 @@ class GoodsListViewModel(private val repository: GoodsRepository) : BaseViewMode
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getNineOpGoodsList(cid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
-        mCurrentPageId = pageId
-        launch {
-            val response = withContext(Dispatchers.IO) { repository.getNineOpGoodsList(PAGE_SIZE, pageId, cid) }
-            executeResponse(response, { pageGoods.value = response.data }, { errMsg.value = response.msg })
-        }
+        start {
+            mCurrentPageId = pageId
+        }.requestAsync {
+            repository.getNineOpGoodsList(PAGE_SIZE, pageId, cid)
+        }.then({
+            pageGoods.value = it.data
+        }, {
+            errMsg.value = it
+        })
     }
 
     companion object {
