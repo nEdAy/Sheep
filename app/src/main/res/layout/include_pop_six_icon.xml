@@ -17,7 +17,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/tx_share"
+                android:text="@string/ssdk_oks_share"
                 android:textSize="@dimen/global_mid_text_size"/>
 
         <TextView
@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="14dp"
                 android:gravity="center"
-                android:text="@string/tx_cancel"
+                android:text="@string/ssdk_oks_cancel"
                 android:textSize="@dimen/global_mid_text_size"/>
     </RelativeLayout>
 
@@ -57,14 +57,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_wechat"
+                    android:src="@drawable/ssdk_oks_classic_wechat"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="微信好友"
+                    android:text="@string/ssdk_wechat"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
@@ -80,14 +80,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_wechatf"
+                    android:src="@drawable/ssdk_oks_classic_wechatmoments"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="朋友圈"
+                    android:text="@string/ssdk_wechatmoments"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
@@ -103,14 +103,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_qzone"
+                    android:src="@drawable/ssdk_oks_classic_wechatfavorite"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="微信收藏"
+                    android:text="@string/ssdk_wechatfavorite"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
@@ -135,14 +135,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_qq"
+                    android:src="@drawable/ssdk_oks_classic_qq"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="QQ好友"
+                    android:text="@string/ssdk_qq"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
@@ -158,14 +158,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_sina_weibo"
+                    android:src="@drawable/ssdk_oks_classic_sinaweibo"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="新浪微博"
+                    android:text="@string/ssdk_sinaweibo"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
@@ -181,14 +181,14 @@
             <ImageView
                     android:layout_width="50.0dp"
                     android:layout_height="50.0dp"
-                    android:background="@drawable/ic_sms"
+                    android:src="@drawable/ssdk_oks_classic_shortmessage"
                     tools:ignore="ContentDescription"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10.0dp"
-                    android:text="短信"
+                    android:text="@string/ssdk_shortmessage"
                     android:textColor="@color/textColor"/>
         </LinearLayout>
 
