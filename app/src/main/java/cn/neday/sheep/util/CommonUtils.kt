@@ -84,7 +84,7 @@ object CommonUtils {
                 // addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             })
             true
-        } catch (e: Exception) {
+        } catch (e: RuntimeException) {
             // 未安装手Q或安装的版本不支持
             false
         }

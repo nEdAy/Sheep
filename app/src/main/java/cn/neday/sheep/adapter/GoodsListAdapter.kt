@@ -38,6 +38,6 @@ class GoodsListAdapter : BaseQuickAdapter<Goods, BaseViewHolder>(R.layout.list_i
             .setGone(R.id.lv_text, goods.monthSales ?: 0 >= 20000)
             .addOnClickListener(R.id.ll_get, R.id.tx_buy_url)
 
-        (helper.getView(R.id.iv_img_shower) as ImageView).load(goods.getPicUrl())
+        (helper.getView(R.id.iv_img_shower) as? ImageView)?.load(goods.getPicUrl())
     }
 }

@@ -55,8 +55,7 @@ class RiseNumberTextView : AppCompatTextView, IRiseNumber {
                 mDecimalFormat?.format(java.lang.Float.parseFloat(valueAnimator1.animatedValue.toString()).toDouble())
             if (valueAnimator1.animatedFraction >= 1) {
                 mPlayingState = STOPPED
-                if (mEndListener != null)
-                    mEndListener!!.onEndFinish()
+                mEndListener?.onEndFinish()
             }
         }
         valueAnimator.start()

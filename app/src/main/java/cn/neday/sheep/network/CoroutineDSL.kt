@@ -1,5 +1,6 @@
 package cn.neday.sheep.network
 
+import androidx.lifecycle.viewModelScope
 import cn.neday.sheep.R
 import cn.neday.sheep.viewmodel.BaseViewModel
 import com.blankj.utilcode.util.NetworkUtils
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeoutException
  * @param start doSomeThing first
  */
 infix fun BaseViewModel.start(start: (() -> Unit)): BaseViewModel {
-    GlobalScope.launch(Dispatchers.Main) {
+    viewModelScope.launch(Dispatchers.Main) {
         if (NetworkUtils.isConnected()) {
             start()
         } else {
@@ -29,7 +30,7 @@ infix fun BaseViewModel.start(start: (() -> Unit)): BaseViewModel {
  * @param loader http request
  */
 infix fun <T> BaseViewModel.requestAsync(loader: suspend () -> T): Deferred<T> {
-    return GlobalScope.async(Dispatchers.IO, start = CoroutineStart.LAZY) {
+    return viewModelScope.async(Dispatchers.IO, start = CoroutineStart.LAZY) {
         loader()
     }
 }

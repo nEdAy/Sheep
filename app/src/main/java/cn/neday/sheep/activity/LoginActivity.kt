@@ -255,8 +255,10 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
                         tv_request_verification_code.isEnabled = true
                         et_mobile.isEnabled = true
                         tv_request_verification_code.text = getString(R.string.tx_please_retry)
-                        ToastUtils.showShort((data as Throwable).message)
-                        data.printStackTrace()
+                        if (data is Throwable) {
+                            ToastUtils.showShort(data.message)
+                            data.printStackTrace()
+                        }
                     }
                 }
             }

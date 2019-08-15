@@ -22,7 +22,7 @@ class GoodsDetailsActivity : BaseActivity(R.layout.activity_goods_details) {
     @SuppressLint("SetTextI18n")
     override fun initView() {
         // TODO: 部分属性 RankingGoods 缺失
-        val goods = intent.extras?.get(extra) as Goods?
+        val goods = intent.extras?.get(extra) as? Goods?
         if (goods == null) {
             ActivityUtils.finishActivity(this)
             return

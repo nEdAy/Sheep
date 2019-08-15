@@ -48,7 +48,7 @@ class RankingListFragment(private val rankType: RankType) :
     }
 
     private fun addEmptyView(adapter: GoodsListAdapter) {
-        adapter.setEmptyView(R.layout.include_no_data, rv_goods.parent.parent as ViewGroup)
+        adapter.setEmptyView(R.layout.include_no_data, rv_goods.parent as ViewGroup)
         adapter.emptyView.setOnClickListener { loadInitial() }
     }
 
