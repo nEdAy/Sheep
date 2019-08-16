@@ -165,13 +165,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <com.flyco.labelview.LabelView
-            android:id="@+id/lv_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            app:lv_background_color="@color/red"
-            app:lv_text="HOT"
-            app:lv_text_size="@dimen/global_small_text_size"/>
 </androidx.cardview.widget.CardView>
