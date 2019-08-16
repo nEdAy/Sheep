@@ -43,5 +43,6 @@ class NineGoodsFragment : BaseFragment(R.layout.fragment_main_nine_goods) {
         TabLayoutMediator(tl_nine, vp2_nine) { tab, position ->
             tab.text = fragmentTitleList[position]
         }.attach()
+        vp2_nine.offscreenPageLimit = 1
     }
 }

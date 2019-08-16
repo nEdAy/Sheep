@@ -31,6 +31,6 @@ class RankingGoodsFragment : BaseFragment(R.layout.fragment_main_ranking_goods) 
         TabLayoutMediator(tl_ranking, vp2_ranking) { tab, position ->
             tab.text = fragmentTitleList[position]
         }.attach()
-        vp2_ranking.currentItem = 1
+        vp2_ranking.offscreenPageLimit = 1
     }
 }
