@@ -25,6 +25,7 @@ class MainActivity : BaseVMActivity<MainViewModel>(R.layout.activity_main) {
 
     override fun initView() {
         nav_main.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        nav_main.selectedItemId = R.id.navigation_index
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
