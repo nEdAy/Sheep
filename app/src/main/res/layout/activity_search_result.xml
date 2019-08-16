@@ -23,5 +23,8 @@
             app:rightImageResource="@drawable/ic_search_white_24dp"
             app:rightType="imageButton"/>
 
-    <include layout="@layout/include_anything_list"/>
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 </LinearLayout>

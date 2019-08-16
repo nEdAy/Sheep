@@ -6,7 +6,7 @@ import android.view.View
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.AboutActivity
 import cn.neday.sheep.activity.LoginActivity
-import cn.neday.sheep.config.HawkConfig.TOKEN
+import cn.neday.sheep.config.MMKVConfig.TOKEN
 import cn.neday.sheep.enum.OrderType
 import cn.neday.sheep.model.User
 import cn.neday.sheep.util.AliTradeHelper
@@ -15,11 +15,11 @@ import cn.neday.sheep.util.ClipboardUtils
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.view.ShareDialog
 import com.blankj.utilcode.util.ActivityUtils
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.flyco.dialog.listener.OnBtnClickL
 import com.flyco.dialog.widget.NormalDialog
-import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.fragment_main_me.*
 
 /**
@@ -94,7 +94,7 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
      * 更新用户信息、点击状态、换皮肤
      */
     private fun initUserInfoAndChangeSkin() {
-        val isTokenEmpty = TextUtils.isEmpty(Hawk.get(TOKEN))
+        val isTokenEmpty = StringUtils.isTrimEmpty(kv.decodeString(TOKEN))
         if (!isTokenEmpty) {
 //            getUserInfo(mCurrentUser.id)
             rl_top.visibility = View.VISIBLE
@@ -107,7 +107,7 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
             rl_credits.visibility = View.GONE
             tv_login.visibility = View.VISIBLE
         }
-        val selfCenterBgIndex = Hawk.get("self_center_bg_index", 0)
+        val selfCenterBgIndex = kv.decodeInt("self_center_bg_index", 0)
         iv_damp.setImageResource(selfCenterBgResIDs[selfCenterBgIndex])
     }
 

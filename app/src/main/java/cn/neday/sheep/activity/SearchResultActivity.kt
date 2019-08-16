@@ -1,6 +1,8 @@
 package cn.neday.sheep.activity
 
+import androidx.fragment.app.commit
 import cn.neday.sheep.R
+import cn.neday.sheep.fragment.SearchResultFragment
 import cn.neday.sheep.viewmodel.SearchResultViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
@@ -17,9 +19,7 @@ class SearchResultActivity : BaseVMActivity<SearchResultViewModel>(R.layout.acti
         val keyWord = intent.extras?.get(EXTRA) as String?
         keyWord?.let {
             initSearchBar(keyWord)
-//            initAdapter(keyWord)
-//            initSwipeToRefresh(keyWord)
-//            loadInitial(keyWord)
+            initFragment(keyWord)
         } ?: ActivityUtils.finishActivity(this)
     }
 
@@ -34,6 +34,11 @@ class SearchResultActivity : BaseVMActivity<SearchResultViewModel>(R.layout.acti
         }
     }
 
+    private fun initFragment(keyWord: String) {
+        supportFragmentManager.commit(allowStateLoss = true) {
+            replace(R.id.fragment, SearchResultFragment(keyWord))
+        }
+    }
 
     companion object {
 

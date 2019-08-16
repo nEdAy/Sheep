@@ -12,12 +12,11 @@ import com.blankj.utilcode.util.ProcessUtils
 import com.blankj.utilcode.util.Utils
 import com.didichuxing.doraemonkit.DoraemonKit
 import com.mob.MobSDK
-import com.orhanobut.hawk.Hawk
+import com.tencent.mmkv.MMKV
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -66,7 +65,7 @@ class ThisApplication : Application() {
         if (ProcessUtils.isMainProcess()) {
             BuglyConfig.init()
             AliTradeHelper.asyncInit()
-            Hawk.init(this).build()
+            MMKV.initialize(this)
             DoraemonKit.install(this)
             MobSDK.init(this)
         }

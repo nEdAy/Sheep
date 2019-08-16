@@ -2,13 +2,12 @@ package cn.neday.sheep.activity
 
 import android.view.KeyEvent
 import cn.neday.sheep.R
+import cn.neday.sheep.config.MMKVConfig.IS_FIRST_START_APP
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.DeviceUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.orhanobut.hawk.Hawk
 import kotlinx.coroutines.*
-
 
 /**
  * 启动页
@@ -48,7 +47,7 @@ class SplashActivity : BaseActivity(null) {
      * 检测是否是第一次启动并指定跳转页
      */
     private fun startNextActivity() {
-        val userFirst = Hawk.get("isFirstStartApp", true)
+        val userFirst = kv.decodeBool(IS_FIRST_START_APP, true)
         if (userFirst) {
             ActivityUtils.startActivity(GuideActivity::class.java)
         } else {

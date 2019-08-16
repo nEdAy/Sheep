@@ -3,7 +3,7 @@ package cn.neday.sheep.viewmodel
 import androidx.lifecycle.MutableLiveData
 import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
 import cn.neday.sheep.PAGE_SIZE
-import cn.neday.sheep.config.HawkConfig
+import cn.neday.sheep.config.MMKVConfig
 import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
 import cn.neday.sheep.network.repository.GoodsRepository
@@ -12,7 +12,6 @@ import cn.neday.sheep.network.start
 import cn.neday.sheep.network.then
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.orhanobut.hawk.Hawk
 import java.util.*
 
 /**
@@ -23,7 +22,6 @@ import java.util.*
 class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewModel() {
 
     val pageGoods: MutableLiveData<Pages<CommonGoods>> = MutableLiveData()
-
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getDtkSearchGoods(keyWords: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
@@ -42,7 +40,7 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
     }
 
     private fun addHistoryWords(keyWord: String) {
-        val historyWordsString: String? = Hawk.get(HawkConfig.HISTORY_WORDS)
+        val historyWordsString: String? = kv.decodeString(MMKVConfig.HISTORY_WORDS)
         var historyWords: LinkedHashSet<String> = linkedSetOf()
         if (historyWordsString != null) {
             historyWords = Gson().fromJson(historyWordsString, object : TypeToken<LinkedHashSet<String>>() {}.type)
@@ -55,7 +53,7 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
         }
         // 加入新的keyword
         historyWords.add(keyWord)
-        Hawk.put(HawkConfig.HISTORY_WORDS, Gson().toJson(historyWords))
+        kv.encode(MMKVConfig.HISTORY_WORDS, Gson().toJson(historyWords))
     }
 
 //    /**

@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import cn.neday.sheep.R
-import cn.neday.sheep.config.HawkConfig.MOBILE
-import cn.neday.sheep.config.HawkConfig.TOKEN
+import cn.neday.sheep.config.MMKVConfig.MOBILE
+import cn.neday.sheep.config.MMKVConfig.TOKEN
 import cn.neday.sheep.config.UrlConfig
 import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.util.CommonUtils
@@ -18,7 +18,6 @@ import cn.smssdk.SMSSDK
 import com.blankj.utilcode.util.*
 import com.flyco.dialog.listener.OnBtnClickL
 import com.flyco.dialog.widget.NormalDialog
-import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
@@ -41,8 +40,8 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
         initClickView()
         initFocusChangeView()
         mViewModel.user.observe(this, Observer {
-            Hawk.put(TOKEN, it.token)
-            Hawk.put(MOBILE, it.mobile)
+            kv.encode(TOKEN, it.token)
+            kv.encode(MOBILE, it.mobile)
             ActivityUtils.finishActivity(this)
         })
         mViewModel.errMsg.observe(this, Observer {
@@ -106,7 +105,7 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
     }
 
     private fun initEditViewByLastMobile() {
-        val mobile = Hawk.get<String>(MOBILE)
+        val mobile = kv.decodeString(MOBILE)
         if (!StringUtils.isTrimEmpty(mobile)) {
             et_mobile.setText(mobile)
             et_password.isFocusable = true

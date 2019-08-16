@@ -1,15 +1,13 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import cn.neday.sheep.config.HawkConfig
-import cn.neday.sheep.model.HotWords
+import cn.neday.sheep.config.MMKVConfig
 import cn.neday.sheep.network.repository.CategoryRepository
 import cn.neday.sheep.network.requestAsync
 import cn.neday.sheep.network.start
 import cn.neday.sheep.network.then
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.orhanobut.hawk.Hawk
 import java.util.*
 
 /**
@@ -19,7 +17,7 @@ import java.util.*
  */
 class SearchViewModel(private val repository: CategoryRepository) : BaseViewModel() {
 
-    val hotWords: MutableLiveData<HotWords> = MutableLiveData()
+    val hotWords: MutableLiveData<Set<String>> = MutableLiveData()
     val historyWords: MutableLiveData<LinkedHashSet<String>> = MutableLiveData()
 
     /**
@@ -28,33 +26,33 @@ class SearchViewModel(private val repository: CategoryRepository) : BaseViewMode
      */
     fun getHotWords() {
         start {
-            hotWords.value = Hawk.get(HawkConfig.HOTWORDS) as? HotWords?
+            hotWords.value = kv.decodeStringSet(MMKVConfig.HOTWORDS)
         }.requestAsync {
             repository.getTop100()
         }.then({
-            hotWords.value = it.data
-            Hawk.put(HawkConfig.HOTWORDS, it.data)
+            hotWords.value = it.data?.hotWords
+            kv.encode(MMKVConfig.HOTWORDS, it.data?.hotWords ?: setOf())
         }, {
             errMsg.value = it
         })
     }
 
     fun getHistoryWords() {
-        val historyWordsJson: String? = Hawk.get(HawkConfig.HISTORY_WORDS)
+        val historyWordsJson: String? = kv.decodeString(MMKVConfig.HISTORY_WORDS)
         historyWords.value = Gson().fromJson(historyWordsJson, object : TypeToken<LinkedHashSet<String>>() {}.type)
     }
 
     fun removeHistoryWords(keyWords: String) {
-        val historyWordsJson: String? = Hawk.get(HawkConfig.HISTORY_WORDS)
+        val historyWordsJson: String? = kv.decodeString(MMKVConfig.HISTORY_WORDS)
         val historyWords: LinkedHashSet<String> =
             Gson().fromJson(historyWordsJson, object : TypeToken<LinkedHashSet<String>>() {}.type)
         historyWords.remove(keyWords)
-        Hawk.put(HawkConfig.HISTORY_WORDS, Gson().toJson(historyWords))
+        kv.encode(MMKVConfig.HISTORY_WORDS, Gson().toJson(historyWords))
         this.historyWords.value = historyWords
     }
 
     fun cleanHistoryWords() {
         historyWords.value = null
-        Hawk.delete(HawkConfig.HISTORY_WORDS)
+        kv.removeValueForKey(MMKVConfig.HISTORY_WORDS)
     }
 }

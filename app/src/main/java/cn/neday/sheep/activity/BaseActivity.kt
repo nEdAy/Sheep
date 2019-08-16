@@ -9,7 +9,7 @@ import com.ali.auth.third.login.LoginConstants.TOKEN
 import com.alibaba.baichuan.android.trade.AlibcTradeSDK
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.StringUtils
-import com.orhanobut.hawk.Hawk
+import com.tencent.mmkv.MMKV
 import com.umeng.analytics.MobclickAgent
 
 /**
@@ -19,13 +19,15 @@ import com.umeng.analytics.MobclickAgent
  */
 abstract class BaseActivity(@get:LayoutRes val layoutId: Int?) : AppCompatActivity() {
 
+    val kv: MMKV = MMKV.defaultMMKV()
+
     open val isCheckLogin = false
 
     lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (isCheckLogin && StringUtils.isTrimEmpty(Hawk.get(TOKEN))) {
+        if (isCheckLogin && StringUtils.isTrimEmpty(kv.decodeString(TOKEN))) {
             ActivityUtils.startActivity(LoginActivity::class.java)
             ActivityUtils.finishActivity(this)
         }

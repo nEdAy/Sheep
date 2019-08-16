@@ -87,7 +87,7 @@ class SearchActivity : BaseVMActivity<SearchViewModel>(R.layout.activity_search)
         rv_search_hot_words.adapter = hotWordsListAdapter
         rv_search_hot_words.layoutManager = getFlexboxLayoutManager()
         mViewModel.hotWords.observe(this, Observer {
-            hotWordsListAdapter.setNewData(it?.hotWords?.reversed())
+            hotWordsListAdapter.setNewData(it?.reversed())
         })
     }
 

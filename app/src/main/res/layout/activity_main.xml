@@ -21,30 +21,14 @@
             android:id="@+id/nav_main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.Design.BottomNavigationView"
             app:itemIconTint="@color/colorPrimary"
             app:itemTextColor="@color/colorPrimaryDark"
+            app:labelVisibilityMode="labeled"
             android:background="?android:attr/windowBackground"
             app:layout_constraintTop_toBottomOf="@+id/fl_main"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_nav_menu"/>
-
-    <!--<com.flyco.tablayout.CommonTabLayout-->
-    <!--android:id="@+id/tl_main_tab"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@android:color/white"-->
-    <!--android:paddingBottom="5dp"-->
-    <!--android:paddingTop="7dp"-->
-    <!--app:tl_textSelectColor="@color/red"-->
-    <!--app:tl_textUnselectColor="@color/textColor"-->
-    <!--app:tl_textsize="@dimen/global_small_text_size"-->
-    <!--app:tl_underline_color="@color/lineColor"-->
-    <!--app:tl_underline_gravity="TOP"-->
-    <!--app:tl_underline_height="@dimen/divide_line_height"-->
-    <!--app:layout_constraintTop_toBottomOf="@+id/fl_main_content"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

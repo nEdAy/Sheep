@@ -83,33 +83,33 @@ Sheep, A pure shopping guide App based on Kotlin + MVVM + Retrofit + Kotlinx-Cor
 
 ### UI
 
-* [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
-
 * Constraintlayout
 
-* Material + Recyclerview + Cardview
+* Material
 
 ### Others
 
+* [Kotlinx Coroutines: Library support for Kotlin coroutines.](https://github.com/Kotlin/kotlinx.coroutines)
+
 * [Glide: An image loading and caching library for Android focused on smooth scrolling](https://github.com/bumptech/glide)
 
-* [Flexbox-layout:A library project which brings the similar capabilities of CSS Flexible Box Layout Module to Android.](https://github.com/google/flexbox-layout)
+* [Flexbox Layout:A library project which brings the similar capabilities of CSS Flexible Box Layout Module to Android.](https://github.com/google/flexbox-layout)
 
-* Kotlinx-Coroutines & Gson
+* [MMKV: An efficient, small mobile key-value storage framework developed by WeCha.](https://github.com/Tencent/MMKV)
+
+* [Moshi: A modern JSON library for Kotlin and Java.](https://github.com/square/moshi)
+
+* [Chuck: An in-app HTTP inspector for Android OkHttp clients](https://github.com/jgilfelt/chuck)
+
+* [Doraemonkit: A full-featured App (iOS & Android) development assistant.](https://github.com/didi/DoraemonKit)
+
+* [Android Debug Database: A library for debugging android databases and shared preferences.](https://github.com/amitshekhariitbhu/Android-Debug-Database)
 
 * Bugly CrashReport & Upgrade
-
-* Hawk secure key-value storage
 
 * Umeng Analytics
 
 * 阿里百川
-
-* Android Debug Database
-
-* Chuck - http log/debug
-
-* Doraemonkit
 
 ## Update Log
 
