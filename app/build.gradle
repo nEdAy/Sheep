@@ -23,8 +23,8 @@ android {
         applicationId "cn.neday.sheep"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode Integer.parseInt(String.valueOf(VERSION_MAJOR) + String.valueOf(VERSION_MINOR).padLeft(2, "0") + String.valueOf(VERSION_PATCH).padLeft(3, "0"))
-        versionName "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
+        versionCode 300000
+        versionName "3.0.0"
         resConfigs "zh"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -54,13 +54,8 @@ android {
         }
     }
     dexOptions {
-        // incremental true
-        jumboMode true
         preDexLibraries true
         maxProcessCount 8
-        // Instead of setting the heap size for the DEX process, increase Gradle's
-        // heap size to enable dex-in-process. To learn more, read the next section.
-        javaMaxHeapSize "4g"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -71,6 +66,15 @@ android {
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
+    }
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            variant.outputs.all { output ->
+                output.setVersionNameOverride("${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+                output.setVersionCodeOverride(Integer.parseInt(String.valueOf(VERSION_MAJOR) + String.valueOf(VERSION_MINOR).padLeft(2, "0") + String.valueOf(VERSION_PATCH).padLeft(3, "0")))
+                // outputFileName = "${variant.name}-${variant.versionName}.apk"
+            }
+        }
     }
 }
 
