@@ -1,7 +1,7 @@
 package cn.neday.sheep.view
 
-import android.net.Uri
 import android.widget.ImageView
+import androidx.core.net.toUri
 import cn.neday.sheep.R
 import com.blankj.utilcode.util.NetworkUtils
 import com.bumptech.glide.Glide
@@ -12,14 +12,14 @@ fun ImageView.load(url: String?) {
     Glide.with(context)
         .load(
             if (NetworkUtils.is4G()) {
-                Uri.parse(url + "_200x200.jpg")
+                (url + "_200x200.jpg").toUri()
             } else {
-                Uri.parse(url + "_300x300.jpg")
+                (url + "_300x300.jpg").toUri()
             }
         )
         .thumbnail(
             Glide.with(context)
-                .load(Uri.parse(url + "_100x100.jpg"))
+                .load((url + "_100x100.jpg").toUri())
         )
         .apply(
             RequestOptions().transform(RoundedCorners(10))

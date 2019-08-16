@@ -1,8 +1,8 @@
 package cn.neday.sheep.fragment
 
-import android.net.Uri
 import android.text.TextUtils
 import android.view.View
+import androidx.core.net.toUri
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.AboutActivity
 import cn.neday.sheep.activity.LoginActivity
@@ -162,7 +162,7 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
      */
     private fun refreshAvatar(avatarUrl: String?) {
         if (avatarUrl != null && avatarUrl != "") {
-            val avatarUri = Uri.parse(avatarUrl)
+            val avatarUri = avatarUrl.toUri()
             Glide.with(this)
                 .load(avatarUri)
                 .into(iv_user_avatar)

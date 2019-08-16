@@ -1,11 +1,11 @@
 package cn.neday.sheep.view
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.core.net.toUri
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Banner
 import com.bumptech.glide.Glide
@@ -29,7 +29,7 @@ class IndexBanner @JvmOverloads constructor(context: Context, attrs: AttributeSe
             val ivBanner = inflate.findViewById<ImageView>(R.id.iv_banner)
             ivBanner.layoutParams = LinearLayout.LayoutParams(itemWidth, itemHeight)
             Glide.with(this)
-                .load(Uri.parse(data.picture))
+                .load(data.picture?.toUri())
                 .override(itemWidth, itemHeight)
                 .centerCrop()
                 .into(ivBanner)
