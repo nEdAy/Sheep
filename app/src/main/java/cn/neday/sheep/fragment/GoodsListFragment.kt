@@ -6,56 +6,41 @@ import androidx.lifecycle.Observer
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.GoodsDetailsActivity
 import cn.neday.sheep.adapter.GoodsListAdapter
-import cn.neday.sheep.enum.NineType
-import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Goods
-import cn.neday.sheep.model.Pages
 import cn.neday.sheep.util.AliTradeHelper
-import cn.neday.sheep.util.CommonUtils.changePressedViewBg
-import cn.neday.sheep.viewmodel.GoodsListViewModel
+import cn.neday.sheep.util.CommonUtils
+import cn.neday.sheep.viewmodel.BaseViewModel
 import com.blankj.utilcode.util.ActivityUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import kotlinx.android.synthetic.main.include_anything_list.*
 
-/**
- * 超值精选
- */
-class GoodsListFragment(private val nineType: NineType) :
-    BaseVMFragment<GoodsListViewModel>(R.layout.fragment_goods_list) {
+abstract class GoodsListFragment<VM : BaseViewModel>(layoutId: Int) : BaseVMFragment<VM>(layoutId) {
+
+    val adapter = GoodsListAdapter()
 
     override fun initView() {
         initAdapter()
         initSwipeToRefresh()
-        loadInitial(nineType)
+        loadInitial()
     }
 
-    private fun initAdapter() {
-        val adapter = GoodsListAdapter()
+    open fun initAdapter() {
         adapter.bindToRecyclerView(rv_goods)
         addEmptyView(adapter)
         addClickListener(adapter)
-        adapter.setPreLoadNumber(PREFETCH_DISTANCE)
-        adapter.setOnLoadMoreListener({
-            mViewModel.getNineOpGoodsList(nineType.index.toString(), mViewModel.mCurrentPageId)
-        }, rv_goods)
-        mViewModel.pageGoods.observe(this, Observer<Pages<CommonGoods>> {
-            if (adapter.itemCount >= it.totalNum ?: 0) {
-                adapter.loadMoreEnd()
-            } else {
-                setAdapterData(adapter, it)
-                mViewModel.mCurrentPageId = it.pageId ?: GoodsListViewModel.LOAD_INITIAL_PAGE_ID
-                adapter.loadMoreComplete()
-            }
-        })
         mViewModel.errMsg.observe(this, Observer {
-            srl_goods.isRefreshing = false
+            ToastUtils.showShort(it)
             adapter.loadMoreFail()
+        })
+        mViewModel.onComplete.observe(this, Observer {
+            srl_goods.isRefreshing = false
         })
     }
 
     private fun addEmptyView(adapter: GoodsListAdapter) {
-        adapter.setEmptyView(R.layout.include_no_data, rv_goods.parent.parent as ViewGroup)
-        adapter.emptyView.setOnClickListener { loadInitial(nineType) }
+        adapter.setEmptyView(R.layout.include_no_data, rv_goods.parent as ViewGroup)
+        adapter.emptyView.setOnClickListener { loadInitial() }
     }
 
     private fun addClickListener(listAdapter: GoodsListAdapter) {
@@ -76,37 +61,20 @@ class GoodsListFragment(private val nineType: NineType) :
                 when (view.id) {
                     R.id.ll_get -> {
                         AliTradeHelper(activity).showItemURLPage(goods.couponLink)
-                        changePressedViewBg(view, R.drawable.bg_get_btn, R.drawable.bg_get_btn_pressed)
+                        CommonUtils.changePressedViewBg(view, R.drawable.bg_get_btn, R.drawable.bg_get_btn_pressed)
                     }
                     R.id.tx_buy_url -> {
                         AliTradeHelper(activity).showDetailPage(goods.goodsId)
-                        changePressedViewBg(view, R.drawable.bg_buy_btn, R.drawable.bg_buy_btn_pressed)
+                        CommonUtils.changePressedViewBg(view, R.drawable.bg_buy_btn, R.drawable.bg_buy_btn_pressed)
                     }
                 }
             }
     }
 
-    private fun setAdapterData(adapter: GoodsListAdapter, data: Pages<CommonGoods>) {
-        if (mViewModel.mCurrentPageId == GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
-            srl_goods.isRefreshing = false
-            adapter.setNewData(data.list)
-            adapter.disableLoadMoreIfNotFullPage()
-        } else {
-            data.list?.let { adapter.addData(it) }
-        }
-    }
-
     private fun initSwipeToRefresh() {
         srl_goods.setColorSchemeResources(R.color.red, R.color.orange, R.color.green, R.color.blue)
-        srl_goods.setOnRefreshListener { loadInitial(nineType) }
+        srl_goods.setOnRefreshListener { loadInitial() }
     }
 
-    private fun loadInitial(nineType: NineType) {
-        mViewModel.getNineOpGoodsList(nineType.index.toString())
-    }
-
-    companion object {
-
-        private const val PREFETCH_DISTANCE = 20
-    }
+    abstract fun loadInitial()
 }

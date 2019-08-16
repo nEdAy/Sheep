@@ -1,8 +1,8 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import cn.neday.sheep.SingleLiveEvent
 
 /**
  * ViewModel基类
@@ -11,5 +11,7 @@ import androidx.lifecycle.ViewModel
  */
 open class BaseViewModel : ViewModel(), LifecycleObserver {
 
-    val errMsg: MutableLiveData<String> = MutableLiveData()
+    val errMsg = SingleLiveEvent<String>()
+
+    val onComplete = SingleLiveEvent<Unit>()
 }

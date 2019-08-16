@@ -2,39 +2,60 @@ package cn.neday.sheep.activity
 
 import android.view.KeyEvent
 import cn.neday.sheep.R
-import cn.neday.sheep.fragment.GoodsFragment
 import cn.neday.sheep.fragment.IndexFragment
 import cn.neday.sheep.fragment.MeFragment
-import cn.neday.sheep.fragment.RankingFragment
+import cn.neday.sheep.fragment.NineGoodsFragment
+import cn.neday.sheep.fragment.RankingGoodsFragment
+import cn.neday.sheep.viewmodel.MainViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.flyco.dialog.widget.ActionSheetDialog
-import com.flyco.tablayout.listener.CustomTabEntity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tencent.bugly.beta.Beta
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 /**
  * 主页
  *
  * @author nEdAy
  */
-class MainActivity : BaseActivity(R.layout.activity_main) {
+class MainActivity : BaseVMActivity<MainViewModel>(R.layout.activity_main) {
 
     private var mPressedBackTime = 0L
 
     override fun initView() {
-        val tabEntities = ArrayList<CustomTabEntity>()
-        val tabEntitiesArray = resources.getStringArray(R.array.tab_entities_array)
-        for (index in 0 until tabEntitiesArray.size) {
-            tabEntities.add(TabEntity(tabEntitiesArray[index], iconSelectResIDs[index], iconUnSelectResIDs[index]))
+        nav_main.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+    }
+
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        loadFragment(item.itemId)
+        true
+    }
+
+    private fun loadFragment(itemId: Int) {
+        val tag = itemId.toString()
+        val fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
+            R.id.navigation_index -> IndexFragment()
+            R.id.navigation_ranking -> RankingGoodsFragment()
+            R.id.navigation_nine -> NineGoodsFragment()
+            R.id.navigation_me -> MeFragment()
+            else -> null
         }
-        tl_main_tab.setTabData(
-            tabEntities,
-            this,
-            R.id.fl_main_content,
-            arrayListOf(IndexFragment(), RankingFragment(), GoodsFragment(), MeFragment())
-        )
+        if (fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            if (mViewModel.mLastActiveFragmentTag != null) {
+                val lastFragment = supportFragmentManager.findFragmentByTag(mViewModel.mLastActiveFragmentTag)
+                if (lastFragment != null)
+                    transaction.hide(lastFragment)
+            }
+            if (!fragment.isAdded) {
+                transaction.add(R.id.fl_main, fragment, tag)
+            } else {
+                transaction.show(fragment)
+            }
+            transaction.commit()
+            mViewModel.mLastActiveFragmentTag = tag
+        }
     }
 
     /**
@@ -73,39 +94,8 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         }
     }
 
-    internal class TabEntity(
-        private val title: String,
-        private val selectedIcon: Int,
-        private val unSelectedIcon: Int
-    ) : CustomTabEntity {
-
-        override fun getTabTitle(): String {
-            return title
-        }
-
-        override fun getTabSelectedIcon(): Int {
-            return selectedIcon
-        }
-
-        override fun getTabUnselectedIcon(): Int {
-            return unSelectedIcon
-        }
-    }
-
     companion object {
 
         private const val SAFE_PRESSED_BACK_TIME = 2000
-        private val iconSelectResIDs = intArrayOf(
-            R.drawable.tab_index_select,
-            R.drawable.tab_item_select,
-            R.drawable.tab_library_select,
-            R.drawable.tab_me_select
-        )
-        private val iconUnSelectResIDs = intArrayOf(
-            R.drawable.tab_index_unselect,
-            R.drawable.tab_item_unselect,
-            R.drawable.tab_library_unselect,
-            R.drawable.tab_me_unselect
-        )
     }
 }

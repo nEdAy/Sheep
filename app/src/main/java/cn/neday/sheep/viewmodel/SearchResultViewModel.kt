@@ -1,6 +1,8 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
+import cn.neday.sheep.PAGE_SIZE
 import cn.neday.sheep.config.HawkConfig
 import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.Pages
@@ -24,7 +26,7 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
 
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
-    fun getDtkSearchGoods(keyWords: String, pageId: String = GoodsListViewModel.LOAD_INITIAL_PAGE_ID) {
+    fun getDtkSearchGoods(keyWords: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
         start {
             addHistoryWords(keyWords)
             mCurrentPageId = pageId
@@ -34,6 +36,8 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
             pageGoods.value = it.data
         }, {
             errMsg.value = it
+        }, {
+            onComplete.call()
         })
     }
 
@@ -76,9 +80,6 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
 
     companion object {
 
-        const val HISTORY_KEYWORD_MAX_SIZE = 20
-
-        private const val PAGE_SIZE = 50
-        const val LOAD_INITIAL_PAGE_ID = "1"
+        private const val HISTORY_KEYWORD_MAX_SIZE = 20
     }
 }

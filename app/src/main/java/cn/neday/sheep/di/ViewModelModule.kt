@@ -8,11 +8,13 @@ val viewModelModule = module {
 
     viewModel { CreditHistoryViewModel(get()) }
 
-    viewModel { GoodsListViewModel(get()) }
+    viewModel { NineListViewModel(get()) }
 
     viewModel { IndexViewModel(get(), get()) }
 
     viewModel { LoginViewModel(get()) }
+
+    viewModel { MainViewModel() }
 
     viewModel { RankingListViewModel(get()) }
 

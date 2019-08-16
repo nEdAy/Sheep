@@ -22,6 +22,8 @@ class RankingListViewModel(private val repository: GoodsRepository) : BaseViewMo
             rankGoods.value = it.data
         }, {
             errMsg.value = it
+        }, {
+            onComplete.call()
         })
     }
 }

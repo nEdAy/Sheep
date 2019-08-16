@@ -5,15 +5,15 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Scroller;
+import androidx.core.widget.NestedScrollView;
 
 /**
  * 阻尼效果的scrollview
  *
  * @author nEdAy
  */
-public class DampView extends ScrollView {
+public class DampView extends NestedScrollView {
     private static final int LEN = 0xc8;
     private static final int DURATION = 500;
     private static final int MAX_DY = 200;

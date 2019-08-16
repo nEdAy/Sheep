@@ -10,12 +10,11 @@
         <item>关于与合作</item>
         <item>退出应用</item>
     </string-array>
-    <string-array name="tab_entities_array">
-        <item>精选</item>
-        <item>优惠快爆</item>
-        <item>超值精选</item>
-        <item>我的</item>
-    </string-array>
+
+    <string name="tx_main_nav_index">精选</string>
+    <string name="tx_main_nav_ranking">优惠快爆</string>
+    <string name="tx_main_nav_nine">超值精选</string>
+    <string name="tx_main_nav_me">我的</string>
 
     <string name="tx_login_title_day">Good Morning</string>
     <string name="tx_login_title_night">Good Night</string>
@@ -82,7 +81,7 @@
         <item>热推榜</item>
     </string-array>
 
-    <string-array name="goods_type_array">
+    <string-array name="nine_type_array">
         <item>精选</item>
         <item>居家百货</item>
         <item>美食</item>

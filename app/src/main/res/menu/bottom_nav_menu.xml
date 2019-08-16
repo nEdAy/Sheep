@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/navigation_index"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/tx_main_nav_index"/>
+
+    <item
+            android:id="@+id/navigation_ranking"
+            android:icon="@drawable/ic_local_offer_black_24dp"
+            android:title="@string/tx_main_nav_ranking"/>
+
+    <item
+            android:id="@+id/navigation_nine"
+            android:icon="@drawable/ic_local_mall_black_24dp"
+            android:title="@string/tx_main_nav_nine"/>
+
+    <item
+            android:id="@+id/navigation_me"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/tx_main_nav_me"/>
+</menu>

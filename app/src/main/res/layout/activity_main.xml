@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tl="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.MainActivity"
-        android:id="@+id/relativeLayout2">
+        tools:context=".activity.MainActivity">
 
     <FrameLayout
-            android:id="@+id/fl_main_content"
+            android:id="@+id/fl_main"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tl:layout_constraintEnd_toEndOf="parent"
-            tl:layout_constraintBottom_toTopOf="@+id/tl_main_tab"
-            tl:layout_constraintTop_toTopOf="parent"
-            tl:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/nav_main"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    <com.flyco.tablayout.CommonTabLayout
-            android:id="@+id/tl_main_tab"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_main"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:paddingBottom="5dp"
-            android:paddingTop="7dp"
-            tl:tl_textSelectColor="@color/red"
-            tl:tl_textUnselectColor="@color/textColor"
-            tl:tl_textsize="@dimen/global_small_text_size"
-            tl:tl_underline_color="@color/lineColor"
-            tl:tl_underline_gravity="TOP"
-            tl:tl_underline_height="@dimen/divide_line_height"
-            tl:layout_constraintTop_toBottomOf="@+id/fl_main_content"
-            tl:layout_constraintEnd_toEndOf="parent"
-            tl:layout_constraintStart_toStartOf="parent"
-            tl:layout_constraintBottom_toBottomOf="parent"/>
+            app:itemIconTint="@color/chuck_colorPrimary"
+            app:itemTextColor="@color/chuck_colorPrimaryDark"
+            android:background="?android:attr/windowBackground"
+            app:layout_constraintTop_toBottomOf="@+id/fl_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/bottom_nav_menu"/>
+
+    <!--<com.flyco.tablayout.CommonTabLayout-->
+    <!--android:id="@+id/tl_main_tab"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@android:color/white"-->
+    <!--android:paddingBottom="5dp"-->
+    <!--android:paddingTop="7dp"-->
+    <!--app:tl_textSelectColor="@color/red"-->
+    <!--app:tl_textUnselectColor="@color/textColor"-->
+    <!--app:tl_textsize="@dimen/global_small_text_size"-->
+    <!--app:tl_underline_color="@color/lineColor"-->
+    <!--app:tl_underline_gravity="TOP"-->
+    <!--app:tl_underline_height="@dimen/divide_line_height"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/fl_main_content"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

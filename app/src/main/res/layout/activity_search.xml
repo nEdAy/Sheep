@@ -23,7 +23,7 @@
             app:rightImageResource="@drawable/ic_search_white_24dp"
             app:rightType="imageButton"/>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -349,5 +349,5 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -36,6 +36,8 @@ class IndexViewModel(private val bannerRepository: BannerRepository, private val
             rankGoods.value = it.data
         }, {
             errMsg.value = it
+        }, {
+            onComplete.call()
         })
     }
 }

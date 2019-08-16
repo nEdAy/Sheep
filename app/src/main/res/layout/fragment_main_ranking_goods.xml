@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.wuhenzhizao.titlebar.widget.CommonTitleBar
+            android:id="@+id/titleBar_ranking_goods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:centerType="textView"
+            app:centerText="优惠快爆"
+            app:fillStatusBar="true"
+            app:showBottomLine="false"
+            app:statusBarColor="@color/colorPrimaryDark"
+            app:statusBarMode="light"
+            app:titleBarColor="@color/red"
+            app:centerTextColor="@android:color/white"
+            app:centerTextMarquee="true"/>
+
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_ranking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabSelectedTextColor="@color/red"
+            app:tabMode="fixed"
+            android:background="@android:color/white"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divide_line_height"
+            android:background="@color/lineColor"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_ranking"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"/>
+</LinearLayout>
