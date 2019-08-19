@@ -12,7 +12,7 @@
 //import android.widget.ImageView;
 //import android.widget.TextView;
 //import cn.neday.sheep.R;
-//import cn.neday.sheep.util.AliTradeHelper;
+//import cn.neday.alibaba.AliTradeHelper;
 //import com.alibaba.baichuan.android.trade.AlibcTradeSDK;
 //import io.reactivex.Observable;
 //import io.reactivex.android.schedulers.AndroidSchedulers;

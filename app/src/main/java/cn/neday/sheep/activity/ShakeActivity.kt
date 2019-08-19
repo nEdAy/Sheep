@@ -1,5 +1,6 @@
 package cn.neday.sheep.activity
 
+import cn.neday.base.activity.BaseVMActivity
 import cn.neday.sheep.R
 import cn.neday.sheep.viewmodel.ShakeViewModel
 

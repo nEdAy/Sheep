@@ -3,8 +3,8 @@ package cn.neday.sheep.view
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import cn.neday.base.util.ClipboardUtils
 import cn.neday.sheep.R
-import cn.neday.sheep.util.ClipboardUtils
 import cn.sharesdk.onekeyshare.OnekeyShare
 import cn.sharesdk.sina.weibo.SinaWeibo
 import cn.sharesdk.system.text.ShortMessage

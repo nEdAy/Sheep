@@ -1,18 +1,14 @@
 package cn.neday.sheep
 
 import android.app.Application
-import cn.neday.sheep.config.BuglyConfig
-import cn.neday.sheep.config.LogConfig
-import cn.neday.sheep.config.UmengConfig
-import cn.neday.sheep.di.httpClientModule
+import cn.neday.base.config.*
+import cn.neday.base.di.httpClientModule
 import cn.neday.sheep.di.repositoryModule
 import cn.neday.sheep.di.viewModelModule
-import cn.neday.sheep.util.AliTradeHelper
+import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ProcessUtils
 import com.blankj.utilcode.util.Utils
-import com.didichuxing.doraemonkit.DoraemonKit
 import com.mob.MobSDK
-import com.tencent.mmkv.MMKV
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -51,23 +47,30 @@ class ThisApplication : Application() {
         Utils.init(this)
         LogConfig.init()
         UmengConfig.init()
-        // Start Koin
-        startKoin {
-            // use AndroidLogger as Koin Logger - default Level.INFO
-            androidLogger()
-            // use the Android context given there
-            androidContext(this@ThisApplication)
-            // load properties from assets/koin.properties file
-            androidFileProperties()
-            // module list
-            modules(listOf(repositoryModule, httpClientModule, viewModelModule))
-        }
+        initARouter()
+        initKoin()
         if (ProcessUtils.isMainProcess()) {
             BuglyConfig.init()
-            AliTradeHelper.asyncInit()
-            MMKV.initialize(this)
-            DoraemonKit.install(this)
+            MMKVConfig.init()
+            DoraemonKitConfig.init()
             MobSDK.init(this)
         }
+    }
+
+    private fun initKoin() {
+        startKoin {
+            androidLogger()
+            androidContext(this@ThisApplication)
+            androidFileProperties()
+            modules(listOf(repositoryModule, httpClientModule, viewModelModule))
+        }
+    }
+
+    private fun initARouter() {
+        if (BuildConfig.DEBUG) {
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
+        ARouter.init(this)
     }
 }

@@ -1,5 +1,7 @@
 package cn.neday.sheep.model
 
+import cn.neday.base.model.BaseModel
+
 /**
  * 广告
  */

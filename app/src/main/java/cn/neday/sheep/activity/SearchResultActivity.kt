@@ -1,6 +1,7 @@
 package cn.neday.sheep.activity
 
 import androidx.fragment.app.commit
+import cn.neday.base.activity.BaseVMActivity
 import cn.neday.sheep.R
 import cn.neday.sheep.fragment.SearchResultFragment
 import cn.neday.sheep.viewmodel.SearchResultViewModel

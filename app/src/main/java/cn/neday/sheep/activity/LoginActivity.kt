@@ -6,27 +6,30 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import androidx.lifecycle.Observer
+import cn.neday.base.activity.BaseVMActivity
+import cn.neday.base.config.MMKVConfig.MOBILE
+import cn.neday.base.config.MMKVConfig.TOKEN
+import cn.neday.base.router.Router
+import cn.neday.base.router.RouterPath
+import cn.neday.sheep.KZ_YHSYXY
 import cn.neday.sheep.R
-import cn.neday.sheep.config.MMKVConfig.MOBILE
-import cn.neday.sheep.config.MMKVConfig.TOKEN
-import cn.neday.sheep.config.UrlConfig
-import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.viewmodel.LoginViewModel
 import cn.smssdk.EventHandler
 import cn.smssdk.SMSSDK
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.*
 import com.flyco.dialog.listener.OnBtnClickL
 import com.flyco.dialog.widget.NormalDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
-
 /**
  * 登录页
  *
  * @author nEdAy
  */
+@Route(path = RouterPath.LoginActivity)
 class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
 
     private var mTimeCount: TimeCount? = null
@@ -55,7 +58,7 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
         tv_change_login_way.setOnClickListener { changeLoginWay() }
         tv_lostPassword.setOnClickListener { resetPassword() }
         iv_agreement.setOnClickListener { changeAgreementIv() }
-        tv_agreement.setOnClickListener { AliTradeHelper(this).showItemURLPage(UrlConfig.KZ_YHSYXY) }
+        tv_agreement.setOnClickListener { Router.alibabaService.showItemURLPage(this, KZ_YHSYXY) }
         iv_password_visibility.setOnClickListener {
             if (et_password.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
                 iv_password_visibility.setImageResource(R.drawable.ic_visibility_off_white_24dp)

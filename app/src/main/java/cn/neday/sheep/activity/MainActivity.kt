@@ -1,6 +1,8 @@
 package cn.neday.sheep.activity
 
 import android.view.KeyEvent
+import cn.neday.base.activity.BaseVMActivity
+import cn.neday.base.config.BuglyConfig
 import cn.neday.sheep.R
 import cn.neday.sheep.fragment.IndexFragment
 import cn.neday.sheep.fragment.MeFragment
@@ -11,7 +13,6 @@ import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.flyco.dialog.widget.ActionSheetDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.tencent.bugly.beta.Beta
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -87,7 +88,7 @@ class MainActivity : BaseVMActivity<MainViewModel>(R.layout.activity_main) {
         dialog.isTitleShow(false).layoutAnimation(null).show()
         dialog.setOnOperItemClickL { _, _, position, _ ->
             when (position) {
-                0 -> Beta.checkUpgrade()
+                0 -> BuglyConfig.checkUpgrade()
                 1 -> ActivityUtils.startActivity(AboutActivity::class.java)
                 2 -> ActivityUtils.finishAllActivities()
             }

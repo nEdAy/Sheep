@@ -1,5 +1,6 @@
 package cn.neday.sheep.activity
 
+import cn.neday.base.activity.BaseActivity
 import cn.neday.sheep.R
 
 /**

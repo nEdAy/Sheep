@@ -1,10 +1,11 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import cn.neday.base.network.requestAsync
+import cn.neday.base.network.then
+import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.network.repository.GoodsRepository
-import cn.neday.sheep.network.requestAsync
-import cn.neday.sheep.network.then
 
 /**
  * RankingListViewModel

@@ -3,13 +3,13 @@ package cn.neday.sheep.fragment
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import cn.neday.base.router.Router
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.LoginActivity
 import cn.neday.sheep.activity.SearchActivity
 import cn.neday.sheep.activity.ShakeActivity
 import cn.neday.sheep.activity.SignInActivity
 import cn.neday.sheep.adapter.GoodsListAdapter
-import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.viewmodel.IndexViewModel
 import com.blankj.utilcode.util.ActivityUtils
@@ -67,7 +67,7 @@ class IndexFragment : GoodsListFragment<IndexViewModel>(R.layout.fragment_main_i
         mViewModel.banners.observe(this, Observer {
             headerView.banner.setSource(it).startScroll()
             headerView.banner.setOnItemClickL { position ->
-                AliTradeHelper(activity).showItemURLPage(it[position].url)
+                Router.alibabaService.showItemURLPage(activity, it[position].url)
             }
         })
     }

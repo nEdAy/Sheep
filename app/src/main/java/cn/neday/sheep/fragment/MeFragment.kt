@@ -3,15 +3,16 @@ package cn.neday.sheep.fragment
 import android.text.TextUtils
 import android.view.View
 import androidx.core.net.toUri
+import cn.neday.base.config.MMKVConfig.TOKEN
+import cn.neday.base.fragment.BaseFragment
+import cn.neday.base.router.Router
+import cn.neday.base.util.AppStoreUtils
+import cn.neday.base.util.ClipboardUtils
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.AboutActivity
 import cn.neday.sheep.activity.LoginActivity
-import cn.neday.sheep.config.MMKVConfig.TOKEN
 import cn.neday.sheep.enum.OrderType
 import cn.neday.sheep.model.User
-import cn.neday.sheep.util.AliTradeHelper
-import cn.neday.sheep.util.AppStoreUtils
-import cn.neday.sheep.util.ClipboardUtils
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.view.ShareDialog
 import com.blankj.utilcode.util.ActivityUtils
@@ -56,27 +57,31 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
 
         tv_login.setOnClickListener { ActivityUtils.startActivity(LoginActivity::class.java) }
 
-        rl_showMyCartsPage.setOnClickListener { AliTradeHelper(activity).showMyCartsPage() }
+        rl_showMyCartsPage.setOnClickListener { Router.alibabaService.showMyCartsPage(activity) }
         rl_showMyOrdersPage_1.setOnClickListener {
-            AliTradeHelper(activity).showMyOrdersPage(
+            Router.alibabaService.showMyOrdersPage(
+                activity,
                 OrderType.DAT_FU_KUAN.index,
                 true
             )
         }
         rl_showMyOrdersPage_2.setOnClickListener {
-            AliTradeHelper(activity).showMyOrdersPage(
+            Router.alibabaService.showMyOrdersPage(
+                activity,
                 OrderType.DAT_FA_HUO.index,
                 true
             )
         }
         rl_showMyOrdersPage_3.setOnClickListener {
-            AliTradeHelper(activity).showMyOrdersPage(
+            Router.alibabaService.showMyOrdersPage(
+                activity,
                 OrderType.DAT_SHOU_HUO.index,
                 true
             )
         }
         rl_showMyOrdersPage_4.setOnClickListener {
-            AliTradeHelper(activity).showMyOrdersPage(
+            Router.alibabaService.showMyOrdersPage(
+                activity,
                 OrderType.DAY_PING_JIA.index,
                 true
             )

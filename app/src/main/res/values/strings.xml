@@ -2,7 +2,6 @@
     <string name="app_name">口袋快爆</string>
     <string name="app_introduction">实 惠 多 到 爆</string>
     <string name="app_version">当前版本v%1$s</string>
-    <string name="app_image_content_description">TODO</string>
     <string name="tx_root">出于安全原因，口袋快爆不建议在已经ROOT的设备上运行</string>
 
     <string-array name="menu_items_array">
@@ -36,8 +35,6 @@
     <string name="tx_back">返回</string>
     <string name="tx_determine">确定</string>
     <string name="tx_cancel">取 消</string>
-
-    <string name="network_tips">您已进入没有网络的异次元,请检查您的网络!</string>
 
     <string name="account_center_account">账户</string>
     <string name="account_center_key_login">修改登录密码</string>

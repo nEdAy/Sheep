@@ -2,6 +2,7 @@ package cn.neday.sheep.activity
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import cn.neday.base.activity.BaseVMActivity
 import cn.neday.sheep.R
 import cn.neday.sheep.adapter.KeyWordsListAdapter
 import cn.neday.sheep.viewmodel.SearchViewModel

@@ -1,15 +1,16 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import cn.neday.base.config.MMKVConfig
+import cn.neday.base.model.Pages
+import cn.neday.base.network.requestAsync
+import cn.neday.base.network.start
+import cn.neday.base.network.then
+import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
 import cn.neday.sheep.PAGE_SIZE
-import cn.neday.sheep.config.MMKVConfig
 import cn.neday.sheep.model.CommonGoods
-import cn.neday.sheep.model.Pages
 import cn.neday.sheep.network.repository.GoodsRepository
-import cn.neday.sheep.network.requestAsync
-import cn.neday.sheep.network.start
-import cn.neday.sheep.network.then
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.*

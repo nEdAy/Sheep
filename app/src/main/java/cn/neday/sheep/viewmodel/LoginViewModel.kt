@@ -1,10 +1,11 @@
 package cn.neday.sheep.viewmodel
 
-import cn.neday.sheep.SingleLiveEvent
+import cn.neday.base.SingleLiveEvent
+import cn.neday.base.network.requestAsync
+import cn.neday.base.network.then
+import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.model.User
 import cn.neday.sheep.network.repository.UserRepository
-import cn.neday.sheep.network.requestAsync
-import cn.neday.sheep.network.then
 import com.blankj.utilcode.util.EncryptUtils
 
 /**

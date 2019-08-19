@@ -1,5 +1,7 @@
 package cn.neday.sheep.viewmodel
 
+import cn.neday.base.viewmodel.BaseViewModel
+
 /**
  * IndexViewModel
  *

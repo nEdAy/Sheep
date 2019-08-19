@@ -2,6 +2,7 @@ package cn.neday.sheep.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import cn.neday.base.fragment.BaseFragment
 import cn.neday.sheep.R
 import cn.neday.sheep.enum.RankType
 import com.google.android.material.tabs.TabLayoutMediator

@@ -1,5 +1,7 @@
 package cn.neday.sheep.model
 
+import cn.neday.base.model.BaseModel
+
 data class User(
     // 手机号 11位 主键
     val mobile: String?,

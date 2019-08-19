@@ -1,9 +1,10 @@
 package cn.neday.sheep.network.repository
 
+import cn.neday.base.model.Pages
+import cn.neday.base.model.Response
+import cn.neday.base.network.repository.BaseRepository
 import cn.neday.sheep.model.CommonGoods
-import cn.neday.sheep.model.Pages
 import cn.neday.sheep.model.RankingGoods
-import cn.neday.sheep.model.Response
 import cn.neday.sheep.network.api.GoodsApi
 
 /**

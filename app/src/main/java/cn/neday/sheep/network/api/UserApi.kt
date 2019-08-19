@@ -1,7 +1,7 @@
 package cn.neday.sheep.network.api
 
 
-import cn.neday.sheep.model.Response
+import cn.neday.base.model.Response
 import cn.neday.sheep.model.User
 import retrofit2.http.*
 

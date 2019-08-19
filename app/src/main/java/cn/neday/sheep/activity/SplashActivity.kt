@@ -1,8 +1,9 @@
 package cn.neday.sheep.activity
 
 import android.view.KeyEvent
+import cn.neday.base.activity.BaseActivity
+import cn.neday.base.config.MMKVConfig.IS_FIRST_START_APP
 import cn.neday.sheep.R
-import cn.neday.sheep.config.MMKVConfig.IS_FIRST_START_APP
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.DeviceUtils

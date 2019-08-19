@@ -1,7 +1,8 @@
 package cn.neday.sheep.network.repository
 
+import cn.neday.base.model.Response
+import cn.neday.base.network.repository.BaseRepository
 import cn.neday.sheep.model.Banner
-import cn.neday.sheep.model.Response
 import cn.neday.sheep.network.api.BannerApi
 
 /**

@@ -3,13 +3,14 @@ package cn.neday.sheep.fragment
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import cn.neday.base.fragment.BaseVMFragment
+import cn.neday.base.router.Router
+import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.R
 import cn.neday.sheep.activity.GoodsDetailsActivity
 import cn.neday.sheep.adapter.GoodsListAdapter
 import cn.neday.sheep.model.Goods
-import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.util.CommonUtils
-import cn.neday.sheep.viewmodel.BaseViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -52,7 +53,7 @@ abstract class GoodsListFragment<VM : BaseViewModel>(layoutId: Int) : BaseVMFrag
         }
         listAdapter.onItemLongClickListener = BaseQuickAdapter.OnItemLongClickListener { adapter, _, position ->
             val goods = adapter.getItem(position) as Goods
-            AliTradeHelper(activity).showAddCartPage(goods.goodsId)
+            Router.alibabaService.showAddCartPage(activity, goods.goodsId)
             true
         }
         listAdapter.onItemChildClickListener =
@@ -60,11 +61,11 @@ abstract class GoodsListFragment<VM : BaseViewModel>(layoutId: Int) : BaseVMFrag
                 val goods = adapter.getItem(position) as Goods
                 when (view.id) {
                     R.id.ll_get -> {
-                        AliTradeHelper(activity).showItemURLPage(goods.couponLink)
+                        Router.alibabaService.showItemURLPage(activity, goods.couponLink)
                         CommonUtils.changePressedViewBg(view, R.drawable.bg_get_btn, R.drawable.bg_get_btn_pressed)
                     }
                     R.id.tx_buy_url -> {
-                        AliTradeHelper(activity).showDetailPage(goods.goodsId)
+                        Router.alibabaService.showDetailPage(activity, goods.goodsId)
                         CommonUtils.changePressedViewBg(view, R.drawable.bg_buy_btn, R.drawable.bg_buy_btn_pressed)
                     }
                 }

@@ -1,9 +1,10 @@
 package cn.neday.sheep.activity
 
 import android.annotation.SuppressLint
+import cn.neday.base.activity.BaseActivity
+import cn.neday.base.router.Router
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
-import cn.neday.sheep.util.AliTradeHelper
 import cn.neday.sheep.view.ShareDialog
 import cn.neday.sheep.view.load
 import com.blankj.utilcode.util.ActivityUtils
@@ -41,12 +42,12 @@ class GoodsDetailsActivity : BaseActivity(R.layout.activity_goods_details) {
             }
         }
         ll_get.setOnClickListener {
-            AliTradeHelper(this).showItemURLPage(goods.couponLink)
+            Router.alibabaService.showItemURLPage(this, goods.couponLink)
         }
         ll_buy.setOnClickListener {
-            AliTradeHelper(this).showDetailPage(goods.goodsId)
+            Router.alibabaService.showDetailPage(this, goods.goodsId)
         }
-        ll_add.setOnClickListener { AliTradeHelper(this).showAddCartPage(goods.goodsId) }
+        ll_add.setOnClickListener { Router.alibabaService.showAddCartPage(this, goods.goodsId) }
         // 初始化商品主图
         iv_img_shower.load(goods.getPicUrl())
         // 显示标题

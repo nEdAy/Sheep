@@ -1,12 +1,12 @@
 package cn.neday.sheep.fragment
 
 import androidx.lifecycle.Observer
+import cn.neday.base.model.Pages
 import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
 import cn.neday.sheep.PREFETCH_DISTANCE
 import cn.neday.sheep.R
 import cn.neday.sheep.adapter.GoodsListAdapter
 import cn.neday.sheep.model.CommonGoods
-import cn.neday.sheep.model.Pages
 import cn.neday.sheep.viewmodel.SearchResultViewModel
 import kotlinx.android.synthetic.main.include_anything_list.*
 

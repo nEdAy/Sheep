@@ -1,5 +1,6 @@
 package cn.neday.sheep.viewmodel
 
+import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.network.repository.UserRepository
 
 /**

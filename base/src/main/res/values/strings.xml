@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">base</string>
+    <string name="app_image_content_description">TODO</string>
+
+    <string name="network_tips">您已进入没有网络的异次元,请检查您的网络!</string>
+</resources>
