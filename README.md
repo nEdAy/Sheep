@@ -8,10 +8,11 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f122c6a7532347c2c64a/maintainability)](https://codeclimate.com/github/nEdAy/Sheep/maintainability)
 [![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
+[![Join the chat at https://gitter.im/nEdAy/community](https://badges.gitter.im/nEdAy/community.svg)](https://gitter.im/nEdAy/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
 ![](https://img.shields.io/github/license/nEdAy/Sheep)
-[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21) [![Join the chat at https://gitter.im/nEdAy/community](https://badges.gitter.im/nEdAy/community.svg)](https://gitter.im/nEdAy/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21) 
 ![](https://img.shields.io/github/issues/nEdAy/Sheep)
 ![](https://img.shields.io/github/forks/nEdAy/Sheep)
 ![](https://img.shields.io/github/stars/nEdAy/Sheep)
