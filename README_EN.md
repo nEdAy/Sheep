@@ -23,7 +23,7 @@ Sheep, A pure shopping guide App based on Kotlin + MVVM + Retrofit + Kotlinx-Cor
 
 出于学习的目的做了这款简洁风格的电商导购应用，基本涵盖了当前Android端开发最常用的主流框架，基于此框架可以快速开发一个APP。
 
-- [Shepherd](https://github.com/nEdAy/Shepherd/tree/master) —— Go(Gin)
+- [Shepherd](https://github.com/nEdAy/Sheep/tree/master) —— Go(Gin)
 
 ### English Documentation | [中文文档](https://github.com/nEdAy/Shepherd)
 
