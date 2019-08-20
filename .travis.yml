@@ -44,8 +44,8 @@ before_script:
 
 script:
   - ./gradlew testDebugUnitTestCoverage
-  #  - ./gradlew assembleRelease
-  - ./gradlew connectedCheck
+  - ./gradlew assembleRelease
+  # - ./gradlew connectedCheck
 
 #deploy:
 #  provider: releases
