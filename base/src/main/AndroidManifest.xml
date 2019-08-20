@@ -1,2 +1,5 @@
-<manifest
-        package="cn.neday.base"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="cn.neday.base">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+</manifest>
