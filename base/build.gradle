@@ -120,21 +120,21 @@ dependencies {
     releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:1.1.8'
 
     // Unit Test
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:3.0.0'
-    testImplementation 'androidx.arch.core:core-testing:2.0.1'
-    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    testApi 'junit:junit:4.12'
+    testApi 'org.mockito:mockito-core:3.0.0'
+    testApi 'androidx.arch.core:core-testing:2.0.1'
+    testApi 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
 
     // Koin for Unit tests
-    testImplementation "org.koin:koin-test:$koin_version"
+    testApi "org.koin:koin-test:$koin_version"
 
     // Powermock
     def powermock_version = "2.0.0"
-    testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
-    testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
-    testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
+    testApi "org.powermock:powermock-module-junit4:$powermock_version"
+    testApi "org.powermock:powermock-module-junit4-rule:$powermock_version"
+    testApi "org.powermock:powermock-api-mockito2:$powermock_version"
 
     // Android Unit Test
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestApi 'androidx.test:runner:1.2.0'
+    androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
 }
