@@ -4,5 +4,6 @@
         package="cn.neday.alibaba">
 
     <application
+            android:allowBackup="false"
             tools:replace="android:allowBackup"/>
 </manifest>
