@@ -99,4 +99,11 @@ dependencies {
     runtimeOnly project(':alibaba')
 
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+    // Unit Test
+    testImplementation 'junit:junit:4.12'
+
+    // Android Unit Test
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

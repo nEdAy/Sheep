@@ -64,4 +64,11 @@ dependencies {
     implementation 'com.alibaba.alipay:alipaySingle:20160825@jar'
     // Fastjson
     implementation 'com.alibaba:fastjson:1.2.57'
+
+    // Unit Test
+    testImplementation 'junit:junit:4.12'
+
+    // Android Unit Test
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
