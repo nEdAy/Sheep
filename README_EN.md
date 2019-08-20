@@ -8,6 +8,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f122c6a7532347c2c64a/maintainability)](https://codeclimate.com/github/nEdAy/Sheep/maintainability)
 [![Codecov](https://codecov.io/gh/nEdAy/Sheep/branch/master/graph/badge.svg)](https://codecov.io/gh/nEdAy/Sheep)
 
+[![Join the chat at https://gitter.im/nEdAy/community](https://badges.gitter.im/nEdAy/community.svg)](https://gitter.im/nEdAy/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![](https://img.shields.io/badge/platform-android-lightgrey.svg)
 ![](https://img.shields.io/badge/language-kotlin-orange.svg)
 ![](https://img.shields.io/github/license/nEdAy/Sheep)
@@ -22,7 +23,7 @@ Sheep, A pure shopping guide App based on Kotlin + MVVM + Retrofit + Kotlinx-Cor
 
 出于学习的目的做了这款简洁风格的电商导购应用，基本涵盖了当前Android端开发最常用的主流框架，基于此框架可以快速开发一个APP。
 
-- [Shepherd](https://github.com/nEdAy/Shepherd/tree/master) —— Go(Gin)
+- [Shepherd](https://github.com/nEdAy/Sheep/tree/master) —— Go(Gin)
 
 ### English Documentation | [中文文档](https://github.com/nEdAy/Shepherd)
 
