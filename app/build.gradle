@@ -76,7 +76,6 @@ android {
             variant.outputs.all { output ->
                 output.setVersionNameOverride("${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
                 output.setVersionCodeOverride(Integer.parseInt(String.valueOf(VERSION_MAJOR) + String.valueOf(VERSION_MINOR).padLeft(2, "0") + String.valueOf(VERSION_PATCH).padLeft(3, "0")))
-                // outputFileName = "${variant.name}-${variant.versionName}.apk"
             }
         }
     }

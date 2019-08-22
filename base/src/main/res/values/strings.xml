@@ -2,5 +2,8 @@
     <string name="app_name">base</string>
     <string name="app_image_content_description">TODO</string>
 
-    <string name="network_tips">您已进入没有网络的异次元,请检查您的网络!</string>
+    <string name="debug_tips">程序被修改为可调试状态</string>
+    <string name="signature_tips">证书签名已被篡改</string>
+    <string name="root_tips">出于安全原因，不建议在已经ROOT的设备上运行</string>
+    <string name="network_tips">您已进入没有网络的异次元，请检查您的网络</string>
 </resources>

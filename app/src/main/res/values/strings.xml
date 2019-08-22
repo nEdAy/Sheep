@@ -2,7 +2,6 @@
     <string name="app_name">口袋快爆</string>
     <string name="app_introduction">实 惠 多 到 爆</string>
     <string name="app_version">当前版本v%1$s</string>
-    <string name="tx_root">出于安全原因，口袋快爆不建议在已经ROOT的设备上运行</string>
 
     <string-array name="menu_items_array">
         <item>版本更新</item>
