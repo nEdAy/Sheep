@@ -3,7 +3,6 @@ package cn.neday.sheep.viewmodel
 import androidx.lifecycle.MutableLiveData
 import cn.neday.base.model.Pages
 import cn.neday.base.network.requestAsync
-import cn.neday.base.network.start
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
@@ -23,9 +22,8 @@ class NineListViewModel(private val repository: GoodsRepository) : BaseViewModel
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getNineOpGoodsList(cid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
-        start {
-            mCurrentPageId = pageId
-        }.requestAsync {
+        mCurrentPageId = pageId
+        requestAsync {
             repository.getNineOpGoodsList(PAGE_SIZE, pageId, cid)
         }.then({
             pageGoods.value = it.data

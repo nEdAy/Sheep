@@ -3,7 +3,6 @@ package cn.neday.sheep.viewmodel
 import androidx.lifecycle.MutableLiveData
 import cn.neday.base.config.MMKVConfig
 import cn.neday.base.network.requestAsync
-import cn.neday.base.network.start
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.network.repository.CategoryRepository
@@ -26,9 +25,8 @@ class SearchViewModel(private val repository: CategoryRepository) : BaseViewMode
      * 该接口提供了昨日CMS端大淘客采集统计的前100名搜索热词
      */
     fun getHotWords() {
-        start {
-            hotWords.value = kv.decodeStringSet(MMKVConfig.HOTWORDS)
-        }.requestAsync {
+        hotWords.value = kv.decodeStringSet(MMKVConfig.HOTWORDS)
+        requestAsync {
             repository.getTop100()
         }.then({
             hotWords.value = it.data?.hotWords

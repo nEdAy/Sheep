@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import cn.neday.base.config.MMKVConfig
 import cn.neday.base.model.Pages
 import cn.neday.base.network.requestAsync
-import cn.neday.base.network.start
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.LOAD_INITIAL_PAGE_ID
@@ -26,10 +25,9 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
     fun getDtkSearchGoods(keyWords: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
-        start {
-            addHistoryWords(keyWords)
-            mCurrentPageId = pageId
-        }.requestAsync {
+        addHistoryWords(keyWords)
+        mCurrentPageId = pageId
+        requestAsync {
             repository.getDtkSearchGoods(PAGE_SIZE, pageId, keyWords)
         }.then({
             pageGoods.value = it.data
