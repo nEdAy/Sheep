@@ -1,7 +1,6 @@
 package cn.neday.sheep.network.repository
 
 import cn.neday.base.model.Response
-import cn.neday.base.network.repository.BaseRepository
 import cn.neday.sheep.model.Banner
 import cn.neday.sheep.network.api.BannerApi
 
@@ -10,9 +9,7 @@ import cn.neday.sheep.network.api.BannerApi
  *
  * @author nEdAy
  */
-class BannerRepository(private val bannerApi: BannerApi) : BaseRepository() {
+class BannerRepository(private val bannerApi: BannerApi) {
 
-    suspend fun getBannerList(): Response<List<Banner>> {
-        return apiCall { bannerApi.bannerList() }
-    }
+    suspend fun getBannerList(): Response<List<Banner>> = bannerApi.bannerList()
 }
