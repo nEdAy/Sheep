@@ -75,6 +75,7 @@
         <item>实时销量榜</item>
         <item>全天销量榜</item>
         <item>热推榜</item>
+        <item>复购榜</item>
     </string-array>
 
     <string-array name="nine_type_array">
