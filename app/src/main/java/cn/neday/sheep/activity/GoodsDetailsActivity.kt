@@ -6,7 +6,7 @@ import cn.neday.base.router.Router
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Goods
 import cn.neday.sheep.view.ShareDialog
-import cn.neday.sheep.view.load
+import coil.api.load
 import com.blankj.utilcode.util.ActivityUtils
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_goods_details.*
@@ -49,7 +49,11 @@ class GoodsDetailsActivity : BaseActivity(R.layout.activity_goods_details) {
         }
         ll_add.setOnClickListener { Router.alibabaService.showAddCartPage(this, goods.goodsId) }
         // 初始化商品主图
-        iv_img_shower.load(goods.getPicUrl())
+        iv_img_shower.load(goods.getPicUrl()) {
+            crossfade(true)
+            placeholder(R.drawable.icon_stub)
+            error(R.drawable.icon_error)
+        }
         // 显示标题
         tv_title.text = goods.title
         // 显示券后价

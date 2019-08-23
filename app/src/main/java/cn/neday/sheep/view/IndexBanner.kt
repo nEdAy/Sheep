@@ -5,10 +5,9 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.core.net.toUri
 import cn.neday.sheep.R
 import cn.neday.sheep.model.Banner
-import com.bumptech.glide.Glide
+import coil.api.load
 import com.flyco.banner.widget.Banner.BaseIndicatorBanner
 
 
@@ -17,7 +16,11 @@ import com.flyco.banner.widget.Banner.BaseIndicatorBanner
  *
  * @author nEdAy
  */
-class IndexBanner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
+class IndexBanner @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
+) :
     BaseIndicatorBanner<Banner, IndexBanner>(context, attrs, defStyle) {
 
     override fun onCreateItemView(position: Int): View {
@@ -28,11 +31,11 @@ class IndexBanner @JvmOverloads constructor(context: Context, attrs: AttributeSe
             val itemHeight = (itemWidth * 0.417f).toInt()
             val ivBanner = inflate.findViewById<ImageView>(R.id.iv_banner)
             ivBanner.layoutParams = LinearLayout.LayoutParams(itemWidth, itemHeight)
-            Glide.with(this)
-                .load(data.picture?.toUri())
-                .override(itemWidth, itemHeight)
-                .centerCrop()
-                .into(ivBanner)
+            ivBanner.load(data.picture) {
+                crossfade(true)
+                placeholder(R.drawable.ic_update_banner)
+                error(R.drawable.ic_update_banner)
+            }
         }
         return inflate
     }

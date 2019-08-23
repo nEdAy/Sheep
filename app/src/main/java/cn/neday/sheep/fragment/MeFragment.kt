@@ -2,7 +2,6 @@ package cn.neday.sheep.fragment
 
 import android.text.TextUtils
 import android.view.View
-import androidx.core.net.toUri
 import cn.neday.base.config.MMKVConfig.TOKEN
 import cn.neday.base.fragment.BaseFragment
 import cn.neday.base.router.Router
@@ -15,10 +14,11 @@ import cn.neday.sheep.enum.OrderType
 import cn.neday.sheep.model.User
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.view.ShareDialog
+import coil.api.load
+import coil.transform.CircleCropTransformation
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.bumptech.glide.Glide
 import com.flyco.dialog.listener.OnBtnClickL
 import com.flyco.dialog.widget.NormalDialog
 import kotlinx.android.synthetic.main.fragment_main_me.*
@@ -166,13 +166,11 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
      * 更新头像 refreshAvatar
      */
     private fun refreshAvatar(avatarUrl: String?) {
-        if (avatarUrl != null && avatarUrl != "") {
-            val avatarUri = avatarUrl.toUri()
-            Glide.with(this)
-                .load(avatarUri)
-                .into(iv_user_avatar)
-        } else {
-            iv_user_avatar.setImageResource(R.drawable.avatar_default)
+        iv_user_avatar.load(avatarUrl) {
+            crossfade(true)
+            placeholder(R.drawable.avatar_default)
+            error(R.drawable.avatar_default)
+            transformations(CircleCropTransformation())
         }
     }
 
@@ -193,7 +191,8 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
                 // 复制数据到剪切板
                 ClipboardUtils.copyText(getString(R.string.app_name))
                 try {
-                    val intent = activity?.packageManager?.getLaunchIntentForPackage("com.tencent.mm")
+                    val intent =
+                        activity?.packageManager?.getLaunchIntentForPackage("com.tencent.mm")
                     if (intent != null) {
                         ActivityUtils.startActivity(intent)
                     }
