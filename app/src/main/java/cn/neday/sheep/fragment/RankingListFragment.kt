@@ -10,6 +10,7 @@ import cn.neday.sheep.viewmodel.RankingListViewModel
  * 1.实时销量榜
  * 2.全天销量榜
  * 3.热推榜
+ * 4.复购榜
  */
 class RankingListFragment(private val rankType: RankType) :
     GoodsListFragment<RankingListViewModel>(R.layout.fragment_goods_list) {

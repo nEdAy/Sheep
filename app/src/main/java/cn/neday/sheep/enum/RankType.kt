@@ -9,5 +9,6 @@ package cn.neday.sheep.enum
 enum class RankType(val index: Int) {
     SHI_SHI_XIAO_XIANG_BANG(1),
     QUAN_TIAN_XIAO_LIANG_BANG(2),
-    RE_TUI_BANG(3)
+    RE_TUI_BANG(3),
+    FU_GOU_BANG(4)
 }

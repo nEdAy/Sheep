@@ -21,7 +21,8 @@ class RankingGoodsFragment : BaseFragment(R.layout.fragment_main_ranking_goods) 
                 return arrayListOf(
                     RankingListFragment(RankType.SHI_SHI_XIAO_XIANG_BANG),
                     RankingListFragment(RankType.QUAN_TIAN_XIAO_LIANG_BANG),
-                    RankingListFragment(RankType.RE_TUI_BANG)
+                    RankingListFragment(RankType.RE_TUI_BANG),
+                    RankingListFragment(RankType.FU_GOU_BANG)
                 )[position]
             }
 
