@@ -12,7 +12,5 @@ import cn.neday.sheep.network.api.CategoryApi
  */
 class CategoryRepository(private val categoryApi: CategoryApi) : BaseRepository() {
 
-    suspend fun getTop100(): Response<HotWords> {
-        return apiCall { categoryApi.getTop100() }
-    }
+    suspend fun getTop100(): Response<HotWords> = categoryApi.getTop100()
 }

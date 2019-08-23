@@ -12,13 +12,6 @@ import cn.neday.sheep.network.api.UserApi
  */
 class UserRepository(private val userApi: UserApi) : BaseRepository() {
 
-    suspend fun registerOrLogin(mobile: String, passwordMD5: String, smsCode: String, inviteCode: String)
-            : Response<User> {
-        val map = HashMap<String, String>()
-        map["mobile"] = mobile
-        map["password"] = passwordMD5
-        map["smsCode"] = smsCode
-        map["inviteCode"] = inviteCode
-        return apiCall { userApi.registerOrLogin(map) }
-    }
+    suspend fun registerOrLogin(register: Map<String, String>): Response<User> =
+        userApi.registerOrLogin(register)
 }

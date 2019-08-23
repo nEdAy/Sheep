@@ -7,6 +7,7 @@ import cn.neday.base.viewmodel.BaseViewModel
 import cn.neday.sheep.model.User
 import cn.neday.sheep.network.repository.UserRepository
 import com.blankj.utilcode.util.EncryptUtils
+import java.util.*
 
 /**
  * LoginViewModel
@@ -26,9 +27,13 @@ class LoginViewModel(private val repository: UserRepository) : BaseViewModel() {
      * @param inviteCode 邀请码
      */
     fun registerOrLogin(mobile: String, password: String, smsCode: String, inviteCode: String) {
-        val passwordMD5 = EncryptUtils.encryptMD5ToString(password).toUpperCase()
+        val map = HashMap<String, String>()
+        map["mobile"] = mobile
+        map["password"] = EncryptUtils.encryptMD5ToString(password).toUpperCase(Locale.getDefault())
+        map["smsCode"] = smsCode
+        map["inviteCode"] = inviteCode
         requestAsync {
-            repository.registerOrLogin(mobile, passwordMD5, smsCode, inviteCode)
+            repository.registerOrLogin(map)
         }.then({
             user.value = it.data
         }, {
