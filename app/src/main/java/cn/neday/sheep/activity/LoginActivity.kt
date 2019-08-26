@@ -4,7 +4,6 @@ import android.os.CountDownTimer
 import android.text.InputType
 import android.text.TextUtils
 import android.view.View
-import android.widget.EditText
 import androidx.lifecycle.Observer
 import cn.neday.base.activity.BaseVMActivity
 import cn.neday.base.config.MMKVConfig.MOBILE
@@ -60,14 +59,7 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
         iv_agreement.setOnClickListener { changeAgreementIv() }
         tv_agreement.setOnClickListener { Router.alibabaService.showItemURLPage(this, KZ_YHSYXY) }
         iv_password_visibility.setOnClickListener {
-            if (et_password.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-                iv_password_visibility.setImageResource(R.drawable.ic_visibility_off_white_24dp)
-                et_password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            } else {
-                iv_password_visibility.setImageResource(R.drawable.ic_visibility_white_24dp)
-                et_password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-            }
-            et_password.setSelection(et_password.text?.length ?: 0)
+            changePasswordVisibility(et_password.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD)
         }
         ClickUtils.applySingleDebouncing(tv_request_verification_code) { requestVerificationCode() }
     }
@@ -87,6 +79,19 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
                 line_password.setBackgroundColor(ColorUtils.getColor(R.color.gray))
             }
         }
+    }
+
+    private fun changePasswordVisibility(isInVisible: Boolean) {
+        if (isInVisible) {
+            iv_password_visibility.setImageResource(R.drawable.ic_visibility_off_white_24dp)
+            et_password.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        } else {
+            iv_password_visibility.setImageResource(R.drawable.ic_visibility_white_24dp)
+            et_password.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+        et_password.setSelection(et_password.text?.length ?: 0)
     }
 
     override fun onBackPressed() {
@@ -119,7 +124,8 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
     }
 
     private fun initTitleAndBackgroundByTime() {
-        val isDayNotNight = TimeUtils.getValueByCalendarField(TimeUtils.getNowDate(), Calendar.HOUR_OF_DAY) in 8..20
+        val isDayNotNight =
+            TimeUtils.getValueByCalendarField(TimeUtils.getNowDate(), Calendar.HOUR_OF_DAY) in 8..20
         if (isDayNotNight) {
             iv_login_bg.setImageResource(R.drawable.good_morning_img)
             tv_login_title.text = getString(R.string.tx_login_title_day)
@@ -162,11 +168,11 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
     private fun requestVerificationCode() {
         val mobile = et_mobile.text.toString().trim { it <= ' ' }.replace(" ", "")
         if (TextUtils.isEmpty(mobile)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_phone_null, et_mobile)
+            ToastUtils.showShort(R.string.toast_error_phone_null)
             return
         }
         if (!RegexUtils.isMobileExact(mobile)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_phone_error, et_mobile)
+            ToastUtils.showShort(R.string.toast_error_phone_error)
             return
         }
         // 先短信验证码，闲置30s后切换语音验证码
@@ -191,40 +197,30 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
 
     private fun checkUserOk(mobile: String, password: String, smsCode: String): Boolean {
         if (TextUtils.isEmpty(mobile)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_phone_null, et_mobile)
+            ToastUtils.showShort(R.string.toast_error_phone_null)
             return false
         }
         if (!RegexUtils.isMobileExact(mobile)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_phone_error, et_mobile)
+            ToastUtils.showShort(R.string.toast_error_phone_error)
             return false
         }
         if (rl_login_password.visibility == View.VISIBLE && TextUtils.isEmpty(password)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_password_null, et_password, line_password)
+            ToastUtils.showShort(R.string.toast_error_password_null)
             return false
         }
         if (rl_login_password.visibility == View.VISIBLE && !CommonUtils.isValidPassword(password)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_password_error, et_password, line_password)
+            ToastUtils.showShort(R.string.toast_error_password_error)
             return false
         }
         if (rl_login_sms.visibility == View.VISIBLE && TextUtils.isEmpty(smsCode)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_sms_null, et_sms, line_sms)
+            ToastUtils.showShort(R.string.toast_error_sms_null)
             return false
         }
         if (rl_login_sms.visibility == View.VISIBLE && !CommonUtils.isValidSmsCode(smsCode)) {
-            shakeAnimationAndFocusUi(R.string.toast_error_sms_error, et_sms, line_sms)
+            ToastUtils.showShort(R.string.toast_error_sms_error, et_sms)
             return false
         }
         return true
-    }
-
-    private fun shakeAnimationAndFocusUi(toastErrorMsgRes: Int, vararg view: View) {
-        ToastUtils.showShort(toastErrorMsgRes)
-        for (it in view) {
-            if (it is EditText) {
-                it.requestFocus()
-            }
-            CommonUtils.setShakeAnimation(it)
-        }
     }
 
     private fun changeAgreementIv() {

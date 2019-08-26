@@ -21,10 +21,10 @@ class NineListViewModel(private val repository: GoodsRepository) : BaseViewModel
 
     var mCurrentPageId: String = LOAD_INITIAL_PAGE_ID
 
-    fun getNineOpGoodsList(cid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
+    fun getNineOpGoodsList(nineCid: String, pageId: String = LOAD_INITIAL_PAGE_ID) {
         mCurrentPageId = pageId
         requestAsync {
-            repository.getNineOpGoodsList(PAGE_SIZE, pageId, cid)
+            repository.getNineOpGoodsList(PAGE_SIZE, pageId, nineCid)
         }.then({
             pageGoods.value = it.data
         }, {

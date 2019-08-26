@@ -2,7 +2,6 @@ package cn.neday.sheep.network.repository
 
 import cn.neday.base.model.Pages
 import cn.neday.base.model.Response
-import cn.neday.base.network.repository.BaseRepository
 import cn.neday.sheep.model.CommonGoods
 import cn.neday.sheep.model.RankingGoods
 import cn.neday.sheep.network.api.GoodsApi
@@ -12,7 +11,7 @@ import cn.neday.sheep.network.api.GoodsApi
  *
  * @author nEdAy
  */
-class GoodsRepository(private val goodsApi: GoodsApi) : BaseRepository() {
+class GoodsRepository(private val goodsApi: GoodsApi) {
 
     suspend fun getRankingList(rankType: Int, cid: String): Response<List<RankingGoods>> =
         goodsApi.rankingList(rankType, cid)
@@ -20,8 +19,8 @@ class GoodsRepository(private val goodsApi: GoodsApi) : BaseRepository() {
     suspend fun getNineOpGoodsList(
         pageSize: Int,
         pageId: String,
-        cid: String
-    ): Response<Pages<CommonGoods>> = goodsApi.nineOpGoodsList(pageSize, pageId, cid)
+        nineCid: String
+    ): Response<Pages<CommonGoods>> = goodsApi.nineOpGoodsList(pageSize, pageId, nineCid)
 
     suspend fun getDtkSearchGoods(
         pageSize: Int,

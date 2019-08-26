@@ -5,8 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Handler
 import android.view.View
-import android.view.animation.CycleInterpolator
-import android.view.animation.TranslateAnimation
 import androidx.core.net.toUri
 import java.math.BigDecimal
 
@@ -36,20 +34,6 @@ object CommonUtils {
      */
     fun isValidSmsCode(target: CharSequence?): Boolean {
         return target != null && target.length == 4
-    }
-
-    /**
-     * 指定View显示一个动画,抖5下
-     *
-     * @param view 指定的View
-     */
-    fun setShakeAnimation(vararg view: View) {
-        val translateAnimation = TranslateAnimation(0f, 10f, 0f, 10f)
-        translateAnimation.interpolator = CycleInterpolator(5f)//抖5下
-        translateAnimation.duration = 1000
-        for (it in view) {
-            it.startAnimation(translateAnimation)
-        }
     }
 
     /**

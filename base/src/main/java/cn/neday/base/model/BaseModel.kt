@@ -1,9 +1,8 @@
 package cn.neday.base.model
 
 open class BaseModel {
-    // ID 主键
-    val id: Int? = null
-    val created_at: Int? = null
-    val updated_at: Int? = null
-    val deleted_at: Int? = null
+    val ID: Int? = null
+    val CreateAt: String? = null
+    val UpdatedAt: String? = null
+    val DeletedAt: String? = null
 }
