@@ -10,7 +10,6 @@ import cn.neday.base.router.RouterPath
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.StringUtils
 import com.tencent.mmkv.MMKV
-import com.umeng.analytics.MobclickAgent
 
 /**
  * Activity基类
@@ -44,16 +43,6 @@ abstract class BaseActivity(@get:LayoutRes val layoutId: Int?) : AppCompatActivi
      * onCreate
      */
     abstract fun initView()
-
-    override fun onResume() {
-        super.onResume()
-        MobclickAgent.onResume(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        MobclickAgent.onPause(this)
-    }
 
     override fun onDestroy() {
         super.onDestroy()

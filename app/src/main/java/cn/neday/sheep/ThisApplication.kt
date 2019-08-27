@@ -1,7 +1,10 @@
 package cn.neday.sheep
 
 import android.app.Application
-import cn.neday.base.config.*
+import cn.neday.base.config.BuglyConfig
+import cn.neday.base.config.DoraemonKitConfig
+import cn.neday.base.config.LogConfig
+import cn.neday.base.config.MMKVConfig
 import cn.neday.base.di.httpClientModule
 import cn.neday.sheep.di.repositoryModule
 import cn.neday.sheep.di.viewModelModule
@@ -46,7 +49,6 @@ class ThisApplication : Application() {
         super.onCreate()
         Utils.init(this)
         LogConfig.init()
-        UmengConfig.init()
         initARouter()
         initKoin()
         if (ProcessUtils.isMainProcess()) {

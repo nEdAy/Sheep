@@ -40,4 +40,31 @@ MobSDK {
             }
         }
     }
+    MobPush {
+        bradge true
+        devInfo {
+            HUAWEI {
+                appId "华为的appid"
+            }
+            MEIZU {
+                appId "魅族的appid"
+                appKey "魅族的appkey"
+            }
+            XIAOMI {
+                appId "小米的appId"
+                appKey "小米的appKey"
+            }
+            FCM {
+                iconRes "@mipmap/ic_launcher"
+            }
+            OPPO {
+                appKey "OPPO的appKey"
+                appSecret "OPPO的appSecret"
+            }
+            VIVO {
+                appId "VIVO的appId"
+                appKey "VIVO的appSecret"
+            }
+        }
+    }
 }

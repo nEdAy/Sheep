@@ -20,6 +20,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.*
 import com.flyco.dialog.listener.OnBtnClickL
 import com.flyco.dialog.widget.NormalDialog
+import com.mob.pushsdk.MobPush
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
@@ -44,6 +45,7 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
         mViewModel.user.observe(this, Observer {
             kv.encode(TOKEN, it.token)
             kv.encode(MOBILE, it.mobile)
+            MobPush.setAlias(it.mobile)
             ActivityUtils.finishActivity(this)
         })
         mViewModel.errMsg.observe(this, Observer {
@@ -193,6 +195,9 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
                 COUNTRY_NUMBER, mobile, "10085157"
             ) { _, _ -> false }
         }
+        // 禁止点击获取验证码按钮和修改手机号
+        tv_request_verification_code.isClickable = false
+        et_mobile.isEnabled = false
     }
 
     private fun checkUserOk(mobile: String, password: String, smsCode: String): Boolean {
@@ -233,9 +238,6 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
             override fun afterEvent(event: Int, result: Int, data: Any?) {
                 runOnUiThread {
                     if (result == SMSSDK.RESULT_COMPLETE) {
-                        // 禁止点击获取验证码按钮和修改手机号
-                        tv_request_verification_code.isClickable = false
-                        et_mobile.isEnabled = false
                         when (event) {
                             SMSSDK.EVENT_GET_VERIFICATION_CODE -> {
                                 // 短信验证 30s 倒计时

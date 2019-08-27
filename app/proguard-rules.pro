@@ -104,6 +104,32 @@
 -keep class cn.smssdk.**{*;}
 -dontwarn com.mob.**
 
+# Mob Push
+-keep class com.mob.**{*;}
+-dontwarn com.mob.**
+#huawei
+-keep class com.huawei.**{*;}
+-dontwarn com.huawei.**
+#meizu
+-keep class com.meizu.**{*;}
+-dontwarn com.meizu.**
+#xiaomi
+-keep class com.xiaomi.**{*;}
+-dontwarn com.xiaomi.**
+-keep class org.apache.thrift.**{*;}
+-keep class android.os.SystemProperties
+-dontwarn android.os.SystemProperties
+#FCM
+-keep class com.google.**{*;}
+-dontwarn com.google.**
+#VIVO
+-keep class com.vivo.push.**{*; }
+-keep class com.vivo.vms.**{*; }
+-dontwarn com.vivo.push.**
+#OPPO
+-keep class com.coloros.** {*;}
+-dontwarn com.coloros.**
+
 ##---------------Begin: proguard configuration for Gson  ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.

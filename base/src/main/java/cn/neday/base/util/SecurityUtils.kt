@@ -10,7 +10,7 @@ import com.blankj.utilcode.util.ToastUtils
 
 object SecurityUtils {
 
-    private const val SIGNATURE_RELEASE = "23032CCA0300249115EE64895F084FCC2B7E81A4"
+    private const val SIGNATURE_RELEASE = "EBB32FEB587FAA0B80C7DB915B3511ECC33BD7FF"
 
     fun checkIsAppRoot() {
         if (DeviceUtils.isDeviceRooted() && AppUtils.isAppRoot()) {

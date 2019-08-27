@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="cn.neday.sheep">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="cn.neday.sheep">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
             android:name=".ThisApplication"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:largeHeap="true"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:allowBackup="false"
             android:usesCleartextTraffic="true"
             tools:targetApi="m">
+
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-1267809289560660~8061570699" />
 
         <activity
                 android:name=".activity.SplashActivity"
@@ -28,65 +32,74 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/SplashTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
-                android:name=".activity.GuideActivity"
-                android:screenOrientation="portrait"
-                android:launchMode="singleTask"
-                android:theme="@style/FullscreenTheme"/>
-
-        <activity
                 android:name=".activity.MainActivity"
                 android:launchMode="singleTask"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="cn.neday.sheep.default.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+                android:name="com.mob.mobpush.debugLevel"
+                android:value="4" />
+
+        <activity
+                android:name=".activity.GuideActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:theme="@style/FullscreenTheme" />
 
         <activity
                 android:name=".activity.LoginActivity"
                 android:launchMode="singleTop"
                 android:screenOrientation="portrait"
-                android:theme="@style/FullscreenTheme"/>
+                android:theme="@style/FullscreenTheme" />
 
         <activity
                 android:name=".activity.SearchActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.SearchResultActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.GoodsDetailsActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.SignInActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.ShakeActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.CreditHistoryActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
 
         <activity
                 android:name=".activity.AboutActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait" />
     </application>
 </manifest>
