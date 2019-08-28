@@ -7,7 +7,6 @@ import cn.neday.base.util.ClipboardUtils
 import cn.neday.sheep.R
 import cn.sharesdk.onekeyshare.OnekeyShare
 import cn.sharesdk.sina.weibo.SinaWeibo
-import cn.sharesdk.system.text.ShortMessage
 import cn.sharesdk.tencent.qq.QQ
 import cn.sharesdk.wechat.favorite.WechatFavorite
 import cn.sharesdk.wechat.friends.Wechat
@@ -54,7 +53,8 @@ class ShareDialog : BottomSheetDialogFragment() {
             showShareAndHiddenSheet(QQ.NAME)
         }
         view.ll_share_shortMessage.setOnClickListener {
-            showShareAndHiddenSheet(ShortMessage.NAME)
+            // TODO: FIX FC
+            // showShareAndHiddenSheet(ShortMessage)
         }
         view.ll_share_sinaWeibo.setOnClickListener {
             showShareAndHiddenSheet(SinaWeibo.NAME)

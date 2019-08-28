@@ -59,13 +59,13 @@ dependencies {
     // UT，deviceID，主要用于计算设备的uttid，设备唯一标识, Umeng Sdk冲突（必选）
     implementation 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
     // 联盟SDK
-    implementation 'com.alimama.tunion.sdk:tuniontradesdk:0.3.2'
+    implementation 'com.alimama.tunion.sdk:TUnionTrade:0.4.0'
     // 基础电商组件 包含打开detail,淘客分润,jsbridge注入等功能（必选）
     implementation 'com.alibaba.sdk.android:alibc_trade_common:3.1.1.221'
     implementation 'com.alibaba.sdk.android:alibc_trade_biz:3.1.1.221'
     implementation 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.221'
     // AppLink，打通“手机淘宝”与三方app的桥梁，实现手机淘宝与三方app之间的往返跳转,包括登陆时跳手淘授权,用手淘打开商品页,店铺等（必选）
-    implementation 'com.alibaba.sdk.android:alibc_link_partner:1.1.0.6'
+    implementation 'com.alibaba.sdk.android:alibc_link_partner:1.1.1.21'
     // UT，用于组件、接口可用性统计（必选）
     implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc@jar'
     // 支付，使用支付宝极简支付的isv需要该组件,否则会降级到h5支付,功能不会有影响,但是用户体验会降低（可选）
