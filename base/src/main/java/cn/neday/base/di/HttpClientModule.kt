@@ -1,6 +1,7 @@
 package cn.neday.base.di
 
 import cn.neday.base.BuildConfig
+import cn.neday.base.network.interceptor.AuthenticationInterceptor
 import com.blankj.utilcode.util.Utils
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
@@ -29,6 +30,10 @@ val httpClientModule = module {
             .build()
     }
 
+    single(named<AuthenticationInterceptor>()) {
+        AuthenticationInterceptor()
+    }
+
     single(named<HttpLoggingInterceptor>()) {
         HttpLoggingInterceptor().apply {
             level = when (BuildConfig.DEBUG) {
@@ -46,6 +51,7 @@ val httpClientModule = module {
         get<OkHttpClient.Builder>()
             .connectTimeout(TIME_OUT_SECONDS, TimeUnit.SECONDS)
             .readTimeout(TIME_OUT_SECONDS, TimeUnit.SECONDS)
+            .addInterceptor(get(named<AuthenticationInterceptor>()) as Interceptor)
             .addInterceptor(get(named<HttpLoggingInterceptor>()) as Interceptor)
             .addInterceptor(get(named<ChuckInterceptor>()) as Interceptor)
             .build()

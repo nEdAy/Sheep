@@ -11,6 +11,7 @@ import cn.sharesdk.tencent.qq.QQ
 import cn.sharesdk.wechat.favorite.WechatFavorite
 import cn.sharesdk.wechat.friends.Wechat
 import cn.sharesdk.wechat.moments.WechatMoments
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -54,6 +55,7 @@ class ShareDialog : BottomSheetDialogFragment() {
         }
         view.ll_share_shortMessage.setOnClickListener {
             // TODO: FIX FC
+            ToastUtils.showShort(StringUtils.getString(R.string.tx_todo_fun))
             // showShareAndHiddenSheet(ShortMessage)
         }
         view.ll_share_sinaWeibo.setOnClickListener {

@@ -1,9 +1,10 @@
 package cn.neday.sheep.activity
 
-import cn.neday.base.activity.BaseActivity
+import cn.neday.base.activity.BaseVMActivity
 import cn.neday.base.router.Router
 import cn.neday.sheep.KZ_TTY
 import cn.neday.sheep.R
+import cn.neday.sheep.viewmodel.SignInViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.wuhenzhizao.titlebar.widget.CommonTitleBar
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
  *
  * @author nEdAy
  */
-class SignInActivity : BaseActivity(R.layout.activity_sign_in) {
+class SignInActivity : BaseVMActivity<SignInViewModel>(R.layout.activity_sign_in) {
 
     override val isCheckLogin = true
 
@@ -25,6 +26,7 @@ class SignInActivity : BaseActivity(R.layout.activity_sign_in) {
                 Router.alibabaService.showItemURLPage(this, KZ_TTY)
             }
         }
+
     }
 
 //    fun onresumeafter() {

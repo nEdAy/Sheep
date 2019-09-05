@@ -11,6 +11,7 @@ import com.alibaba.baichuan.android.trade.page.AlibcDetailPage
 import com.alibaba.baichuan.android.trade.page.AlibcMyCartsPage
 import com.alibaba.baichuan.android.trade.page.AlibcShopPage
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.StringUtils
 import com.blankj.utilcode.util.ToastUtils
 
 @Route(path = RouterPath.AlibabaService)
@@ -46,7 +47,7 @@ class AlibabaServiceImpl : AlibabaService {
      *               eg.37196464781L；AAHd5d-HAAeGwJedwSnHktBI；
      */
     override fun showAddCartPage(activity: Activity?, itemId: String) {
-        ToastUtils.showShort("暂不支持")
+        ToastUtils.showShort(StringUtils.getString(R.string.tx_todo_fun))
         // AliTradeHelper(activity).showAlibcTradePage(AlibcAddCartPage(itemId), "cart")
     }
 
@@ -57,7 +58,7 @@ class AlibabaServiceImpl : AlibabaService {
      * @param allOrder false 进行订单分域（只展示通过当前app下单的订单），true 显示所有订单
      */
     override fun showMyOrdersPage(activity: Activity?, status: Int, allOrder: Boolean) {
-        ToastUtils.showShort("暂不支持")
+        ToastUtils.showShort(StringUtils.getString(R.string.tx_todo_fun))
         // AliTradeHelper(activity).showAlibcTradePage(AlibcMyOrdersPage(status, allOrder), "trade")
     }
 

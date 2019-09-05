@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">base</string>
+    <string name="app_name">口袋快爆</string>
+    <string name="app_introduction">实 惠 多 到 爆</string>
+    <string name="app_version">当前版本v%1$s</string>
+
+    <string name="author_email">neday@bk.ru</string>
+    <string name="author_website">www.neday.cn</string>
+    <string name="author_wechat">nEdAy_</string>
+    <string name="author_qq">1582703866</string>
+
     <string name="app_image_content_description">TODO</string>
+    <string name="tx_todo_fun">暂不支持</string>
 
     <string name="debug_tips">程序被修改为可调试状态</string>
     <string name="signature_tips">证书签名已被篡改</string>
