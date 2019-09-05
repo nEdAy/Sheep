@@ -2,18 +2,21 @@ package cn.neday.sheep.fragment
 
 import android.text.TextUtils
 import android.view.View
+import androidx.lifecycle.Observer
+import cn.neday.base.config.MMKVConfig.ID
 import cn.neday.base.config.MMKVConfig.TOKEN
-import cn.neday.base.fragment.BaseFragment
+import cn.neday.base.config.MMKVConfig.kv
+import cn.neday.base.fragment.BaseVMFragment
 import cn.neday.base.router.Router
 import cn.neday.base.util.AppStoreUtils
 import cn.neday.base.util.ClipboardUtils
 import cn.neday.sheep.R
-import cn.neday.sheep.activity.AboutActivity
-import cn.neday.sheep.activity.LoginActivity
+import cn.neday.sheep.activity.*
 import cn.neday.sheep.enum.OrderType
 import cn.neday.sheep.model.User
 import cn.neday.sheep.util.CommonUtils
 import cn.neday.sheep.view.ShareDialog
+import cn.neday.sheep.viewmodel.MeViewModel
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.blankj.utilcode.util.ActivityUtils
@@ -26,17 +29,13 @@ import kotlinx.android.synthetic.main.fragment_main_me.*
 /**
  * 我的
  */
-class MeFragment : BaseFragment(R.layout.fragment_main_me) {
+class MeFragment : BaseVMFragment<MeViewModel>(R.layout.fragment_main_me) {
 
     override fun initView() {
         dampView.setImageView(iv_damp)
-        dampView.setOnRefreshListener { getUserInfo() }
-//        ll_option
-//            .setOnClickListener { ActivityUtils.startActivity(AccountActivity::class.java) }
-//        iv_level
-//            .setOnClickListener { ActivityUtils.startActivity(VipActivity::class.java) }
-//        rl_me
-//            .setOnClickListener { ActivityUtils.startActivity(AccountActivity::class.java) }
+        dampView.setOnRefreshListener { mViewModel.getUserById() }
+        ll_config.setOnClickListener { ActivityUtils.startActivity(ConfigActivity::class.java) }
+        iv_level.setOnClickListener { ActivityUtils.startActivity(VipActivity::class.java) }
         ll_encourage.setOnClickListener { encourageWe() }
         ll_about.setOnClickListener { ActivityUtils.startActivity(AboutActivity::class.java) }
         ll_feedback.setOnClickListener { CommonUtils.joinQQGroup(activity) }
@@ -48,15 +47,10 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
                 "http://a.app.qq.com/o/simple.jsp?pkgname=com.neday.bomb"
             ).show(childFragmentManager, "ShareDialog")
         }
-
         rl_credits.setOnClickListener {
-            //            val intent = Intent()
-//            intent.putExtra("userId", mCurrentUser.id)
-//            ActivityUtils.startActivity(CreditsHistoryActivity::class.java, intent)
+            ActivityUtils.startActivity(CreditHistoryActivity::class.java)
         }
-
         tv_login.setOnClickListener { ActivityUtils.startActivity(LoginActivity::class.java) }
-
         rl_showMyCartsPage.setOnClickListener { Router.alibabaService.showMyCartsPage(activity) }
         rl_showMyOrdersPage_1.setOnClickListener {
             Router.alibabaService.showMyOrdersPage(
@@ -86,6 +80,9 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
                 true
             )
         }
+        mViewModel.user.observe(this, Observer {
+            refreshUser(it)
+        })
     }
 
 
@@ -100,8 +97,9 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
      */
     private fun initUserInfoAndChangeSkin() {
         val isTokenEmpty = StringUtils.isTrimEmpty(kv.decodeString(TOKEN))
-        if (!isTokenEmpty) {
-//            getUserInfo(mCurrentUser.id)
+        val isIDEmpty = kv.decodeInt(ID) != 0
+        if (!isTokenEmpty && !isIDEmpty) {
+            mViewModel.getUserById()
             rl_top.visibility = View.VISIBLE
             rl_user_info.visibility = View.VISIBLE
             rl_credits.visibility = View.VISIBLE
@@ -117,20 +115,6 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
     }
 
     /**
-     * 获取当前用户信息
-     */
-    private fun getUserInfo() {
-//        toSubscribe(RxFactory.getUserServiceInstance(null)
-//            .getUser(id),
-//            { user ->
-//                mCreditsValue.withNumber(user.getCreditByUserId())
-//                mCreditsValue.start()
-//                refreshUser(user)
-//            },
-//            { throwable -> LogUtils.e(throwable.getMessage()) })
-    }
-
-    /**
      * 更新用户信息前端显示
      *
      * @param user 用户信息
@@ -139,10 +123,10 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
         refreshAvatar(user.avatar)
         val nickname = user.nickname
         if (TextUtils.isEmpty(nickname) || nickname == getString(R.string.default_nickname)) {
-//            mNickname.text = getString(R.string.default_nickname)
-//            mNickname.setOnClickListener { ActivityUtils.startActivity(UpdateInfoActivity::class.java) }
+            tv_user_nickname.text = getString(R.string.default_nickname)
+            // tv_user_nickname.setOnClickListener { ActivityUtils.startActivity(UpdateInfoActivity::class.java) }
         } else {
-//            mNickname.text = nickname
+            tv_user_nickname.text = nickname
         }
         val credit = user.credit
         if (credit != null) {

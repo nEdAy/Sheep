@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cn.neday.sheep.view.DampView xmlns:android="http://schemas.android.com/apk/res/android"
-                              xmlns:tools="http://schemas.android.com/tools"
-                              android:id="@+id/dampView"
-                              android:layout_width="match_parent"
-                              android:layout_height="match_parent"
-                              android:background="@color/backgroundColor"
-                              android:fadingEdge="none"
-                              android:scrollbars="none">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/dampView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:fadingEdge="none"
+        android:scrollbars="none">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -17,7 +17,7 @@
                 android:id="@+id/paddingView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_alignParentTop="true"/>
+                android:layout_alignParentTop="true" />
 
         <ImageView
                 android:id="@+id/iv_damp"
@@ -25,15 +25,15 @@
                 android:layout_height="200dp"
                 android:background="@drawable/selfcenter_bg_banner_2"
                 android:scaleType="centerCrop"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription" />
 
         <RelativeLayout
                 android:id="@+id/rl_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/paddingView"
-                android:visibility="gone"
-                android:padding="10.0dp">
+                android:padding="10.0dp"
+                android:visibility="gone">
 
             <ImageView
                     android:id="@+id/iv_level"
@@ -41,11 +41,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_level"/>
-
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_level"
+                    tools:ignore="ContentDescription" />
         </RelativeLayout>
-
 
         <RelativeLayout
                 android:id="@+id/rl_dump"
@@ -60,20 +60,20 @@
                     android:layout_centerInParent="true"
                     android:background="@drawable/bg_corner_white"
                     android:gravity="center"
-                    android:paddingBottom="8dp"
                     android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
                     android:paddingTop="8dp"
-                    android:text="登录"
-                    android:textColor="@android:color/white"/>
+                    android:paddingRight="15dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/tx_login"
+                    android:textColor="@android:color/white" />
 
             <RelativeLayout
                     android:id="@+id/rl_user_info"
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true">
+                    android:layout_centerVertical="true"
+                    android:visibility="gone">
 
                 <ImageView
                         android:id="@+id/iv_user_avatar"
@@ -83,7 +83,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="20dp"
                         android:src="@drawable/avatar_default"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_user_nickname"
@@ -94,27 +94,27 @@
                         android:layout_marginTop="15dp"
                         android:text="@string/tx_not_set"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/global_big_text_size"/>
+                        android:textSize="@dimen/global_big_text_size" />
 
                 <ImageView
                         android:id="@+id/iv_user_vip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/iv_user_avatar"
                         android:layout_alignTop="@+id/iv_user_avatar"
+                        android:layout_alignEnd="@+id/iv_user_avatar"
                         android:layout_marginTop="3dp"
                         android:src="@drawable/level_0"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
             </RelativeLayout>
 
             <RelativeLayout
                     android:id="@+id/rl_credits"
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rl_user_info"
                     android:layout_centerHorizontal="true"
-                    android:padding="10.0dp">
+                    android:padding="10.0dp"
+                    android:visibility="gone">
 
                 <TextView
                         android:id="@+id/tv_credits"
@@ -122,7 +122,7 @@
                         android:layout_height="wrap_content"
                         android:text="口袋币："
                         android:textColor="@android:color/white"
-                        android:textSize="13.0sp"/>
+                        android:textSize="13.0sp" />
 
                 <cn.neday.sheep.view.rise_number.RiseNumberTextView
                         android:id="@+id/tv_credits_value"
@@ -132,7 +132,7 @@
                         android:layout_toEndOf="@+id/tv_credits"
                         android:text="@string/tx_number_def"
                         android:textColor="@android:color/white"
-                        android:textSize="13.0sp"/>
+                        android:textSize="13.0sp" />
             </RelativeLayout>
         </RelativeLayout>
 
@@ -148,23 +148,24 @@
                     android:id="@+id/rl_showMyCartsPage"
                     android:layout_width="0.0dp"
                     android:layout_height="80.0dp"
-                    android:orientation="vertical"
                     android:layout_weight="1.0"
                     android:background="@drawable/global_click_selector"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                 <ImageView
                         android:layout_width="30.0dp"
                         android:layout_height="20.0dp"
-                        android:src="@drawable/ic_cart"/>
+                        android:src="@drawable/ic_cart"
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5.0dp"
-                        android:text="购物车"
+                        android:text="@string/tx_cart"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,15 +173,15 @@
                     android:layout_width="0.0dp"
                     android:layout_height="80.0dp"
                     android:layout_weight="1.0"
-                    android:orientation="vertical"
                     android:background="@drawable/global_click_selector"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                 <ImageView
                         android:layout_width="30.0dp"
                         android:layout_height="20.0dp"
                         android:src="@drawable/ic_order_1"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -188,49 +189,48 @@
                         android:layout_marginTop="5.0dp"
                         android:text="待付款"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
             </LinearLayout>
 
             <LinearLayout
                     android:id="@+id/rl_showMyOrdersPage_2"
                     android:layout_width="0.0dp"
                     android:layout_height="80.0dp"
-                    android:orientation="vertical"
                     android:layout_weight="1.0"
                     android:background="@drawable/global_click_selector"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                 <ImageView
                         android:layout_width="30.0dp"
                         android:layout_height="20.0dp"
                         android:src="@drawable/ic_order_2"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv_2"
                         android:layout_marginTop="5.0dp"
                         android:src="@drawable/ic_order_2"
                         android:text="待发货"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
             </LinearLayout>
 
             <LinearLayout
                     android:id="@+id/rl_showMyOrdersPage_3"
                     android:layout_width="0.0dp"
                     android:layout_height="80.0dp"
-                    android:orientation="vertical"
                     android:layout_weight="1.0"
                     android:background="@drawable/global_click_selector"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                 <ImageView
                         android:layout_width="30.0dp"
                         android:layout_height="20.0dp"
                         android:src="@drawable/ic_order_3"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -238,23 +238,23 @@
                         android:layout_marginTop="5.0dp"
                         android:text="待收货"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
             </LinearLayout>
 
             <LinearLayout
                     android:id="@+id/rl_showMyOrdersPage_4"
                     android:layout_width="0.0dp"
                     android:layout_height="80.0dp"
-                    android:orientation="vertical"
                     android:layout_weight="1.0"
                     android:background="@drawable/global_click_selector"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                 <ImageView
                         android:layout_width="30.0dp"
                         android:layout_height="20.0dp"
                         android:src="@drawable/ic_order_4"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
                         android:layout_marginTop="5.0dp"
                         android:text="待评价"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
             </LinearLayout>
         </LinearLayout>
 
@@ -276,11 +276,11 @@
                 android:orientation="horizontal">
 
             <LinearLayout
-                    android:id="@+id/ll_option"
+                    android:id="@+id/ll_config"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
                     android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
@@ -291,16 +291,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_option"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_option"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="账户设置"
+                        android:text="@string/tx_config"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -308,8 +308,8 @@
                     android:id="@+id/ll_encourage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
                     android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
@@ -320,7 +320,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_encourage"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_encourage"
@@ -329,7 +329,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/tx_encourage_us"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -337,8 +337,8 @@
                     android:id="@+id/ll_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
                     android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
@@ -349,7 +349,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_feedback"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_feedback"
@@ -358,7 +358,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/tx_feedback"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -366,8 +366,8 @@
                     android:id="@+id/ll_share"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="1dp"
                     android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
@@ -378,7 +378,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_share"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_share"
@@ -387,7 +387,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/tx_share_to_friends"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -416,7 +416,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_about"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_about"
@@ -425,7 +425,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/tx_about_us"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -444,7 +444,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_me_attention"
-                        tools:ignore="ContentDescription"/>
+                        tools:ignore="ContentDescription" />
 
                 <TextView
                         android:id="@+id/tv_attention"
@@ -453,7 +453,7 @@
                         android:layout_marginTop="6dp"
                         android:text="@string/tx_attention_us"
                         android:textColor="@color/textColor"
-                        android:textSize="@dimen/global_small_text_size"/>
+                        android:textSize="@dimen/global_small_text_size" />
 
             </LinearLayout>
 
@@ -465,8 +465,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
-                    android:orientation="vertical">
-            </LinearLayout>
+                    android:orientation="vertical" />
 
             <LinearLayout
                     android:id="@+id/ll_voucher"
@@ -475,8 +474,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/global_click_selector"
                     android:gravity="center"
-                    android:orientation="vertical">
-            </LinearLayout>
+                    android:orientation="vertical" />
         </LinearLayout>
     </RelativeLayout>
 </cn.neday.sheep.view.DampView>

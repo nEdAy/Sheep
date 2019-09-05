@@ -2,6 +2,7 @@ package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import cn.neday.base.config.MMKVConfig
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.model.Pages
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then

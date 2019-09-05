@@ -1,81 +1,15 @@
-//package cn.neday.sheep.activity;
-//
-//import android.content.Intent;
-//import android.net.Uri;
-//import android.os.Bundle;
-//import android.os.Environment;
-//import android.text.TextUtils;
-//import android.view.View;
-//import android.widget.ImageView;
-//import android.widget.TextView;
-//
-//import androidx.annotation.NonNull;
-//
-//import com.facebook.drawee.backends.pipeline.Fresco;
-//import com.facebook.drawee.view.SimpleDraweeView;
-//import com.facebook.imagepipeline.core.ImagePipeline;
-//import com.flyco.dialog.widget.ActionSheetDialog;
-//import com.flyco.dialog.widget.NormalDialog;
-//import com.hwangjr.rxbus.RxBus;
-//import com.hwangjr.rxbus.annotation.Subscribe;
-//import com.hwangjr.rxbus.annotation.Tag;
-//import com.hwangjr.rxbus.thread.EventThread;
-//import com.jph.takephoto.app.TakePhoto;
-//import com.jph.takephoto.app.TakePhotoImpl;
-//import com.jph.takephoto.compress.CompressConfig;
-//import com.jph.takephoto.model.CropOptions;
-//import com.jph.takephoto.model.InvokeParam;
-//import com.jph.takephoto.model.TContextWrap;
-//import com.jph.takephoto.model.TResult;
-//import com.jph.takephoto.permission.InvokeListener;
-//import com.jph.takephoto.permission.PermissionManager;
-//import com.jph.takephoto.permission.TakePhotoInvocationHandler;
-//import com.neday.bomb.CustomApplication;
-//import com.neday.bomb.R;
-//import com.neday.bomb.StaticConfig;
-//import com.neday.bomb.base.BaseOnlineActivity;
-//import com.neday.bomb.entity.User;
-//import com.neday.bomb.network.RxFactory;
-//import com.neday.bomb.util.CommonUtils;
-//import com.neday.bomb.util.FileUtil;
-//import com.neday.bomb.util.SharedPreferencesHelper;
-//import com.neday.bomb.util.SysEnvUtils;
-//import com.neday.bomb.view.loading.CatLoadingView;
-//import com.orhanobut.logger.Logger;
-//import com.tencent.bugly.beta.Beta;
-//
-//import java.io.File;
-//
-//import okhttp3.MediaType;
-//import okhttp3.RequestBody;
-//
-//
-///**
-// * 我的账户页
-// *
-// * @author nEdAy
-// */
-//public class AccountActivity extends BaseOnlineActivity implements TakePhoto.TakeResultListener, InvokeListener {
-//    private final static String TAG = "AccountActivity";
+// TakePhoto.TakeResultListener, InvokeListener {
 //    private SimpleDraweeView riv_avatar;
 //    private TextView tv_nickname_real, tv_account_real;
 //    private CatLoadingView catLoadingView;
 //    private SharedPreferencesHelper sharedPreferencesHelper;
 //    private TakePhoto takePhoto;
 //    private InvokeParam invokeParam;
-//
-//    @Override
-//    public int bindLayout() {
-//        return R.layout.activity_account_center;
-//    }
-//
+
 //    @Override
 //    public void initView(Bundle savedInstanceState) {
 //        getTakePhoto().onCreate(savedInstanceState);
-//        setTintManager();
-//        RxBus.get().register(this);
-//        initTopBarForLeft(getString(R.string.tx_account), getString(R.string.tx_back));
-//        catLoadingView = new CatLoadingView();
+
 //        riv_avatar = findViewById(R.id.riv_avatar);
 //        tv_nickname_real = findViewById(R.id.tv_nickname_real);
 //        tv_account_real = findViewById(R.id.tv_account_real);
@@ -84,16 +18,10 @@
 //        findViewById(R.id.rl_key_login).setOnClickListener(v -> getOperation().startActivity(UpdateNewPasswordActivity.class));
 //        findViewById(R.id.rl_change_skin).setOnClickListener(v -> getOperation().startActivity(ChangeSkinActivity.class));
 //        findViewById(R.id.rl_setting_center).setOnClickListener(v -> getOperation().startActivity(PushSettingActivity.class));
-//        findViewById(R.id.rl_update).setOnClickListener(v -> Beta.checkUpgrade());
-//        findViewById(R.id.rl_clear).setOnClickListener(v -> clearCache());
-//        findViewById(R.id.tv_btn_logout).setOnClickListener(v -> logout());
-//        //显示版本号
-//        showCurVersion();
-//        //显示缓存大小
-//        showCacheSize();
-//        sharedPreferencesHelper = CustomApplication.getInstance().getSpHelper();
+
 //        ImageView iv_open_province_flow = findViewById(R.id.iv_open_province_flow);
 //        ImageView iv_close_province_flow = findViewById(R.id.iv_close_province_flow);
+
 //        // 初始化省流模式按钮状态
 //        if (sharedPreferencesHelper.isAllowProvinceFlowModel()) {
 //            iv_open_province_flow.setVisibility(View.VISIBLE);
@@ -150,40 +78,8 @@
 //                });
 //    }
 //
-//    /**
-//     * 清除缓存
-//     */
-//    private void clearCache() {
-//        //清除图片缓存
-//        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-//        //    imagePipeline.clearMemoryCaches();
-//        //    imagePipeline.clearDiskCaches();
-//        //    combines above two lines
-//        imagePipeline.clearCaches();
-//        //清除图片上传中各步骤的垃圾
-//        FileUtil.deleteFolderFile(Environment.getExternalStorageDirectory() + "/kdkb/cache/", false);
-//        //重新刷新显示缓存大小
-//        showCacheSize();
-//    }
-//
-//    /**
-//     * 刷新显示缓存大小
-//     */
-//    private void showCacheSize() {
-//        File file = new File(Environment.getExternalStorageDirectory() + "/kdkb/cache/");
-//        ((TextView) findViewById(R.id.cacheSize)).setText(FileUtil.getFormatSize(FileUtil.getFolderSize(file)));
-//    }
-//
-//    /**
-//     * 显示版本号
-//     */
-//    private void showCurVersion() {
-//        TextView curVersion = findViewById(R.id.curVersion);
-//        curVersion.setVisibility(View.VISIBLE);
-//        String app_version = String.format(getResources().getString(R.string.app_version), SysEnvUtils.getVersion());
-//        curVersion.setText(app_version);
-//    }
-//
+
+
 //    /**
 //     * 刷新用户信息显示
 //     *
@@ -298,32 +194,7 @@
 //        tv_nickname_real.setEnabled(false);
 //    }
 //
-//    /**
-//     * 退出登录
-//     */
-//    private void logout() {
-//        final NormalDialog dialog = new NormalDialog(mContext);
-//        dialog.content(getString(R.string.tx_inquiry_logout))//
-//                .title(getString(R.string.logout_prompt))
-//                .style(NormalDialog.STYLE_TWO)//
-//                .titleTextSize(23)//
-//                .show();
-//
-//        dialog.setOnBtnClickL(
-//                dialog::dismiss,
-//                () -> {
-//                    dialog.superDismiss();
-//                    User.logout(currentUser.getObjectId());
-//                    getOperation().startActivity(LoginActivity.class);
-//                    finish();
-//                });
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        RxBus.get().unregister(this);
-//    }
+
 //
 //    /**
 //     * 获取TakePhoto实例

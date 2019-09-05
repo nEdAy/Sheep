@@ -3,6 +3,7 @@ package cn.neday.sheep.activity
 import android.view.KeyEvent
 import cn.neday.base.activity.BaseActivity
 import cn.neday.base.config.MMKVConfig.IS_FIRST_START_APP
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.util.SecurityUtils
 import com.blankj.utilcode.util.ActivityUtils
 import kotlinx.coroutines.*

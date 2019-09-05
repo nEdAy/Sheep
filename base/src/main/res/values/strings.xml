@@ -9,7 +9,7 @@
     <string name="author_qq">1582703866</string>
 
     <string name="app_image_content_description">TODO</string>
-    <string name="tx_todo_fun">暂不支持</string>
+    <string name="tx_todo_fun">尚未开放，敬请期待</string>
 
     <string name="debug_tips">程序被修改为可调试状态</string>
     <string name="signature_tips">证书签名已被篡改</string>

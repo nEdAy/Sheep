@@ -6,9 +6,9 @@ import android.text.TextUtils
 import android.view.View
 import androidx.lifecycle.Observer
 import cn.neday.base.activity.BaseVMActivity
-import cn.neday.base.config.MMKVConfig.ID
+import cn.neday.base.config.MMKVConfig
 import cn.neday.base.config.MMKVConfig.MOBILE
-import cn.neday.base.config.MMKVConfig.TOKEN
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.router.Router
 import cn.neday.base.router.RouterPath
 import cn.neday.sheep.KZ_YHSYXY
@@ -44,9 +44,7 @@ class LoginActivity : BaseVMActivity<LoginViewModel>(R.layout.activity_login) {
         initClickView()
         initFocusChangeView()
         mViewModel.user.observe(this, Observer {
-            kv.encode(ID, it.id ?: 0)
-            kv.encode(TOKEN, it.token)
-            kv.encode(MOBILE, it.mobile)
+            MMKVConfig.login(it.id, it.token, it.mobile)
             MobPush.setAlias(it.mobile)
             ActivityUtils.finishActivity(this)
         })

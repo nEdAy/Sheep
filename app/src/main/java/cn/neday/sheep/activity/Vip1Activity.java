@@ -1,27 +1,4 @@
-//package cn.neday.sheep.activity;
 //
-//import android.content.Intent;
-//import android.net.Uri;
-//import android.os.Bundle;
-//import android.text.TextUtils;
-//import android.widget.ImageView;
-//import android.widget.TextView;
-//
-//import com.facebook.drawee.view.SimpleDraweeView;
-//import com.neday.bomb.R;
-//import com.neday.bomb.base.BaseOnlineActivity;
-//import com.neday.bomb.entity.User;
-//import com.neday.bomb.network.RxFactory;
-//import com.neday.bomb.util.CommonUtils;
-//import com.neday.bomb.view.loading.CatLoadingView;
-//import com.orhanobut.logger.Logger;
-//
-//
-///**
-// * 会员中心页
-// *
-// * @author nEdAy
-// */
 //public class VipActivity extends BaseOnlineActivity {
 //    private final static String TAG = "UpdateNewPasswordActivity";
 //    private CatLoadingView catLoadingView;
@@ -29,26 +6,13 @@
 //    private TextView tv_credit;
 //    private SimpleDraweeView riv_avatar;
 //    private ImageView iv_vip;
-//
-//    @Override
-//    public int bindLayout() {
-//        return R.layout.activity_vip;
-//    }
-//
-//    @Override
-//    public void initView(Bundle savedInstanceState) {
-//        setTintManager();
-//        initTopBarForBoth("会员中心", getString(R.string.tx_back), "等级说明", () ->
-//                getOperation().startActivity(VipHelpActivity.class)
-//        );
-//        catLoadingView = new CatLoadingView();
+
+
 //        iv_vip = findViewById(R.id.iv_vip);
 //        riv_avatar = findViewById(R.id.riv_avatar);
 //        tv_nickname = findViewById(R.id.tv_nickname);
 //        tv_credit = findViewById(R.id.tv_credit);
-//        findViewById(R.id.tv_sign_in).setOnClickListener(v -> getOperation().startActivity(SignInActivity.class));
-//        findViewById(R.id.rl_privilege).setOnClickListener(v -> CommonUtils.showToast("尚未开放，敬请期待"));
-//        findViewById(R.id.rl_achievement).setOnClickListener(v -> CommonUtils.showToast("尚未开放，敬请期待"));
+
 //    }
 //
 //    @Override

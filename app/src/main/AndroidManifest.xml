@@ -101,5 +101,15 @@
                 android:name=".activity.AboutActivity"
                 android:launchMode="singleTop"
                 android:screenOrientation="portrait" />
+
+        <activity
+                android:name=".activity.ConfigActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+
+        <activity
+                android:name=".activity.VipActivity"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
     </application>
 </manifest>

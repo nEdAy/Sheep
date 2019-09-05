@@ -2,6 +2,7 @@ package cn.neday.sheep.activity
 
 import cn.neday.base.activity.BaseActivity
 import cn.neday.base.config.MMKVConfig.IS_FIRST_START_APP
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.sheep.R
 import com.blankj.utilcode.util.ActivityUtils
 import kotlinx.android.synthetic.main.activity_guide.*

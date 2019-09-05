@@ -101,7 +101,6 @@
     <string name="pick_from_gallery">从相册选择</string>
     <string name="register_error">注册失败:</string>
 
-    <string name="tx_account">我的账户</string>
     <string name="tx_taobao">淘宝</string>
     <string name="tx_tianmao">天猫商城</string>
     <string name="tx_get_sms_code">获取验证码</string>
@@ -151,4 +150,8 @@
     <string name="tx_copy_url_to_share">复制网址分享给好友</string>
     <string name="tx_game_rules">规则说明</string>
     <string name="tx_credit_history">口袋币明细</string>
+    <string name="tx_vip_rules">等级说明</string>
+    <string name="tx_config">账户设置</string>
+    <string name="tx_vip">会员中心</string>
+    <string name="tx_cart">购物车</string>
 </resources>

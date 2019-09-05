@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_shake.*
 
 class ShakeActivity : BaseVMActivity<ShakeViewModel>(R.layout.activity_shake) {
 
+    override val isCheckLogin = true
+
     override fun initView() {
         titleBar_shake.setListener { _, action, _ ->
             if (action == CommonTitleBar.ACTION_LEFT_BUTTON) {

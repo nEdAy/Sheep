@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import cn.neday.base.config.MMKVConfig.TOKEN
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.router.Router
 import cn.neday.base.router.RouterPath
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.StringUtils
-import com.tencent.mmkv.MMKV
 
 /**
  * Activity基类
@@ -17,8 +17,6 @@ import com.tencent.mmkv.MMKV
  * @author nEdAy
  */
 abstract class BaseActivity(@get:LayoutRes val layoutId: Int?) : AppCompatActivity() {
-
-    val kv: MMKV = MMKV.defaultMMKV()
 
     open val isCheckLogin = false
 

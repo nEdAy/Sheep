@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import cn.neday.base.activity.BaseVMActivity
 import cn.neday.base.config.MMKVConfig
+import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.model.Pages
 import cn.neday.base.router.Router
 import cn.neday.sheep.KZ_JF

@@ -16,9 +16,17 @@ val viewModelModule = module {
 
     viewModel { MainViewModel() }
 
+    viewModel { MeViewModel(get()) }
+
     viewModel { RankingListViewModel(get()) }
 
     viewModel { SearchResultViewModel(get()) }
 
     viewModel { SearchViewModel(get()) }
+
+    viewModel { SignInViewModel(get()) }
+
+    viewModel { ShakeViewModel(get()) }
+
+    viewModel { ConfigViewModel(get()) }
 }

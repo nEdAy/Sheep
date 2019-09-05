@@ -151,7 +151,7 @@ class AliTradeHelper(private val activity: Activity?) {
             //        AlibcNativeFailModeJumpDOWNLOAD：跳转下载页；
             //        AlibcNativeFailModeJumpH5：应用内webview打开）
             //（注：AlibcNativeFailModeJumpBROWER不推荐使用）
-            nativeOpenFailedMode = AlibcFailModeType.AlibcNativeFailModeJumpH5
+            nativeOpenFailedMode = AlibcFailModeType.AlibcNativeFailModeJumpDOWNLOAD
         }
         // 淘客Pid
         private const val DEFAULT_TAOKE_PID = "mm_108668197_20820254_70484723"
