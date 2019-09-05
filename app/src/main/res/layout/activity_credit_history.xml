@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@android:color/white"
-              android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
     <com.wuhenzhizao.titlebar.widget.CommonTitleBar
-            android:id="@+id/titleBar_search"
+            android:id="@+id/titleBar_credit_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:centerType="searchView"
-            app:centerSearchRightType="delete"
-            app:statusBarMode="light"
-            app:titleBarColor="@color/red"
+            app:centerText="@string/tx_credit_history"
+            app:centerTextColor="@android:color/white"
+            app:centerTextMarquee="true"
+            app:centerType="textView"
             app:fillStatusBar="true"
-            app:statusBarColor="@color/colorPrimaryDark"
-            app:showBottomLine="false"
-            app:centerSearchEditable="true"
-            app:leftType="imageButton"
             app:leftImageResource="@drawable/ic_back_white_24dp"
-            app:rightImageResource="@drawable/ic_search_white_24dp"
-            app:rightType="imageButton"/>
+            app:leftType="imageButton"
+            app:rightText="@string/tx_game_rules"
+            app:rightTextColor="@android:color/white"
+            app:rightType="textView"
+            app:statusBarColor="@color/colorPrimaryDark"
+            app:statusBarMode="light"
+            app:titleBarColor="@color/red" />
 
-    <include layout="@layout/include_credit_history_header"/>
+    <include layout="@layout/include_credit_history_header" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/srl_credit_history"
@@ -35,6 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

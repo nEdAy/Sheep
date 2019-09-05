@@ -1,56 +1,4 @@
-//package cn.neday.sheep.activity;
-//
-//import android.os.Bundle;
-//import android.view.View;
-//import android.view.ViewGroup;
-//import android.widget.LinearLayout;
-//import android.widget.TextView;
-//import androidx.recyclerview.widget.LinearLayoutManager;
-//import androidx.recyclerview.widget.RecyclerView;
-//import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-//import com.alibaba.baichuan.android.trade.AlibcTradeSDK;
-//import com.chad.library.adapter.base.BaseQuickAdapter;
-//import com.neday.bomb.R;
-//import com.neday.bomb.StaticConfig;
-//import com.neday.bomb.adapter.CreditsDetailsAdapter;
-//import com.neday.bomb.entity.CreditsHistory;
-//import com.neday.bomb.network.RxFactory;
-//import com.neday.bomb.util.AliTradeHelper;
-//import com.orhanobut.logger.Logger;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.Map;
-//
-///**
-// * 口袋币历史页
-// *
-// * @author nEdAy
-// */
-//public class CreditsHistoryActivity extends BaseActivity implements BaseQuickAdapter.RequestLoadMoreListener,
-//        SwipeRefreshLayout.OnRefreshListener {
-//    private String userId;
-//    private TextView tv_credits;
-//    private RecyclerView mRecyclerView;
-//    private CreditsDetailsAdapter mQuickAdapter;
-//    private SwipeRefreshLayout mSwipeRefreshLayout;
-//    private View notLoadingView;
-//    private int mCurrentCounter;
-//    private int curPage;
-//    private LinearLayout rl_no_data, rl_no_network;
-//
-//    @Override
-//    public int bindLayout() {
-//        return R.layout.activity_credits_history;
-//    }
-//
-//    @Override
-//    public void initView(Bundle savedInstanceState) {
-//        setTintManager();
-//        initTopBarForBoth("口袋币明细", getString(R.string.tx_back), "规则说明", () -> {
-//            AliTradeHelper aliTradeUtils = new AliTradeHelper(this);
-//            aliTradeUtils.showItemURLPage(StaticConfig.KZ_JF);
-//        });
+
 //        userId = getIntent().getStringExtra("userId");
 //        tv_credits = findViewById(R.id.tv_credits);
 //        rl_no_data = findViewById(R.id.rl_no_data);
@@ -66,7 +14,7 @@
 //        // 主动查询
 //        onRefresh();
 //    }
-//
+
 //    private void initAdapter() {
 //        mQuickAdapter = new CreditsDetailsAdapter(new ArrayList<>());
 //        mRecyclerView.setAdapter(mQuickAdapter);
@@ -96,7 +44,7 @@
 //     */
 //    private void QueryUserCredit() {
 //        toSubscribe(RxFactory.getUserServiceInstance(null)
-//                        .getUser(userId, "_User[credit]").map(user -> user.getCredit().toString().trim()),
+//                        .getUser(userId, "_User[credit]").map(user -> user.getCreditByUserId().toString().trim()),
 //                credit ->
 //                        tv_credits.setText(credit),
 //                throwable -> {

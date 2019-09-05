@@ -123,7 +123,7 @@ class MeFragment : BaseFragment(R.layout.fragment_main_me) {
 //        toSubscribe(RxFactory.getUserServiceInstance(null)
 //            .getUser(id),
 //            { user ->
-//                mCreditsValue.withNumber(user.getCredit())
+//                mCreditsValue.withNumber(user.getCreditByUserId())
 //                mCreditsValue.start()
 //                refreshUser(user)
 //            },

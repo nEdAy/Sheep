@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException
  * execute in main thread
  * @param start doSomeThing first
  */
-infix fun ViewModel.start(start: (() -> Unit)): ViewModel {
+fun ViewModel.start(start: (() -> Unit)): ViewModel {
     viewModelScope.launch(Dispatchers.Main) {
         if (NetworkUtils.isConnected()) {
             start()
@@ -28,7 +28,7 @@ infix fun ViewModel.start(start: (() -> Unit)): ViewModel {
  * execute in io thread pool
  * @param loader http request
  */
-infix fun <T> ViewModel.requestAsync(loader: suspend () -> Response<T>): Deferred<Response<T>> {
+fun <T> ViewModel.requestAsync(loader: suspend () -> Response<T>): Deferred<Response<T>> {
     return viewModelScope.async(Dispatchers.IO, start = CoroutineStart.LAZY) {
         loader()
     }

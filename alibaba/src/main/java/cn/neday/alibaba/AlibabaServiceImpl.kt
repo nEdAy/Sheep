@@ -7,8 +7,11 @@ import cn.neday.base.router.AlibabaService
 import cn.neday.base.router.RouterPath
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.baichuan.android.trade.AlibcTradeSDK
-import com.alibaba.baichuan.android.trade.page.*
+import com.alibaba.baichuan.android.trade.page.AlibcDetailPage
+import com.alibaba.baichuan.android.trade.page.AlibcMyCartsPage
+import com.alibaba.baichuan.android.trade.page.AlibcShopPage
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 
 @Route(path = RouterPath.AlibabaService)
 class AlibabaServiceImpl : AlibabaService {
@@ -23,8 +26,8 @@ class AlibabaServiceImpl : AlibabaService {
      * @param itemId 支持itemId和openItemId的商品，必填，不允许为null；
      *               eg.37196464781L；AAHd5d-HAAeGwJedwSnHktBI；
      */
-    override fun showDetailPage(activity: Activity?, itemId: String?) {
-        AliTradeHelper(activity).showAlibcTradePage(AlibcDetailPage(itemId))
+    override fun showDetailPage(activity: Activity?, itemId: String) {
+        AliTradeHelper(activity).showAlibcTradePage(AlibcDetailPage(itemId), "detail")
     }
 
     /**
@@ -32,8 +35,8 @@ class AlibabaServiceImpl : AlibabaService {
      *
      * @param shopId 店铺id，支持明文id
      */
-    override fun showShopPage(activity: Activity?, shopId: String?) {
-        AliTradeHelper(activity).showAlibcTradePage(AlibcShopPage(shopId))
+    override fun showShopPage(activity: Activity?, shopId: String) {
+        AliTradeHelper(activity).showAlibcTradePage(AlibcShopPage(shopId), "shop")
     }
 
     /**
@@ -42,8 +45,9 @@ class AlibabaServiceImpl : AlibabaService {
      * @param itemId 支持itemId和openItemId的商品，必填，不允许为null；
      *               eg.37196464781L；AAHd5d-HAAeGwJedwSnHktBI；
      */
-    override fun showAddCartPage(activity: Activity?, itemId: String?) {
-        AliTradeHelper(activity).showAlibcTradePage(AlibcAddCartPage(itemId))
+    override fun showAddCartPage(activity: Activity?, itemId: String) {
+        ToastUtils.showShort("暂不支持")
+        // AliTradeHelper(activity).showAlibcTradePage(AlibcAddCartPage(itemId), "cart")
     }
 
     /**
@@ -53,14 +57,15 @@ class AlibabaServiceImpl : AlibabaService {
      * @param allOrder false 进行订单分域（只展示通过当前app下单的订单），true 显示所有订单
      */
     override fun showMyOrdersPage(activity: Activity?, status: Int, allOrder: Boolean) {
-        AliTradeHelper(activity).showAlibcTradePage(AlibcMyOrdersPage(status, allOrder))
+        ToastUtils.showShort("暂不支持")
+        // AliTradeHelper(activity).showAlibcTradePage(AlibcMyOrdersPage(status, allOrder), "trade")
     }
 
     /**
      * 打开用户购物车
      */
     override fun showMyCartsPage(activity: Activity?) {
-        AliTradeHelper(activity).showAlibcTradePage(AlibcMyCartsPage())
+        AliTradeHelper(activity).showAlibcTradePage(AlibcMyCartsPage(), "cart")
     }
 
     /**
@@ -68,9 +73,9 @@ class AlibabaServiceImpl : AlibabaService {
      *
      * @param url 要展示的url
      */
-    override fun showItemURLPage(activity: Activity?, url: String?) {
+    override fun showItemURLPage(activity: Activity?, url: String) {
         if (!TextUtils.isEmpty(url)) {
-            AliTradeHelper(activity).showAlibcTradePage(AlibcPage(url))
+            AliTradeHelper(activity).openByUrl(url)
         }
     }
 

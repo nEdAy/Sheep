@@ -19,7 +19,7 @@ android {
         }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
@@ -46,32 +46,30 @@ dependencies {
 
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
-    // 登陆授权（必选）
-    implementation 'com.ali.auth.sdk:alibabauth_core:1.6.1.4@jar'
-    implementation 'com.ali.auth.sdk:alibabauth_ui:1.6.1.4@aar'
-    implementation 'com.ali.auth.sdk:alibabauth_ext:1.6.1.4@jar'
-    // 基础安全组件，安全黑匣子（无线保镖），加密&解密，安全签名，风控相关内容（必选）
-    implementation 'com.taobao.android:securityguardaar3:5.4.94@aar'
-    // 安全高级，如使用了发放红包、优惠券高级功能，则必须引入（可选）
-    // implementation 'com.taobao.android:securitybodyaar3:5.4.66@aar'
-    // MTop，网关（稳定的高性能无线RPC网关，网关本身包含了一套安全体系，包括加密传输、防攻击、防刷、防篡改、过载保护等安全策略（必选）
-    implementation 'com.taobao.android:mtopsdk_allinone_open:1.3.1@jar'
-    // UT，deviceID，主要用于计算设备的uttid，设备唯一标识, Umeng Sdk冲突（必选）
-    implementation 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
-    // 联盟SDK
-    implementation 'com.alimama.tunion.sdk:TUnionTrade:0.4.0'
-    // 基础电商组件 包含打开detail,淘客分润,jsbridge注入等功能（必选）
-    implementation 'com.alibaba.sdk.android:alibc_trade_common:3.1.1.221'
-    implementation 'com.alibaba.sdk.android:alibc_trade_biz:3.1.1.221'
-    implementation 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.221'
-    // AppLink，打通“手机淘宝”与三方app的桥梁，实现手机淘宝与三方app之间的往返跳转,包括登陆时跳手淘授权,用手淘打开商品页,店铺等（必选）
-    implementation 'com.alibaba.sdk.android:alibc_link_partner:1.1.1.21'
-    // UT，用于组件、接口可用性统计（必选）
-    implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc@jar'
-    // 支付，使用支付宝极简支付的isv需要该组件,否则会降级到h5支付,功能不会有影响,但是用户体验会降低（可选）
-    implementation 'com.alibaba.alipay:alipaySingle:20160825@jar'
-    // Fastjson
-    implementation 'com.alibaba:fastjson:1.2.57'
+    // 支付宝
+    implementation 'com.alipay.android.app.cashier:standardcashier-single:15.6.5@aar'
+    compileOnly 'com.alipay.mobile.android.securitysdk:apsecuritysdk-all:3.3.0'
+    // 登陆
+    implementation 'com.ali.auth.sdk:alibabauth_core:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ui:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ext:2.0.0.6@aar'
+    // 安全组件
+    implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
+    implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
+    implementation 'com.taobao.android:avmpaar3:5.4.36@aar'
+    implementation 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
+    // Mtop
+    implementation 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+    // AppLink
+    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.6@aar'
+    // UT
+    implementation 'com.taobao.android:utdid4all:1.1.5.3_proguard'
+    implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc'
+    // 电商基础组件
+    implementation 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.0@aar'
+    implementation 'com.alibaba.sdk.android:AlibcTradeBiz:4.0.0.0@aar'
+    implementation 'com.alibaba.sdk.android:nb_trade:4.0.0.0@aar'
+    implementation 'com.alibaba:fastjson:1.2.41'
 
     // Unit Test
     testImplementation 'junit:junit:4.12'

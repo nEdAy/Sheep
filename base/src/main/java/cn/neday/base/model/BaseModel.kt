@@ -1,8 +1,14 @@
 package cn.neday.base.model
 
+import com.squareup.moshi.Json
+
 open class BaseModel {
-    val ID: Int? = null
-    val CreateAt: String? = null
-    val UpdatedAt: String? = null
-    val DeletedAt: String? = null
+    @Json(name = "ID")
+    val id: Int? = null
+    @Json(name = "CreateAt")
+    val createAt: String? = null
+    @Json(name = "UpdatedAt")
+    val updatedAt: String? = null
+    @Json(name = "DeletedAt")
+    val deletedAt: String? = null
 }

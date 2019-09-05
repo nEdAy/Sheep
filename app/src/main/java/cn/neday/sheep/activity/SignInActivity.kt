@@ -1,7 +1,12 @@
 package cn.neday.sheep.activity
 
 import cn.neday.base.activity.BaseActivity
+import cn.neday.base.router.Router
+import cn.neday.sheep.KZ_TTY
 import cn.neday.sheep.R
+import com.blankj.utilcode.util.ActivityUtils
+import com.wuhenzhizao.titlebar.widget.CommonTitleBar
+import kotlinx.android.synthetic.main.activity_sign_in.*
 
 /**
  * 签到页
@@ -13,14 +18,14 @@ class SignInActivity : BaseActivity(R.layout.activity_sign_in) {
     override val isCheckLogin = true
 
     override fun initView() {
-
+        titleBar_sign_in.setListener { _, action, _ ->
+            if (action == CommonTitleBar.ACTION_LEFT_BUTTON) {
+                ActivityUtils.finishActivity(this)
+            } else if (action == CommonTitleBar.ACTION_RIGHT_TEXT) {
+                Router.alibabaService.showItemURLPage(this, KZ_TTY)
+            }
+        }
     }
-
-//        inittopbarforboth("每日签到", getstring(r.string.tx_back), "规则说明") {
-//            val alitradeutils = alitradehelper(this)
-//            alitradeutils.showitemurlpage(staticconfig.kz_jf)
-//        }
-//        catloadingview = catloadingview()
 
 //    fun onresumeafter() {
 //        val currentuserid = currentuser.getobjectid()

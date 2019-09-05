@@ -59,18 +59,7 @@
 //        }
 //    };
 //
-//    @Override
-//    public int bindLayout() {
-//        return R.layout.activity_shake;
-//    }
-//
-//    @Override
-//    public void initView(Bundle savedInstanceState) {
-//        setTintManager();
-//        initTopBarForBoth("口袋天天摇", getString(R.string.tx_back), "活动规则", () -> {
-//            AliTradeHelper aliTradeUtils = new AliTradeHelper(this);
-//            aliTradeUtils.showItemURLPage(StaticConfig.KZ_TTY);
-//        });
+
 //        iv_shake = findViewById(R.id.iv_shake);
 //        iv_cancel_voice = findViewById(R.id.iv_cancel_voice);
 //        tv_shake_times = findViewById(R.id.tv_shake_times);
@@ -237,21 +226,15 @@
 //        iv_shake.setImageResource(R.drawable.shake_original_image);
 //        iv_shake.clearAnimation();
 //    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        AlibcTradeSDK.destory();
-//        super.onDestroy();
-//    }
-//
-//    @Nullable
-//    @Override
-//    public Integer getLayoutId() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void initView() {
-//
-//    }
+//       if (change > 0) {
+//               iv_shake.setImageResource(R.drawable.shake_luck);
+//               tv_shake.setText("中奖");
+//               tv_title.setText("中奖详情");
+//               tv_value.setText("恭喜摇到" + change + "个口袋币，完胜" + (change + 4) + "%的口袋用户！再接再厉哦！");
+//               } else {
+//               iv_shake.setImageResource(R.drawable.shake_unluck);
+//               tv_shake.setText("换个姿势，再来一次");
+//               tv_title.setText("没有中奖");
+//               tv_value.setText("不增不减，再来一次");
+//               }
 //}

@@ -9,6 +9,7 @@ object MMKVConfig {
         MMKV.initialize(Utils.getApp())
     }
 
+    const val ID = "Id"
     const val TOKEN = "Token"
     const val MOBILE = "Mobile"
     const val HOTWORDS = "HotWords"

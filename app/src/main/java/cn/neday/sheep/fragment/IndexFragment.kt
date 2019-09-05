@@ -34,7 +34,11 @@ class IndexFragment : GoodsListFragment<IndexViewModel>(R.layout.fragment_main_i
 
     private fun initSearchHeader() {
         titleBar_index.centerSearchEditText.hint = getString(R.string.tx_search_hint)
-        titleBar_index.centerSearchEditText.setOnClickListener { ActivityUtils.startActivity(SearchActivity::class.java) }
+        titleBar_index.centerSearchEditText.setOnClickListener {
+            ActivityUtils.startActivity(
+                SearchActivity::class.java
+            )
+        }
         titleBar_index.setListener { _, action, _ ->
             if (action == CommonTitleBar.ACTION_SEARCH || action == CommonTitleBar.ACTION_RIGHT_BUTTON) {
                 ActivityUtils.startActivity(SearchActivity::class.java)
@@ -57,7 +61,11 @@ class IndexFragment : GoodsListFragment<IndexViewModel>(R.layout.fragment_main_i
     }
 
     private fun addHeaderView(adapter: GoodsListAdapter) {
-        headerView = layoutInflater.inflate(R.layout.include_main_index_header, rv_goods.parent as ViewGroup, false)
+        headerView = layoutInflater.inflate(
+            R.layout.include_main_index_header,
+            rv_goods.parent as ViewGroup,
+            false
+        )
         initHeaderBanner(headerView)
         initHeaderIcon(headerView)
         adapter.addHeaderView(headerView)
@@ -67,7 +75,9 @@ class IndexFragment : GoodsListFragment<IndexViewModel>(R.layout.fragment_main_i
         mViewModel.banners.observe(this, Observer {
             headerView.banner.setSource(it).startScroll()
             headerView.banner.setOnItemClickL { position ->
-                Router.alibabaService.showItemURLPage(activity, it[position].url)
+                it[position].url?.let { url ->
+                    Router.alibabaService.showItemURLPage(activity, url)
+                }
             }
         })
     }

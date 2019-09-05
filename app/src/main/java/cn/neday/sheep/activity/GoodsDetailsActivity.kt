@@ -42,12 +42,21 @@ class GoodsDetailsActivity : BaseActivity(R.layout.activity_goods_details) {
             }
         }
         ll_get.setOnClickListener {
-            Router.alibabaService.showItemURLPage(this, goods.couponLink)
+            goods.couponLink?.let { couponLink ->
+                Router.alibabaService.showItemURLPage(
+                    this,
+                    couponLink
+                )
+            }
         }
         ll_buy.setOnClickListener {
-            Router.alibabaService.showDetailPage(this, goods.goodsId)
+            Router.alibabaService.showDetailPage(this, goods.goodsId!!)
         }
-        ll_add.setOnClickListener { Router.alibabaService.showAddCartPage(this, goods.goodsId) }
+        ll_add.setOnClickListener {
+            goods.goodsId?.let { goodsId ->
+                Router.alibabaService.showAddCartPage(this, goodsId)
+            }
+        }
         // 初始化商品主图
         iv_img_shower.load(goods.getPicUrl()) {
             crossfade(true)

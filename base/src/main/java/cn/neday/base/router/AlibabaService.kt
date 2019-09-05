@@ -7,15 +7,15 @@ interface AlibabaService : IProvider {
 
     fun destroySDK()
 
-    fun showDetailPage(activity: Activity?, itemId: String?)
+    fun showDetailPage(activity: Activity?, itemId: String)
 
-    fun showShopPage(activity: Activity?, shopId: String?)
+    fun showShopPage(activity: Activity?, shopId: String)
 
-    fun showAddCartPage(activity: Activity?, itemId: String?)
+    fun showAddCartPage(activity: Activity?, itemId: String)
 
     fun showMyOrdersPage(activity: Activity?, status: Int, allOrder: Boolean)
 
     fun showMyCartsPage(activity: Activity?)
 
-    fun showItemURLPage(activity: Activity?, url: String?)
+    fun showItemURLPage(activity: Activity?, url: String)
 }

@@ -19,6 +19,9 @@
 
     <string name="tx_search_hint">请输入想搜索的商品关键词…</string>
 
+    <string name="tx_shake">天天摇</string>
+    <string name="tx_sign_in">每日签</string>
+
     <string name="tx_pressed_back_hint">再按一次退出程序</string>
     <string name="tx_not_found_app_market">找不到您的应用商店</string>
     <string name="tx_exit_guide">立即体验</string>
@@ -60,7 +63,6 @@
     <string name="tx_buy">前往购买</string>
     <string name="tx_number_def">0</string>
     <string name="tx_more_"><![CDATA[更多>]]></string>
-    <string name="tx_sign_in">签到</string>
     <string name="tx_no_data">暂无数据，轻触屏幕刷新</string>
     <string name="tx_no_data_search">暂无数据，轻触屏幕\n私聊客服索要想要的商品</string>
     <string name="tx_no_network">无网络信号</string>
@@ -151,4 +153,6 @@
     <string name="tv_login_dialog_voice">确定后将致电您的手机号并语音播报验证码，如不希望被来点打扰请返回。</string>
     <string name="tx_login_dialog_sms">验证码短信可能略有延迟，确定返回并重新开始？</string>
     <string name="tx_copy_url_to_share">复制网址分享给好友</string>
+    <string name="tx_game_rules">规则说明</string>
+    <string name="tx_credit_history">口袋币明细</string>
 </resources>

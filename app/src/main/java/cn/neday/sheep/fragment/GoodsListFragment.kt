@@ -45,28 +45,40 @@ abstract class GoodsListFragment<VM : BaseViewModel>(layoutId: Int) : BaseVMFrag
     }
 
     private fun addClickListener(listAdapter: GoodsListAdapter) {
-        listAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener { adapter, _, position ->
-            val goods = adapter.getItem(position) as Goods
-            val bundle = Bundle()
-            bundle.putSerializable(GoodsDetailsActivity.extra, goods)
-            ActivityUtils.startActivity(bundle, GoodsDetailsActivity::class.java)
-        }
-        listAdapter.onItemLongClickListener = BaseQuickAdapter.OnItemLongClickListener { adapter, _, position ->
-            val goods = adapter.getItem(position) as Goods
-            Router.alibabaService.showAddCartPage(activity, goods.goodsId)
-            true
-        }
+        listAdapter.onItemClickListener =
+            BaseQuickAdapter.OnItemClickListener { adapter, _, position ->
+                val goods = adapter.getItem(position) as Goods
+                val bundle = Bundle()
+                bundle.putSerializable(GoodsDetailsActivity.extra, goods)
+                ActivityUtils.startActivity(bundle, GoodsDetailsActivity::class.java)
+            }
+        listAdapter.onItemLongClickListener =
+            BaseQuickAdapter.OnItemLongClickListener { adapter, _, position ->
+                val goods = adapter.getItem(position) as Goods
+                goods.goodsId?.let { Router.alibabaService.showAddCartPage(activity, it) }
+                true
+            }
         listAdapter.onItemChildClickListener =
             BaseQuickAdapter.OnItemChildClickListener { adapter, view, position ->
                 val goods = adapter.getItem(position) as Goods
                 when (view.id) {
                     R.id.ll_get -> {
-                        Router.alibabaService.showItemURLPage(activity, goods.couponLink)
-                        CommonUtils.changePressedViewBg(view, R.drawable.bg_get_btn, R.drawable.bg_get_btn_pressed)
+                        goods.couponLink?.let {
+                            Router.alibabaService.showItemURLPage(activity, it)
+                        }
+                        CommonUtils.changePressedViewBg(
+                            view,
+                            R.drawable.bg_get_btn,
+                            R.drawable.bg_get_btn_pressed
+                        )
                     }
                     R.id.tx_buy_url -> {
-                        Router.alibabaService.showDetailPage(activity, goods.goodsId)
-                        CommonUtils.changePressedViewBg(view, R.drawable.bg_buy_btn, R.drawable.bg_buy_btn_pressed)
+                        goods.goodsId?.let { Router.alibabaService.showDetailPage(activity, it) }
+                        CommonUtils.changePressedViewBg(
+                            view,
+                            R.drawable.bg_buy_btn,
+                            R.drawable.bg_buy_btn_pressed
+                        )
                     }
                 }
             }
