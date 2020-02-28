@@ -10,7 +10,7 @@ class AuthenticationInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response = chain
         .request()
         .newBuilder()
-        .header("Authorization", MMKV.defaultMMKV().decodeString(TOKEN))
+        .header("Authorization", MMKV.defaultMMKV().decodeString(TOKEN) ?: "")
         .build()
         .let { chain.proceed(it) }
 }
