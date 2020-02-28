@@ -19,6 +19,10 @@ class UserRepository(private val userApi: UserApi) {
     suspend fun getUserById(id: Int): Response<User> =
         userApi.getUserById(id)
 
-    suspend fun getCreditHistoryListByUserId(userId: Int): Response<Pages<CreditHistory>> =
-        userApi.creditHistoryListByUserId(userId)
+    suspend fun getCreditHistoryListByUserId(
+        userId: Int,
+        pageId: String,
+        pageSize: Int
+    ): Response<Pages<CreditHistory>> =
+        userApi.creditHistoryListByUserId(userId, pageId, pageSize)
 }

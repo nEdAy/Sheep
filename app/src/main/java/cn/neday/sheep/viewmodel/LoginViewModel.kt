@@ -1,5 +1,6 @@
 package cn.neday.sheep.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.SingleLiveEvent
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
@@ -34,7 +35,7 @@ class LoginViewModel(private val repository: UserRepository) : BaseViewModel() {
         map["inviteCode"] = inviteCode
         requestAsync {
             repository.registerOrLogin(map)
-        }.then({
+        }.then(viewModelScope, {
             user.value = it.data
         }, {
             errMsg.value = it

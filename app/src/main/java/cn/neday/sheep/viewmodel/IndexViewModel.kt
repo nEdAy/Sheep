@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
@@ -14,7 +15,10 @@ import cn.neday.sheep.network.repository.GoodsRepository
  *
  * @author nEdAy
  */
-class IndexViewModel(private val bannerRepository: BannerRepository, private val goodsRepository: GoodsRepository) :
+class IndexViewModel(
+    private val bannerRepository: BannerRepository,
+    private val goodsRepository: GoodsRepository
+) :
     BaseViewModel() {
 
     val banners: MutableLiveData<List<Banner>> = MutableLiveData()
@@ -23,7 +27,7 @@ class IndexViewModel(private val bannerRepository: BannerRepository, private val
     fun getBannerList() {
         requestAsync {
             bannerRepository.getBannerList()
-        }.then({
+        }.then(viewModelScope, {
             banners.value = it.data
         }, {
             errMsg.value = it
@@ -33,7 +37,7 @@ class IndexViewModel(private val bannerRepository: BannerRepository, private val
     fun getRankingList(rankType: Int, cid: String = "") {
         requestAsync {
             goodsRepository.getRankingList(rankType, cid)
-        }.then({
+        }.then(viewModelScope, {
             rankGoods.value = it.data
         }, {
             errMsg.value = it

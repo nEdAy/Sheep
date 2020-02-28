@@ -4,11 +4,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion = '29.0.2'
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -49,10 +48,6 @@ dependencies {
     // 支付宝
     implementation 'com.alipay.android.app.cashier:standardcashier-single:15.6.5@aar'
     compileOnly 'com.alipay.mobile.android.securitysdk:apsecuritysdk-all:3.3.0'
-    // 登陆
-    implementation 'com.ali.auth.sdk:alibabauth_core:2.0.0.6@aar'
-    implementation 'com.ali.auth.sdk:alibabauth_ui:2.0.0.6@aar'
-    implementation 'com.ali.auth.sdk:alibabauth_ext:2.0.0.6@aar'
     // 安全组件
     implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
     implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
@@ -60,16 +55,20 @@ dependencies {
     implementation 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
     // Mtop
     implementation 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+    // 登录授权
+    implementation 'com.ali.auth.sdk:alibabauth_core:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ui:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ext:2.0.0.6@aar'
     // AppLink
-    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.6@aar'
+    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.15@aar'
     // UT
-    implementation 'com.taobao.android:utdid4all:1.1.5.3_proguard'
+    implementation 'com.taobao.android:utdid4all:1.5.2'
     implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc'
     // 电商基础组件
-    implementation 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.0@aar'
-    implementation 'com.alibaba.sdk.android:AlibcTradeBiz:4.0.0.0@aar'
-    implementation 'com.alibaba.sdk.android:nb_trade:4.0.0.0@aar'
-    implementation 'com.alibaba:fastjson:1.2.41'
+    implementation 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.8@aar'
+    implementation 'com.alibaba.sdk.android:AlibcTradeBiz:4.0.0.8@aar'
+    implementation 'com.alibaba.sdk.android:nb_trade:4.0.0.8@aar'
+    implementation 'com.alibaba:fastjson:1.2.48'
 
     // Unit Test
     testImplementation 'junit:junit:4.12'

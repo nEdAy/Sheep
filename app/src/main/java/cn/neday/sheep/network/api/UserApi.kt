@@ -46,10 +46,16 @@ interface UserApi {
      * 获取当前用户所有积分历史记录
      *
      * @param userId    用户Id
+     * @param pageId  分页id	是	String	默认为-1
+     * @param pageSize 每页条数	是	Number	默认20
      * @return 回调信息
      */
-    @GET("creditHistory/{userId}")
-    suspend fun creditHistoryListByUserId(@Path("userId") userId: Int): Response<Pages<CreditHistory>>
+    @GET("creditHistory/{userId}/")
+    suspend fun creditHistoryListByUserId(
+        @Path("userId") userId: Int,
+        @Query("pageId") pageId: String,
+        @Query("pageSize") pageSize: Int
+    ): Response<Pages<CreditHistory>>
 
 //    /**
 //     * 更新用户 需要Session-Token mobile和password可以更改，但是新的mobile不能重复

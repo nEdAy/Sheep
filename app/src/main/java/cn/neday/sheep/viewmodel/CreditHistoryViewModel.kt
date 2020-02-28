@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.model.Pages
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
@@ -33,8 +34,8 @@ class CreditHistoryViewModel(private val repository: UserRepository) : BaseViewM
 
     fun getCreditHistoryListByUserId(userId: Int) {
         requestAsync {
-            repository.getCreditHistoryListByUserId(userId)
-        }.then({
+            repository.getCreditHistoryListByUserId(userId, "1", 1)
+        }.then(viewModelScope, {
             creditHistories.value = it.data
         }, {
             errMsg.value = it

@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.config.MMKVConfig
 import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.network.requestAsync
@@ -29,7 +30,7 @@ class SearchViewModel(private val repository: CategoryRepository) : BaseViewMode
         hotWords.value = kv.decodeStringSet(MMKVConfig.HOTWORDS)
         requestAsync {
             repository.getTop100()
-        }.then({
+        }.then(viewModelScope, {
             hotWords.value = it.data?.hotWords
             kv.encode(MMKVConfig.HOTWORDS, it.data?.hotWords ?: setOf())
         }, {

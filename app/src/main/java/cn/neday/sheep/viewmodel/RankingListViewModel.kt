@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
@@ -19,7 +20,7 @@ class RankingListViewModel(private val repository: GoodsRepository) : BaseViewMo
     fun getRankingList(rankType: Int, cid: String = "") {
         requestAsync {
             repository.getRankingList(rankType, cid)
-        }.then({
+        }.then(viewModelScope, {
             rankGoods.value = it.data
         }, {
             errMsg.value = it

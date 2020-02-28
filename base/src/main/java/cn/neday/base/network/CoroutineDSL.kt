@@ -41,11 +41,12 @@ fun <T> ViewModel.requestAsync(loader: suspend () -> Response<T>): Deferred<Resp
  * @param onComplete callback for onComplete
  */
 fun <T> Deferred<Response<T>>.then(
+    viewModelScope: CoroutineScope,
     onSuccess: suspend (Response<T>) -> Unit,
     onError: suspend (String) -> Unit,
     onComplete: (() -> Unit)? = null
 ): Job {
-    return GlobalScope.launch(context = Dispatchers.Main) {
+    return viewModelScope.launch(context = Dispatchers.Main) {
         try {
             val response = this@then.await()
             if (response.code != 0) {

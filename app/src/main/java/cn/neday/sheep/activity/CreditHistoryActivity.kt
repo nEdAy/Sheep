@@ -29,6 +29,8 @@ import kotlinx.android.synthetic.main.include_anything_list.*
 class CreditHistoryActivity :
     BaseVMActivity<CreditHistoryViewModel>(R.layout.activity_credit_history) {
 
+    override val isCheckLogin = true
+
     val adapter = CreditHistoryListAdapter()
 
     override fun initView() {

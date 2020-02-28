@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.model.Pages
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
@@ -25,7 +26,7 @@ class NineListViewModel(private val repository: GoodsRepository) : BaseViewModel
         mCurrentPageId = pageId
         requestAsync {
             repository.getNineOpGoodsList(PAGE_SIZE, pageId, nineCid)
-        }.then({
+        }.then(viewModelScope, {
             pageGoods.value = it.data
         }, {
             errMsg.value = it

@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.activity_vip.*
  */
 class VipActivity : BaseActivity(R.layout.activity_vip) {
 
+    override val isCheckLogin = true
+
     override fun initView() {
         titleBar_vip.setListener { _, action, _ ->
             if (action == CommonTitleBar.ACTION_LEFT_BUTTON) {

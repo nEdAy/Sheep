@@ -1,6 +1,7 @@
 package cn.neday.sheep.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.config.MMKVConfig
 import cn.neday.base.config.MMKVConfig.kv
 import cn.neday.base.model.Pages
@@ -30,7 +31,7 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
         mCurrentPageId = pageId
         requestAsync {
             repository.getDtkSearchGoods(PAGE_SIZE, pageId, keyWords)
-        }.then({
+        }.then(viewModelScope, {
             pageGoods.value = it.data
         }, {
             errMsg.value = it
@@ -43,7 +44,10 @@ class SearchResultViewModel(private val repository: GoodsRepository) : BaseViewM
         val historyWordsString: String? = kv.decodeString(MMKVConfig.HISTORY_WORDS)
         var historyWords: LinkedHashSet<String> = linkedSetOf()
         if (historyWordsString != null) {
-            historyWords = Gson().fromJson(historyWordsString, object : TypeToken<LinkedHashSet<String>>() {}.type)
+            historyWords = Gson().fromJson(
+                historyWordsString,
+                object : TypeToken<LinkedHashSet<String>>() {}.type
+            )
             // 如果存在keyword，先移除
             historyWords.remove(keyWord)
             // 如果历史记录大于MAX_SIZE条, 移除最初的历史记录直到小于MAX_SIZE条

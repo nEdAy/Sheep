@@ -1,5 +1,6 @@
 package cn.neday.sheep.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import cn.neday.base.SingleLiveEvent
 import cn.neday.base.config.MMKVConfig.ID
 import cn.neday.base.config.MMKVConfig.kv
@@ -24,7 +25,7 @@ class MeViewModel(private val repository: UserRepository) : BaseViewModel() {
     fun getUserById() {
         requestAsync {
             repository.getUserById(kv.decodeInt(ID))
-        }.then({
+        }.then(viewModelScope, {
             user.value = it.data
         }, {
             errMsg.value = it
