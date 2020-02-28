@@ -146,10 +146,10 @@ class AliTradeHelper(private val activity: Activity?) {
             // BACK_URL（小把手）：唤端返回的scheme(如果不传默认将不展示小把手；如果想展示小把手，可以自己传入自定义的scheme，或者传入百川提供的默认scheme："alisdk://")
             backUrl = "alisdk://"
             // AlibcFailModeType（唤端失败模式）： 枚举值如下
-            //        AlibcNativeFailModeNONE：不做处理；
-            //        AlibcNativeFailModeJumpBROWER：跳转浏览器；
-            //        AlibcNativeFailModeJumpDOWNLOAD：跳转下载页；
-            //        AlibcNativeFailModeJumpH5：应用内webview打开）
+            // AlibcNativeFailModeNONE：不做处理；
+            // AlibcNativeFailModeJumpBROWER：跳转浏览器；
+            // AlibcNativeFailModeJumpDOWNLOAD：跳转下载页；
+            // AlibcNativeFailModeJumpH5：应用内webview打开）
             //（注：AlibcNativeFailModeJumpBROWER不推荐使用）
             nativeOpenFailedMode = AlibcFailModeType.AlibcNativeFailModeJumpDOWNLOAD
         }
@@ -186,8 +186,7 @@ class AliTradeHelper(private val activity: Activity?) {
                     // 注意：初始化完成后调用才能生效
                     // @param typeName : 渠道类型（默认为：0）
                     // @param channelName : 渠道名称（默认为：null）
-                    // AlibcTradeSDK.setChannel(typeName, channelName)
-
+                    AlibcTradeSDK.setChannel("0", null)
                     // 设置isv版本
                     // 提供isvcode全局接口
                     // 设置isv的版本 ，默认1.0.0
@@ -195,12 +194,12 @@ class AliTradeHelper(private val activity: Activity?) {
                     // @param isvVersion (默认1.0.0)
                     // @return 返回是否设置成功
                     AlibcTradeSDK.setISVVersion(BuildConfig.VERSION_NAME)
-                    LogUtils.i("百川SDK初始化成功")
+                    LogUtils.i("阿里百川TradeSDK初始化成功")
                 }
 
                 override fun onFailure(code: Int, msg: String) {
                     // 初始化失败，可以根据code和msg判断失败原因，详情参见错误说明
-                    LogUtils.e("百川SDK初始化失败$code$msg")
+                    LogUtils.e("阿里百川TradeSDK初始化失败$code$msg")
                 }
             })
         }
