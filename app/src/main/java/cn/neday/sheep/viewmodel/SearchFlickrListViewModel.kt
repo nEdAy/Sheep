@@ -5,23 +5,23 @@ import androidx.lifecycle.viewModelScope
 import cn.neday.base.network.requestAsync
 import cn.neday.base.network.then
 import cn.neday.base.viewmodel.BaseViewModel
-import cn.neday.sheep.model.RankingGoods
-import cn.neday.sheep.network.repository.GoodsRepository
+import cn.neday.sheep.model.Photo
+import cn.neday.sheep.network.repository.FlickrRepository
 
 /**
  * RankingListViewModel
  *
  * @author nEdAy
  */
-class RankingListViewModel(private val repository: GoodsRepository) : BaseViewModel() {
+class SearchFlickrListViewModel(private val repository: FlickrRepository) : BaseViewModel() {
 
-    val rankGoods: MutableLiveData<List<RankingGoods>> = MutableLiveData()
+    val photoList: MutableLiveData<List<Photo>> = MutableLiveData()
 
-    fun getRankingList(rankType: Int, cid: String = "") {
+    fun getFlickrImageByKeyword(keyword: String = "") {
         requestAsync {
-            repository.getRankingList(rankType, cid)
+            repository.getFlickrImageByKeyword(keyword)
         }.then(viewModelScope, {
-            rankGoods.value = it.data
+            photoList.value = it.photos.photo
         }, {
             errMsg.value = it
         }, {

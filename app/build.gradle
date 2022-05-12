@@ -3,16 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.alibaba.arouter'
-apply from: 'jiagu.gradle'
-apply from: 'jacoco.gradle'
-apply from: 'bugly.gradle'
-apply from: 'mob.gradle'
-
-Properties debugSigning = new Properties()
-debugSigning.load(new FileInputStream(file(project.property("debug-signing.properties"))))
-
-Properties releaseSigning = new Properties()
-releaseSigning.load(new FileInputStream(file(project.property("release-signing.properties"))))
 
 final VERSION_MAJOR = 3
 final VERSION_MINOR = 0
@@ -30,29 +20,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        debug {
-            storeFile file(debugSigning['storeFile'])
-            storePassword debugSigning['storePassword']
-            keyAlias debugSigning['keyAlias']
-            keyPassword debugSigning['keyPassword']
-        }
-        release {
-            storeFile file(releaseSigning['storeFile'])
-            storePassword releaseSigning['storePassword']
-            keyAlias releaseSigning['keyAlias']
-            keyPassword releaseSigning['keyPassword']
-        }
-    }
-
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
             testCoverageEnabled true
         }
         release {
             minifyEnabled true
-            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -91,7 +64,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':base')
-    runtimeOnly project(':alibaba')
 
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 

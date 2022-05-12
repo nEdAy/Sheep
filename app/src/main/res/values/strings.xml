@@ -14,7 +14,7 @@
     <string name="tx_login_title_day">Good Morning</string>
     <string name="tx_login_title_night">Good Night</string>
 
-    <string name="tx_search_hint">请输入想搜索的商品关键词…</string>
+    <string name="tx_search_hint">请输入想搜索的图片关键词…</string>
 
     <string name="tx_shake">天天摇</string>
     <string name="tx_sign_in">每日签</string>

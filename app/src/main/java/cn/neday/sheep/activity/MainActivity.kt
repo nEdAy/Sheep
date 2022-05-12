@@ -1,13 +1,11 @@
 package cn.neday.sheep.activity
 
 import android.view.KeyEvent
+import androidx.fragment.app.Fragment
 import cn.neday.base.activity.BaseVMActivity
 import cn.neday.base.config.BuglyConfig
 import cn.neday.sheep.R
-import cn.neday.sheep.fragment.IndexFragment
-import cn.neday.sheep.fragment.MeFragment
-import cn.neday.sheep.fragment.NineGoodsFragment
-import cn.neday.sheep.fragment.RankingGoodsFragment
+import cn.neday.sheep.fragment.SearchFlickrListFragment
 import cn.neday.sheep.viewmodel.MainViewModel
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -29,27 +27,30 @@ class MainActivity : BaseVMActivity<MainViewModel>(R.layout.activity_main) {
         nav_main.selectedItemId = R.id.navigation_index
     }
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        loadFragment(item.itemId)
-        true
-    }
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            loadFragment(item.itemId)
+            true
+        }
 
     private fun loadFragment(itemId: Int) {
         val tag = itemId.toString()
-        val fragment = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
-            R.id.navigation_index -> IndexFragment()
-            R.id.navigation_ranking -> RankingGoodsFragment()
-            R.id.navigation_nine -> NineGoodsFragment()
-            R.id.navigation_me -> MeFragment()
+        val fragment: Fragment? = supportFragmentManager.findFragmentByTag(tag) ?: when (itemId) {
+            R.id.navigation_index -> SearchFlickrListFragment()
+            R.id.navigation_ranking -> SearchFlickrListFragment()
+            R.id.navigation_nine -> SearchFlickrListFragment()
+            R.id.navigation_me -> SearchFlickrListFragment()
             else -> null
         }
         if (fragment != null) {
             val transaction = supportFragmentManager.beginTransaction()
             if (mViewModel.mLastActiveFragmentTag != null) {
-                val lastFragment = supportFragmentManager.findFragmentByTag(mViewModel.mLastActiveFragmentTag)
+                val lastFragment =
+                    supportFragmentManager.findFragmentByTag(mViewModel.mLastActiveFragmentTag)
                 if (lastFragment != null)
                     transaction.hide(lastFragment)
             }
+            transaction.add(R.id.fl_main, fragment, tag)
             if (!fragment.isAdded) {
                 transaction.add(R.id.fl_main, fragment, tag)
             } else {

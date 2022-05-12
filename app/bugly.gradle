@@ -1,6 +1,0 @@
-apply plugin: 'bugly'
-
-bugly {
-    appId = '923c0825a2'
-    appKey = '0decf1a9-d0a5-4cd9-878f-b48bba4f270d'
-}

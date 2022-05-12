@@ -18,7 +18,7 @@ val viewModelModule = module {
 
     viewModel { MeViewModel(get()) }
 
-    viewModel { RankingListViewModel(get()) }
+    viewModel { SearchFlickrListViewModel(get()) }
 
     viewModel { SearchResultViewModel(get()) }
 

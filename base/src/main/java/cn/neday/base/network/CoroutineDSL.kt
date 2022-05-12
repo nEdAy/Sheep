@@ -2,7 +2,6 @@ package cn.neday.base.network
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cn.neday.base.model.Response
 import com.blankj.utilcode.util.NetworkUtils
 import kotlinx.coroutines.*
 import java.net.SocketTimeoutException
@@ -28,7 +27,7 @@ fun ViewModel.start(start: (() -> Unit)): ViewModel {
  * execute in io thread pool
  * @param loader http request
  */
-fun <T> ViewModel.requestAsync(loader: suspend () -> Response<T>): Deferred<Response<T>> {
+fun <T> ViewModel.requestAsync(loader: suspend () -> T): Deferred<T> {
     return viewModelScope.async(Dispatchers.IO, start = CoroutineStart.LAZY) {
         loader()
     }
@@ -40,20 +39,16 @@ fun <T> ViewModel.requestAsync(loader: suspend () -> Response<T>): Deferred<Resp
  * @param onError callback for onError
  * @param onComplete callback for onComplete
  */
-fun <T> Deferred<Response<T>>.then(
+fun <T> Deferred<T>.then(
     viewModelScope: CoroutineScope,
-    onSuccess: suspend (Response<T>) -> Unit,
+    onSuccess: suspend (T) -> Unit,
     onError: suspend (String) -> Unit,
     onComplete: (() -> Unit)? = null
 ): Job {
     return viewModelScope.launch(context = Dispatchers.Main) {
         try {
             val response = this@then.await()
-            if (response.code != 0) {
-                onError("code : " + response.code + "msg : " + response.msg)
-            } else {
-                onSuccess(response)
-            }
+            onSuccess(response)
         } catch (e: Exception) {
             if (e is CancellationException) {
                 return@launch

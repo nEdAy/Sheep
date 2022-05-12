@@ -1,1 +1,1 @@
-include ':app', ':base', ':alibaba'
+include ':app', ':base'
